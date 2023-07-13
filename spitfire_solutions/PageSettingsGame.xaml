@@ -1,0 +1,111 @@
+﻿<Page x:Class="spitfire_solutions.PageSettingsGame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:spitfire_solutions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageSettingsGame">
+
+    <Grid  Background="TRANSPARENT" x:Name="gdBig"
+           
+           
+           
+           
+           
+          
+
+          >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="242"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="109*"/>
+
+
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Rectangle x:Name="rectLeftSide" Fill="#FF9E0000"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="1">
+
+
+
+        </Rectangle>
+
+        <Rectangle x:Name="rectLeftSide2" Fill="#FF0C133A"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Grid.RowSpan="2">
+
+
+        </Rectangle>
+
+        <Image x:Name="settingsViewMiniAva"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Width="100"
+               Height="100"
+               Grid.Row="1"
+               Grid.Column="0"
+               Opacity="0.7" Margin="136,28,0,0" Grid.RowSpan="2"
+               
+               
+               ></Image>
+
+
+
+
+
+
+
+
+
+
+
+        <TextBlock x:Name="lblSelectFromList"
+               Text ="Select Game"
+                   TextWrapping="WrapWithOverflow"
+               FontSize="12.5"
+                   
+                   Grid.Row="1"
+                   
+               Foreground="AntiqueWhite"
+               FontStyle="Italic"
+                 HorizontalAlignment="Left"
+                   VerticalAlignment="Center" Height="57" Width="98" Margin="10,0,0,0" MouseEnter="lblSelectFromList_MouseEnter" MouseLeave="lblSelectFromList_MouseLeave"/>
+
+        <Label x:Name="lblSettingsMenu"
+               FontWeight="Bold"
+               FontStyle="Italic"
+               Content="Settings Menu"
+               Grid.Row="0"
+               
+               
+               Foreground="AntiqueWhite"
+               FontSize="25" Margin="10,10,4,10" />
+
+
+        <ListView x:Name="lstMylist"
+                  Opacity="0.7"
+                  Margin="128,10,10,10"
+                  Background="Transparent"
+                  Foreground="AntiqueWhite"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="2"
+                  
+                  BorderBrush="Purple"/>
+
+
+    </Grid>
+</Page>

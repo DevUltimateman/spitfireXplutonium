@@ -1,0 +1,133 @@
+﻿<Page x:Class="spitfire_solutions.PageHome" x:Name="pageHomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:spitfire_solutions"
+      mc:Ignorable="d" 
+      Height="540" Width="960"
+      ShowsNavigationUI="False"
+      Title="pageHome">
+
+    <Grid x:Name="gridMain" >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint=".3,2.4" StartPoint="1.2,1">
+                <GradientStop Color="#FF3E0513"/>
+                <GradientStop Color="#FF1D0000" Offset=".3"/>
+                <GradientStop Color="#FF270404" Offset="0.997"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblSpitfire"
+               Content="Spitfire"
+               FontWeight="Bold"
+               FontStyle="Italic"
+               FontSize="35"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="2"
+               Margin="49,0,143,67"
+               Foreground="FloralWhite"   />
+
+
+        <Rectangle Grid.Column="1"
+                   HorizontalAlignment="Left"
+                   Height="26" 
+                   Margin="135,25,0,0"
+                   Opacity="0.9"
+                   Stroke="#FF030004" 
+                   VerticalAlignment="Top" 
+                   Width="500" Fill="#FF7E0C3A" RadiusX="7.944" RadiusY="7.944" Grid.ColumnSpan="4"/>
+
+        <TextBlock x:Name="txtHome"
+                   Foreground="White"
+                   FontSize="20"
+                   Text="Home"
+                   VerticalAlignment="Center"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   
+                   HorizontalAlignment="Center"
+                   Padding="10"
+                   FontStyle="Italic"
+                   FontWeight="DemiBold" Grid.ColumnSpan="2" Margin="10,34,182,34" Grid.RowSpan="2"  />
+
+        <TextBlock x:Name="txtMods"
+                   Foreground="White"
+                   FontSize="20"
+                   Text="Mods"
+                   VerticalAlignment="Center"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   
+                   HorizontalAlignment="Center"
+                   Padding="10"
+                   FontStyle="Italic"
+                   FontWeight="DemiBold" 
+                   Grid.ColumnSpan="3" 
+                   Margin="10,34,182,34"
+                   Grid.RowSpan="2" />
+
+        <TextBlock x:Name="txtSettings"
+                   Foreground="White"
+                   FontSize="20"
+                   Text="Settings"
+                   VerticalAlignment="Center"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   
+                   HorizontalAlignment="Center"
+                   Padding="10"
+                   FontStyle="Italic"
+                   FontWeight="DemiBold" 
+                   Grid.ColumnSpan="4" 
+                   Margin="10,34,182,34"
+                   Grid.RowSpan="2"/>
+
+        <TextBlock x:Name="txtServers"
+                   Foreground="White"
+                   FontSize="20"
+                   Text="Servers"
+                   VerticalAlignment="Center"
+                   Grid.Column="3"
+                   Grid.Row="0"
+                   
+                   HorizontalAlignment="Center"
+                   Padding="10"
+                   FontStyle="Italic"
+                   FontWeight="DemiBold" 
+                   Grid.ColumnSpan="6" 
+                   Margin="10,34,182,34"
+                   Grid.RowSpan="2"  />
+
+        <Frame x:Name="framePageView"
+               Padding="0"
+               Grid.Column="2"
+               Grid.Row="2"
+               Grid.RowSpan="5"
+               HorizontalContentAlignment="Stretch"
+               VerticalContentAlignment="Stretch"
+               Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+    </Grid>
+
+</Page>
