@@ -24,5 +24,25 @@ namespace spitfire_solutions
         {
             InitializeComponent();
         }
+
+        private void txtHome_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            framePageView.Content = pageHomeView;
+        }
+
+        private void txtMods_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void txtSettings_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            framePageView.Content = new PageSettingsGame();
+        }
+
+        private void txtServers_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

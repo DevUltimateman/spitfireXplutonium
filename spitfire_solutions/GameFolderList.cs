@@ -131,7 +131,6 @@ namespace spitfire_solutions
                 bo2mp, bo2zm,
                 wawmp, wawzm,
                 mw
-                
             };
 
             //return the array info from this method

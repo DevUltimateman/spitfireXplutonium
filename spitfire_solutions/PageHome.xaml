@@ -70,7 +70,7 @@
                    HorizontalAlignment="Center"
                    Padding="10"
                    FontStyle="Italic"
-                   FontWeight="DemiBold" Grid.ColumnSpan="2" Margin="10,34,182,34" Grid.RowSpan="2"  />
+                   FontWeight="DemiBold" Grid.ColumnSpan="2" Margin="10,34,182,34" Grid.RowSpan="2" MouseDown="txtHome_MouseDown"  />
 
         <TextBlock x:Name="txtMods"
                    Foreground="White"
@@ -86,7 +86,7 @@
                    FontWeight="DemiBold" 
                    Grid.ColumnSpan="3" 
                    Margin="10,34,182,34"
-                   Grid.RowSpan="2" />
+                   Grid.RowSpan="2" MouseDown="txtMods_MouseDown" />
 
         <TextBlock x:Name="txtSettings"
                    Foreground="White"
@@ -102,7 +102,7 @@
                    FontWeight="DemiBold" 
                    Grid.ColumnSpan="4" 
                    Margin="10,34,182,34"
-                   Grid.RowSpan="2"/>
+                   Grid.RowSpan="2" MouseDown="txtSettings_MouseDown"/>
 
         <TextBlock x:Name="txtServers"
                    Foreground="White"
@@ -118,16 +118,15 @@
                    FontWeight="DemiBold" 
                    Grid.ColumnSpan="6" 
                    Margin="10,34,182,34"
-                   Grid.RowSpan="2"  />
+                   Grid.RowSpan="2" MouseDown="txtServers_MouseDown"  />
 
         <Frame x:Name="framePageView"
                Padding="0"
-               Grid.Column="2"
                Grid.Row="2"
                Grid.RowSpan="5"
                HorizontalContentAlignment="Stretch"
                VerticalContentAlignment="Stretch"
-               Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+               Grid.ColumnSpan="5" NavigationUIVisibility="Hidden" Margin="182,0,96,0"/>
     </Grid>
 
 </Page>
