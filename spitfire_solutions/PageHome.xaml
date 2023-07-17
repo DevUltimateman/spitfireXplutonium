@@ -7,6 +7,7 @@
       mc:Ignorable="d" 
       Height="540" Width="960"
       ShowsNavigationUI="False"
+      
       Title="pageHome">
 
     <Grid x:Name="gridMain" >
@@ -123,10 +124,10 @@
         <Frame x:Name="framePageView"
                Padding="0"
                Grid.Row="2"
-               Grid.RowSpan="5"
+               Grid.RowSpan="6"
                HorizontalContentAlignment="Stretch"
                VerticalContentAlignment="Stretch"
-               Grid.ColumnSpan="5" NavigationUIVisibility="Hidden" Margin="182,0,96,0"/>
+               Grid.ColumnSpan="5" NavigationUIVisibility="Hidden" Margin="49,0,49,34"/>
     </Grid>
 
 </Page>

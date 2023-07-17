@@ -7,8 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageSettingsGame">
-    
-        <Grid  Background="TRANSPARENT" x:Name="gdBig"
+
+    <Grid  Background="TRANSPARENT" x:Name="gdBig"
            
          
            
@@ -18,47 +18,53 @@
 
           >
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="242"/>
-                <ColumnDefinition Width="129*"/>
-                <ColumnDefinition Width="109*"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
 
 
 
-            </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
 
-            <Rectangle x:Name="rectLeftSide" Fill="#FF9E0000"
+        <Rectangle x:Name="rectLeftSide" Fill="#FF9E0000"
                    Grid.Row="0"
-                   Grid.ColumnSpan="1">
+                   Grid.ColumnSpan="3">
 
 
 
-            </Rectangle>
+        </Rectangle>
 
-            <Rectangle x:Name="rectLeftSide2" Fill="#FF0C133A"
+        <Rectangle x:Name="rectLeftSide2" Fill="#FF0C133A"
                    Grid.Row="1"
-                   Grid.ColumnSpan="2"
-                   Grid.RowSpan="2">
+                   Grid.ColumnSpan="3"
+                   Grid.RowSpan="2"
+                   >
 
 
-            </Rectangle>
+        </Rectangle>
 
-            <Image x:Name="settingsViewMiniAva"
+        <Image x:Name="settingsViewMiniAva"
                HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Width="100"
                Height="100"
-               Grid.Row="1"
-               Grid.Column="0"
-               Opacity="0.7" Margin="136,28,0,0" Grid.RowSpan="2"
+               Grid.Row="2"
+               Grid.Column="3"
+               Opacity="0.7" Margin="10,10,0,0"
                
                
                ></Image>
@@ -73,7 +79,7 @@
 
 
 
-            <TextBlock x:Name="lblSelectFromList"
+        <TextBlock x:Name="lblSelectFromList"
                Text ="Select Game"
                    TextWrapping="WrapWithOverflow"
                FontSize="12.5"
@@ -85,28 +91,29 @@
                  HorizontalAlignment="Left"
                    VerticalAlignment="Center" Height="57" Width="98" Margin="10,0,0,0" MouseEnter="lblSelectFromList_MouseEnter" MouseLeave="lblSelectFromList_MouseLeave"/>
 
-            <Label x:Name="lblSettingsMenu"
+        <Label x:Name="lblSettingsMenu"
                FontWeight="Bold"
                FontStyle="Italic"
                Content="Settings Menu"
                Grid.Row="0"
+               Grid.ColumnSpan="2"
                
                
                Foreground="AntiqueWhite"
                FontSize="25" Margin="10,10,4,10" />
 
 
-            <ListView x:Name="lstMylist"
+        <ListView x:Name="lstMylist"
                   Opacity="0.7"
                   Margin="128,10,10,10"
                   Background="Transparent"
                   Foreground="AntiqueWhite"
                   Grid.Row="1"
-                  Grid.ColumnSpan="2"
+                  Grid.ColumnSpan="3"
                   
                   BorderBrush="Purple"/>
 
 
-        </Grid>
-    
+    </Grid>
+
 </Page>

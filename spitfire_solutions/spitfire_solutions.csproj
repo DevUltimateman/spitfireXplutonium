@@ -58,6 +58,12 @@
     <Compile Include="PageHome.xaml.cs">
       <DependentUpon>PageHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageModsGame.xaml.cs">
+      <DependentUpon>PageModsGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageServersGame.xaml.cs">
+      <DependentUpon>PageServersGame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SolutionImages.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -74,6 +80,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PageHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageModsGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageServersGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
