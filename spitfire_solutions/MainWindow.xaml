@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spitfire_solutions"
         mc:Ignorable="d"
-        Title="Spitfire_" Height="540" Width="960" Foreground="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="">
+        Title="Spitfire_" Height="720" Width="1280" Foreground="Transparent"
+        
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanMinimize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Cursor=""
+        >
     <Grid Background="Transparent"
+          Width="1280"
+          Height="720"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          
           
           
           >
@@ -34,15 +47,45 @@
 
         </Grid.RowDefinitions>
 
+
+        <Border x:Name="border_1"
+                Grid.RowSpan="6"
+                Grid.ColumnSpan="6" Height="700" Width="1280" VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                BorderThickness="5"
+                CornerRadius="30"
+                >
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                    <GradientStop Color="#060531" Offset="0.0"/>
+                    <GradientStop Color="#1B1448" Offset="1" />
+                    
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                    <GradientStop Color="#462AD8" Offset="0.0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75" />
+                    <GradientStop Color="#DA34AE" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+        </Border>
         <Frame x:Name="frameMainLocked"
                Padding="0"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
                Grid.Row="0"
                Grid.Column="0"
-               Grid.RowSpan="6"
-               NavigationUIVisibility="Hidden"
-               Grid.ColumnSpan="6"/>
+               Width="1280"
+               Height="720"
+               Visibility="Hidden"
+               NavigationUIVisibility="Hidden" Grid.ColumnSpan="6" Grid.RowSpan="6"
+               />
 
 
 
@@ -53,6 +96,7 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Grid.RowSpan="6"
-                Grid.ColumnSpan="6" Margin="30,90,30,30"/>
+                
+                Grid.ColumnSpan="6" Margin="213,117,107,59"/>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:spitfire_solutions"
       mc:Ignorable="d" 
-      Height="540" Width="960"
+      Height="720" Width="1280"
       ShowsNavigationUI="False"
       
       Title="pageHome">
@@ -45,9 +45,7 @@
                FontSize="35"
                Grid.Row="0"
                Grid.Column="0"
-               Grid.ColumnSpan="2"
-               Grid.RowSpan="2"
-               Margin="49,0,143,67"
+               Margin="10,10,10,10"
                Foreground="FloralWhite"   />
 
 

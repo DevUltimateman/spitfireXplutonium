@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageSettingsGame">
 
-    <Grid  Background="TRANSPARENT" x:Name="gdBig"
+    <Grid  Background="HotPink" x:Name="gdBig"
            
          
            
@@ -19,6 +19,10 @@
           >
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -37,6 +41,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
         </Grid.RowDefinitions>
 
 
@@ -48,14 +55,19 @@
 
         </Rectangle>
 
-        <Rectangle x:Name="rectLeftSide2" Fill="#FF0C133A"
-                   Grid.Row="1"
-                   Grid.ColumnSpan="3"
-                   Grid.RowSpan="2"
-                   >
 
 
-        </Rectangle>
+        <Rectangle x:Name="rectRightSide" Fill="#FF0C133A"
+                   Grid.ColumnSpan="5"
+                   Grid.RowSpan="8"
+                   Grid.Column="5"
+                   />
+
+        <Rectangle x:Name="rectleftSide" Fill="#FF0C133A"
+                   Grid.ColumnSpan="5"
+                   Grid.RowSpan="8"
+                   Grid.Column="0"
+                   />
 
         <Image x:Name="settingsViewMiniAva"
                HorizontalAlignment="Left"
@@ -105,14 +117,23 @@
 
         <ListView x:Name="lstMylist"
                   Opacity="0.7"
-                  Margin="128,10,10,10"
+                  Margin="128,10,0,0"
                   Background="Transparent"
                   Foreground="AntiqueWhite"
                   Grid.Row="1"
                   Grid.ColumnSpan="3"
                   
-                  BorderBrush="Purple"/>
+                  BorderBrush="Purple" Grid.RowSpan="2" HorizontalAlignment="Left" Width="262" Height="130" VerticalAlignment="Top"/>
 
+        <Label 
+            x:Name="lblTest"
+            Content="Tester"
+            Grid.Row="5"
+            FontSize="20"
+            Foreground="AliceBlue"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            ></Label>
 
     </Grid>
 
