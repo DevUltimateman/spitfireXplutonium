@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:spitfire_solutions"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary Source="/Styles/UserInterfaceColorsResourceDictionary.xaml" />
+
     </Application.Resources>
 </Application>

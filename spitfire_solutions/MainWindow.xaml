@@ -15,89 +15,121 @@
         Background="Transparent"
         Cursor=""
         >
-    <Grid Background="Transparent"
-          Width="1280"
-          Height="720"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-          
-          
-          
-          >
-        <Grid.ColumnDefinitions>
-
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
 
 
-        </Grid.ColumnDefinitions>
-
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-
-
-        </Grid.RowDefinitions>
-
-
-        <Border x:Name="border_1"
-                Grid.RowSpan="6"
-                Grid.ColumnSpan="6" Height="700" Width="1280" VerticalAlignment="Center"
+    <Border x:Name="border_1"
+               Height="700" Width="1280" VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 BorderThickness="5"
-                CornerRadius="30"
-                >
-
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
-                    <GradientStop Color="#060531" Offset="0.0"/>
-                    <GradientStop Color="#1B1448" Offset="1" />
-
-                </LinearGradientBrush>
-            </Border.Background>
-
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
-                    <GradientStop Color="#462AD8" Offset="0.0"/>
-                    <GradientStop Color="#DA34AE" Offset="0.75" />
-                    <GradientStop Color="#DA34AE" Offset="1" />
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-
-        </Border>
-        <Frame x:Name="frameMainLocked"
-               Padding="0"
-               HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               Grid.Row="0"
-               Grid.Column="0"
-               Width="1280"
-               Height="720"
-               Visibility="Hidden"
-               NavigationUIVisibility="Hidden" Grid.ColumnSpan="6" Grid.RowSpan="6"
-               />
+                CornerRadius="30">
 
 
 
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0.0"/>
+                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.75" />
+                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1" />
+            </LinearGradientBrush>
+        </Border.BorderBrush>
 
 
-        <Frame  x:Name="framePageView"
-                Padding="0"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Grid.RowSpan="6"
+        <!--Making the grid view-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!--Left side "nav bar-->
+                <ColumnDefinition Width="250"/>
+
+                <!--Right side "view page"-->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!--Nav menu"-->
+            <Border CornerRadius="30,0,0,30"
+                    Grid.Column="0">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+
+                    <!--LOGO STUFF-->
+                    <StackPanel Orientation="Horizontal"
+                                Height="60"
+                                Margin="15,25,0,40">
+                        
+                        <!--IMAGELOGO-->
+                        <Image Source="/Images/logos/fireLogo2k.png"
+                               Height="56" Width="66"/>
+                               
+                          <!--TEXTLOGO-->     
+                        <Image Source="/Images/logos/spitlogo2k.png"
+                               Height="88" Width="88"
+                               Margin="0,-10,0,0"/>
+                               
+                    </StackPanel>
+
+                </StackPanel>
                 
-                Grid.ColumnSpan="6" Margin="213,117,107,59"/>
-    </Grid>
+                <!--MENU BUTTONS-->
+                
+                
+
+            </Border>
+            
+            
+
+            <!--Main sector-->
+
+            <Border CornerRadius="0,30,30,0"
+                    Grid.Column="1">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+            </Border>
+
+
+        </Grid>
+
+
+    </Border>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </Window>

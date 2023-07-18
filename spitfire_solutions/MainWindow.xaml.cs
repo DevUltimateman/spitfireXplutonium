@@ -25,7 +25,7 @@ namespace spitfire_solutions
             InitializeComponent();
 
             //one time initialization
-            frameMainLocked.Content = new PageHome();
+            //frameMainLocked.Content = new PageHome();
         }
     }
 }
