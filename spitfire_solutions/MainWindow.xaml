@@ -1,9 +1,10 @@
-﻿<Window x:Class="spitfire_solutions.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spitfire_solutions"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" x:Class="spitfire_solutions.MainWindow"
         mc:Ignorable="d"
         Title="Spitfire_" Height="720" Width="1280" Foreground="Transparent"
         
@@ -60,7 +61,7 @@
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
                     <GradientStop Color="#060531" Offset="0.0"/>
                     <GradientStop Color="#1B1448" Offset="1" />
-                    
+
                 </LinearGradientBrush>
             </Border.Background>
 

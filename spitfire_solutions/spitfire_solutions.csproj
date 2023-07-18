@@ -130,7 +130,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\logos\spitfire_flat_white500x500.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\logos\spitfire_flat_white_shadow500x500.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\logos\bo1mplogo.png" />
     <Resource Include="images\logos\bo1zmlogo.png" />
