@@ -4,8 +4,20 @@
              xmlns:local="clr-namespace:spitfire_solutions"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
-        <ResourceDictionary Source="/Styles/UserInterfaceColorsResourceDictionary.xaml" />
-
+        
+        <!--REMEMBER TO REBUILD / COMPILE SOLUTION AFTER ADDING IN HERE!!!-->
+        
+        <!--Can only use one dictionary resc at once, merge them-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Color list-->
+                <ResourceDictionary Source="/Styles/UserInterfaceColorsResourceDictionary.xaml" />
+                <!--Button list-->
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        
+        
     </Application.Resources>
 </Application>

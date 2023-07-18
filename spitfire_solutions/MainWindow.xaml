@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spitfire_solutions"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" x:Class="spitfire_solutions.MainWindow"
+        
+    
         mc:Ignorable="d"
         Title="Spitfire_" Height="720" Width="1280" Foreground="Transparent"
         
         WindowStartupLocation="CenterScreen" 
-        ResizeMode="CanMinimize"
+        
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
@@ -20,7 +22,7 @@
     <Border x:Name="border_1"
                Height="700" Width="1280" VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                BorderThickness="5"
+                BorderThickness="2"
                 CornerRadius="30">
 
 
@@ -62,24 +64,87 @@
                     <StackPanel Orientation="Horizontal"
                                 Height="60"
                                 Margin="15,25,0,40">
-                        
+
                         <!--IMAGELOGO-->
                         <Image Source="/Images/logos/fireLogo2k.png"
                                Height="56" Width="66"/>
-                               
-                          <!--TEXTLOGO-->     
+
+                        <!--TEXTLOGO-->
                         <Image Source="/Images/logos/spitlogo2k.png"
                                Height="88" Width="88"
                                Margin="0,-10,0,0"/>
-                               
+
                     </StackPanel>
+                    
+                    
+                    
+                    <!--MENU BUTTONS-->
+                    
+                    <!--HOME BUTTON-->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    
+                    
+                    <!--MODS BUTTON-->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Modx" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Mods" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    
+                    <!--SERVERS BUTTON-->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Server" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Servers" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    
+                    
+                    <!--SETTINGS BUTTON-->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Gears" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+
+
+                    <!--INFO BUTTON-->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="InfoCircle" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Info" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+
+                    <!--SUPPORT BUTTON-->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color1}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Donate" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Support" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+
+
 
                 </StackPanel>
-                
-                <!--MENU BUTTONS-->
-                
-                
-
             </Border>
             
             
@@ -95,6 +160,58 @@
                         <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
+
+                <Grid>
+
+                    <Grid.RowDefinitions >
+                        
+                        <!--TOP BAR ROW-->
+                        <RowDefinition Height="25"/>
+                        
+                        <!--HEADER ROW-->
+                        <RowDefinition Height="35"/>
+                        
+                        <!--PAGE ROW / VIEW-->
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!--TOP BAR CONTENT-->
+                    <StackPanel x:Name="stckControlPanel"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent" 
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="stckControlPanel_MouseLeftButtonDown"
+                                MouseEnter="stckControlPanel_MouseEnter">
+
+                        <Button x:Name="btnClose"
+                                Style="{StaticResource stckBtnTop}"
+                                Tag="{StaticResource color4}"
+                                Click="btnClose_Click">
+                            <fa:IconImage Icon="Xmark" Style="{StaticResource stckBtnTopIcons}"/>
+                        </Button>
+
+                        <Button x:Name="btnMaximize"
+                                Style="{StaticResource stckBtnTop}"
+                                Tag="{StaticResource color8}"
+                                Click="btnMaximize_Click">
+                            <fa:IconImage Icon="Maximize" Style="{StaticResource stckBtnTopIcons}"/>
+                        </Button>
+
+
+                        <Button x:Name="btnMinimize"
+                                Style="{StaticResource stckBtnTop}"
+                                Tag="{StaticResource color6}"
+                                Click="btnMinimize_Click">
+                            <fa:IconImage Icon="Minimize" Style="{StaticResource stckBtnTopIcons}"/>
+                        </Button>
+
+
+
+
+                    </StackPanel>
+                </Grid>
 
             </Border>
 
