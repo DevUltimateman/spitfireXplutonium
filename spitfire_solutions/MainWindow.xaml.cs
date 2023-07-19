@@ -18,6 +18,10 @@ using System.Runtime.InteropServices;
 using System.Runtime;
 using System.Windows.Interop;
 
+using spitfire_solutions.ViewModels;
+using spitfire_solutions.Views;
+using FontAwesome.Sharp;
+
 namespace spitfire_solutions
 {
     /// <summary>
@@ -33,8 +37,6 @@ namespace spitfire_solutions
             //frameMainLocked.Content = new PageHome();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
-
-
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
         //to hold down the window + to move
@@ -42,7 +44,7 @@ namespace spitfire_solutions
         {
             WindowInteropHelper helper = new WindowInteropHelper(this);
             SendMessage(helper.Handle, 161, 2, 0);
-            //DragMove();
+            DragMove();
         }
 
         private void stckControlPanel_MouseEnter(object sender, MouseEventArgs e)
@@ -69,5 +71,8 @@ namespace spitfire_solutions
             }
             else { this.WindowState = WindowState.Normal; }
         }
+
+
+
     }
 }

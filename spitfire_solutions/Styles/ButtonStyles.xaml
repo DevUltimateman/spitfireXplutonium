@@ -121,4 +121,49 @@
     </Style>
 
 
+
+    <!-- ICON BUTTONS-->
+
+    <Style x:Key="iconBtn" TargetType="Button">
+
+        <!--Normal button styling-->
+        <Setter Property="Width" Value="25"/>
+        
+        <!--Making mouse cursor change-->
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource plainTextColor1}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background }">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+
+
+        <Style.Triggers>
+   
+            <!--Button styling on hover over-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
+
+    <!--Menu button icons-->
+    <Style x:Key="iconBtnIcon" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+
+    </Style>
+
+
 </ResourceDictionary>
