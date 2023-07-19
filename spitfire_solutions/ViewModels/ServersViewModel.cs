@@ -8,6 +8,6 @@ namespace spitfire_solutions.ViewModels
 {
     public class ServersViewModel : ViewModelBase
     {
-        public ServersViewModel() { }
+        
     }
 }

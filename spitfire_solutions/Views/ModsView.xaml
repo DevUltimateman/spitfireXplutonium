@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:spitfire_solutions.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <Border>
+        <Border.Background>
+            <SolidColorBrush Color="{StaticResource winBorderColor3}"/>
+        </Border.Background>
+    </Border>
 </UserControl>

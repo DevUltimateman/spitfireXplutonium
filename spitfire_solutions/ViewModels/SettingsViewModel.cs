@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace spitfire_solutions.ViewModels
 {
-    public class InfoViewModel : ViewModelBase
+    public class SettingsViewModel : ViewModelBase
     {
-        
+
     }
 }

@@ -38,15 +38,12 @@ namespace spitfire_solutions.ViewModels
         public ICommand ShowModsViewCommand     { get; }
         public ICommand ShowServersViewCommand  { get; }
         public ICommand ShowSupportViewCommand  { get; }
-        public WindowState WindowState { get; private set; }
-        public double MaxHeight { get; private set; }
+        
 
         //MainViewModel to be referenced
         public MainViewModel()
         {
             //INIT COMMANDS
-            //ViewModelCommand & Execute ShoeHomeView are inherited from ViewModelCommand class!!
-            
             ShowHomeViewCommand = new ViewModelCommand( ExecuteShowHomeViewCommand );
             ShowInfoViewCommand = new ViewModelCommand(ExecuteShowInfoViewCommand);
             ShowMainViewCommand = new ViewModelCommand(ExecuteShowMainViewCommand);
@@ -54,7 +51,7 @@ namespace spitfire_solutions.ViewModels
             ShowServersViewCommand = new ViewModelCommand(ExecuteShowServersViewCommand);
             ShowSupportViewCommand = new ViewModelCommand(ExecuteShowSupportViewCommand);
 
-
+            //DEFAULT
             //BOOT UP VIEW - SO THAT NOTHING IS SHOWN AT UPON BOOTING TILL USER CLICKS ONE OF THE SUB MENUS
             ExecuteShowHomeViewCommand(null);
         }
@@ -62,18 +59,23 @@ namespace spitfire_solutions.ViewModels
         //VOIDS FOR CREATING A NEW INSTANCE OF SAID VIEWMODEL & DISPLAYING IT ON THE RIGHT BLOCK
         private void ExecuteShowModsViewCommand(object obj) { CurrentChildView = new ModsViewModel();
             Caption = "Mods";
+            Icon = IconChar.Modx;
         }
         private void ExecuteShowHomeViewCommand(object obj) { CurrentChildView = new HomeViewModel();
             Caption = "Home";
+            Icon = IconChar.Home;
         }
         private void ExecuteShowInfoViewCommand( object obj ) { CurrentChildView = new InfoViewModel();
             Caption = "Info";
+            Icon = IconChar.Info;
         }  
         private void ExecuteShowMainViewCommand( object obj ) { CurrentChildView = new MainViewModel();
             Caption = "Dashboard";
+            Icon = IconChar.Home;
         }
         private void ExecuteShowServersViewCommand( object obj ) { CurrentChildView = new ServersViewModel();
             Caption = "Servers";
+            Icon = IconChar.Server;
         }  
         private void ExecuteShowSupportViewCommand( object obj ) { CurrentChildView = new SupportViewModel();
             Caption = "Support";
@@ -84,7 +86,7 @@ namespace spitfire_solutions.ViewModels
 
 
 
-
+        /*
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
         //FROM MAIN WINDOW.CS
@@ -95,31 +97,8 @@ namespace spitfire_solutions.ViewModels
             //SendMessage(helper.Handle, 161, 2, 0);
             //DragMove();
         }
+        */
 
-        private void stckControlPanel_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-            //Environment.Exit(1);
-        }
-
-        private void btnMinimize_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void btnMaximize_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.WindowState != WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Maximized;
-            }
-            else { this.WindowState = WindowState.Normal; }
-        }
 
     }
 }

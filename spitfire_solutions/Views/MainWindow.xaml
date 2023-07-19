@@ -7,22 +7,51 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
         x:Class="spitfire_solutions.MainWindow"
         xmlns:VM="clr-namespace:spitfire_solutions.ViewModels"
-    
-        mc:Ignorable="d"
+        xmlns:VMV="clr-namespace:spitfire_solutions.Views"
+    mc:Ignorable="d"
         Title="Spitfire_" Height="720" Width="1280" Foreground="Transparent"
         
         WindowStartupLocation="CenterScreen" 
-        
+        ResizeMode="CanResize"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
         Cursor=""
     
         >
+
+    <!--Neeed these here for bindable objects-->
+    <Window.DataContext>
+        <VM:MainViewModel/>
+    </Window.DataContext>
+
+
+    <Window.Resources>
+        
+        <DataTemplate DataType="{x:Type VM:HomeViewModel  }">
+            <VMV:HomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type VM:ServersViewModel  }">
+            <VMV:ServersView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type VM:ModsViewModel }">
+            <VMV:ModsView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type VM:SupportViewModel }">
+            <VMV:SupportView/>
+        </DataTemplate>
+        
+    </Window.Resources>
+
     
-    
-    
-    
+
+
+
     <Border x:Name="border_1"
                Height="700" Width="1280" VerticalAlignment="Center"
                 HorizontalAlignment="Center"
@@ -86,17 +115,24 @@
                     
                     <!--HOME BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color4}">
+                             Tag="{StaticResource color4}"
+                                 IsChecked="True"
+                             Command="{Binding ShowHomeViewCommand}"    
+                                 >
                         <StackPanel Orientation="Horizontal">
+                            
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
+                        
+                        
                     </RadioButton>
 
                     
                     
                     <!--MODS BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowModsViewCommand}"
                              Tag="{StaticResource color6}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Modx" Style="{StaticResource menuButtonIcon}"/>
@@ -107,7 +143,8 @@
                     
                     <!--SERVERS BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color8}">
+                             Tag="{StaticResource color8}"
+                                 Command="{Binding ShowServersViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Server" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Servers" Style="{StaticResource menuButtonText}"/>
@@ -117,7 +154,8 @@
                     
                     <!--SETTINGS BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color10}">
+                             Tag="{StaticResource color10}"
+                                 Command="{Binding ShowServersViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Gears" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
@@ -128,7 +166,8 @@
 
                     <!--INFO BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color9}">
+                             Tag="{StaticResource color9}"
+                                 Command="{Binding ShowInfoViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="InfoCircle" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Info" Style="{StaticResource menuButtonText}"/>
@@ -138,7 +177,8 @@
 
                     <!--SUPPORT BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color1}">
+                             Tag="{StaticResource color1}"
+                                 Command="{Binding ShowSupportViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Donate" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Support" Style="{StaticResource menuButtonText}"/>
@@ -150,7 +190,7 @@
             </Border>
             
             
-
+            
             <!--Main sector-->
 
             <Border CornerRadius="0,30,30,0"
@@ -179,6 +219,8 @@
                     </Grid.RowDefinitions>
                     
                     
+                    
+
                     
                     <!--TOP BAR CONTENT-->
                     <StackPanel x:Name="stckControlPanel"
@@ -229,14 +271,14 @@
                                 Orientation="Horizontal"
                                 VerticalAlignment="Center">
 
-                        <fa:IconImage Icon="Home"
+                        <fa:IconImage Icon="{Binding Icon}"
                                       Height="20"
                                       Width="20"
                                       Foreground="{StaticResource titleColor2}"
                                       Margin="35,0,10,0"
                                       />
 
-                        <TextBlock Text="Dasboard"
+                        <TextBlock Text="{Binding Caption}"
                                    Foreground="{StaticResource titleColor2}"
                                    FontSize="16"
                                    FontFamily="Monsterrat"
@@ -264,8 +306,8 @@
                         </Button>
                     </StackPanel>
 
-                    <ContentControl Content=""
-                                    DataContext=""
+                    <ContentControl Content="{Binding CurrentChildView}"
+                                    
                                     
                                     Grid.Row="2"
                                     Margin="25" />
@@ -279,33 +321,5 @@
 
 
     </Border>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </Window>

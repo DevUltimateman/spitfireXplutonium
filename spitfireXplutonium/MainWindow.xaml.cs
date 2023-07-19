@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace spitfire_solutions.Views
+namespace spitfireXplutonium
 {
-    
-    public partial class MainView : UserControl
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        public MainView()
+        public MainWindow()
         {
             InitializeComponent();
-
         }
-
     }
 }
