@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280"
              
-             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" >
     
     <Border x:Name="border_1"
                Height="700" Width="1280" VerticalAlignment="Center"
