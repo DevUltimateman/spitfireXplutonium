@@ -7,9 +7,8 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
         x:Class="spitfire_solutions.MainWindow"
         xmlns:vM="clr-namespace:spitfire_solutions.ViewModels"
-        xmlns:vMV="clr-namespace:spitfire_solutions.Views"
-        
-        mc:Ignorable="d"
+        xmlns:vMV="clr-namespace:spitfire_solutions.Views" 
+    mc:Ignorable="d"
         Title="Spitfire_" Height="720" Width="1280" Foreground="Transparent"
         
         WindowStartupLocation="CenterScreen" 
@@ -169,7 +168,7 @@
                     <!--SETTINGS BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="{StaticResource color10}"
-                                 Command="{Binding }">
+                                 Command="{Binding ShowSettingsViewCommand }">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Gears" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>

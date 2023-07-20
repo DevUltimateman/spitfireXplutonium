@@ -17,7 +17,11 @@
         
         <Grid.Background>
             <SolidColorBrush Color="White"></SolidColorBrush>
+            
         </Grid.Background>
+        <Label Content="TEST SETTINGS"
+               FontSize="50"
+               ></Label>
             
     </Grid>
 </UserControl>

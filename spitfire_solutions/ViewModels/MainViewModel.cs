@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Interop;
 using System.Windows;
 using System.Runtime.InteropServices;
-
+using spitfire_solutions.Views;
 
 namespace spitfire_solutions.ViewModels
 {
@@ -25,7 +25,18 @@ namespace spitfire_solutions.ViewModels
         private IconChar _icon;
       
         //CHILD VIEW ON GRID
-        public ViewModelBase CurrentChildView { get {  return _currentChildView; } set { _currentChildView = value; OnPropertyChanged(nameof(CurrentChildView)); } }
+        public ViewModelBase CurrentChildView 
+        { 
+            get 
+            {  
+                return _currentChildView; 
+            } 
+            set 
+            { 
+                _currentChildView = value;
+                OnPropertyChanged(nameof(CurrentChildView)); 
+            } 
+        }
         //CAPTION CHANGER
         public string Caption { get { return _caption; } set { _caption = value; OnPropertyChanged(nameof(Caption)); } }
         //ICON / IMAGE CHANGER
@@ -71,6 +82,7 @@ namespace spitfire_solutions.ViewModels
             CurrentChildView = new ModsViewModel();
             Caption = "Mods";
             Icon = IconChar.Modx;
+            
         }
         private void ExecuteShowHomeViewCommand(object obj) 
         {
@@ -78,48 +90,30 @@ namespace spitfire_solutions.ViewModels
             Caption = "Home";
             Icon = IconChar.Home;
         }
-        private void ExecuteShowInfoViewCommand( object obj ) 
+        private void ExecuteShowInfoViewCommand(object obj) 
         { 
             CurrentChildView = new InfoViewModel();
             Caption = "Info";
             Icon = IconChar.Info;
         }  
-        private void ExecuteShowMainViewCommand( object obj ) 
+        private void ExecuteShowMainViewCommand(object obj) 
         {
             CurrentChildView = new MainViewModel();
             Caption = "Dashboard";
             Icon = IconChar.Home;
         }
-        private void ExecuteShowServersViewCommand( object obj ) 
+        private void ExecuteShowServersViewCommand(object obj) 
         {
             CurrentChildView = new ServersViewModel();
             Caption = "Servers";
             Icon = IconChar.Server;
         }  
-        private void ExecuteShowSupportViewCommand( object obj ) 
+        private void ExecuteShowSupportViewCommand(object obj) 
         {
             CurrentChildView = new SupportViewModel();
             Caption = "Support";
             Icon = IconChar.Donate;
         }
-
-
-
-
-
-
-        /*
-        [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-        //FROM MAIN WINDOW.CS
-        private void stckControlPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            //WindowInteropHelper helper = new WindowInteropHelper(thisS);
-            //WindowInteropHelper helper = new WindowInteropHelper(View);
-            //SendMessage(helper.Handle, 161, 2, 0);
-            //DragMove();
-        }
-        */
 
 
     }

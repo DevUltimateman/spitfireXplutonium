@@ -7,6 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.Background>
+            <SolidColorBrush Color="White"></SolidColorBrush>
+
+        </Grid.Background>
+        <Label Content="TEST SUPPORTVIEW"
+               FontSize="50"
+               ></Label>
     </Grid>
 </UserControl>
