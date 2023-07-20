@@ -61,7 +61,7 @@ namespace spitfire_solutions.ViewModels
             ShowMainViewCommand = new ViewModelCommand(ExecuteShowMainViewCommand);
             ShowModsViewCommand = new ViewModelCommand(ExecuteShowModsViewCommand);
             ShowServersViewCommand = new ViewModelCommand(ExecuteShowServersViewCommand);
-            ShowSupportViewCommand = new ViewModelCommand(ExecuteShowSupportViewCommand);
+            ShowSupportViewCommand = new ViewModelCommand(ExecuteSupportViewCommand);
             ShowSettingsViewCommand = new ViewModelCommand(ExecuteSettingsViewCommand);
 
             //DEFAULT
@@ -108,7 +108,7 @@ namespace spitfire_solutions.ViewModels
             Caption = "Servers";
             Icon = IconChar.Server;
         }  
-        private void ExecuteShowSupportViewCommand(object obj) 
+        private void ExecuteSupportViewCommand(object obj) 
         {
             CurrentChildView = new SupportViewModel();
             Caption = "Support";
