@@ -1,9 +1,0 @@
-﻿<Application x:Class="spitfireXplutonium.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:spitfireXplutonium"
-             StartupUri="/View/LoginView.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
-</Application>
