@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Interop;
 using System.Windows;
 using System.Runtime.InteropServices;
-using Application = System.Windows.Application;
+
 
 namespace spitfire_solutions.ViewModels
 {
@@ -38,6 +38,7 @@ namespace spitfire_solutions.ViewModels
         public ICommand ShowModsViewCommand     { get; }
         public ICommand ShowServersViewCommand  { get; }
         public ICommand ShowSupportViewCommand  { get; }
+        public ICommand ShowSettingsViewCommand { get; }
         
 
         //MainViewModel to be referenced
@@ -50,35 +51,56 @@ namespace spitfire_solutions.ViewModels
             ShowModsViewCommand = new ViewModelCommand(ExecuteShowModsViewCommand);
             ShowServersViewCommand = new ViewModelCommand(ExecuteShowServersViewCommand);
             ShowSupportViewCommand = new ViewModelCommand(ExecuteShowSupportViewCommand);
+            ShowSettingsViewCommand = new ViewModelCommand(ExecuteSettingsViewCommand);
 
             //DEFAULT
             //BOOT UP VIEW - SO THAT NOTHING IS SHOWN AT UPON BOOTING TILL USER CLICKS ONE OF THE SUB MENUS
             ExecuteShowHomeViewCommand(null);
         }
 
+        private void ExecuteSettingsViewCommand(object obj)
+        {
+            CurrentChildView = new SettingsViewModel();
+            Caption = "Settings";
+            Icon = IconChar.Gears;
+        }
+
         //VOIDS FOR CREATING A NEW INSTANCE OF SAID VIEWMODEL & DISPLAYING IT ON THE RIGHT BLOCK
-        private void ExecuteShowModsViewCommand(object obj) { CurrentChildView = new ModsViewModel();
+        private void ExecuteShowModsViewCommand(object obj) 
+        { 
+            CurrentChildView = new ModsViewModel();
             Caption = "Mods";
             Icon = IconChar.Modx;
         }
-        private void ExecuteShowHomeViewCommand(object obj) { CurrentChildView = new HomeViewModel();
+        private void ExecuteShowHomeViewCommand(object obj) 
+        {
+            CurrentChildView = new HomeViewModel();
             Caption = "Home";
             Icon = IconChar.Home;
         }
-        private void ExecuteShowInfoViewCommand( object obj ) { CurrentChildView = new InfoViewModel();
+        private void ExecuteShowInfoViewCommand( object obj ) 
+        { 
+            CurrentChildView = new InfoViewModel();
             Caption = "Info";
             Icon = IconChar.Info;
         }  
-        private void ExecuteShowMainViewCommand( object obj ) { CurrentChildView = new MainViewModel();
+        private void ExecuteShowMainViewCommand( object obj ) 
+        {
+            CurrentChildView = new MainViewModel();
             Caption = "Dashboard";
             Icon = IconChar.Home;
         }
-        private void ExecuteShowServersViewCommand( object obj ) { CurrentChildView = new ServersViewModel();
+        private void ExecuteShowServersViewCommand( object obj ) 
+        {
+            CurrentChildView = new ServersViewModel();
             Caption = "Servers";
             Icon = IconChar.Server;
         }  
-        private void ExecuteShowSupportViewCommand( object obj ) { CurrentChildView = new SupportViewModel();
+        private void ExecuteShowSupportViewCommand( object obj ) 
+        {
+            CurrentChildView = new SupportViewModel();
             Caption = "Support";
+            Icon = IconChar.Donate;
         }
 
 

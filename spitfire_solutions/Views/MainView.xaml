@@ -13,7 +13,10 @@
         
 
     <Border Background="Beige">
-        
+        <Label Content="THIS IS A TEST"
+               FontSize="50"
+               
+               ></Label>
     </Border>
         
         
