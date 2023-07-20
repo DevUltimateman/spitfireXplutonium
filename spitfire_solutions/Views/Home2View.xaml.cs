@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace spitfire_solutions.Views
 {
     /// <summary>
-    /// Interaction logic for InfoView.xaml
+    /// Interaction logic for Home2View.xaml
     /// </summary>
-    public partial class InfoView : UserControl
+    public partial class Home2View : UserControl
     {
-        public InfoView()
+        public Home2View()
         {
             InitializeComponent();
         }

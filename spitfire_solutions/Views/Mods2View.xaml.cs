@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace spitfire_solutions.Views
 {
-    
-    public partial class MainView : UserControl
+    /// <summary>
+    /// Interaction logic for Mods2View.xaml
+    /// </summary>
+    public partial class Mods2View : UserControl
     {
-        public MainView()
+        public Mods2View()
         {
             InitializeComponent();
-
         }
-
     }
 }

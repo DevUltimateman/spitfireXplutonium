@@ -31,23 +31,6 @@ namespace spitfire_solutions
         public MainWindow()
         {
             InitializeComponent();
-
-            //one time initialization
-            //frameMainLocked.Content = new PageHome();
-            /*
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
-
-
-            ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
-            ShowInfoViewCommand = new ViewModelCommand(ExecuteShowInfoViewCommand);
-            ShowMainViewCommand = new ViewModelCommand(ExecuteShowMainViewCommand);
-            ShowModsViewCommand = new ViewModelCommand(ExecuteShowModsViewCommand);
-            ShowServersViewCommand = new ViewModelCommand(ExecuteShowServersViewCommand);
-            ShowSupportViewCommand = new ViewModelCommand(ExecuteShowSupportViewCommand);
-
-            //BOOT UP VIEW - SO THAT NOTHING IS SHOWN AT UPON BOOTING TILL USER CLICKS ONE OF THE SUB MENUS
-            ExecuteShowHomeViewCommand(null);
-            */
         }
 
         [DllImport("user32.dll")]

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace spitfire_solutions.ViewModels
 {
-    public class SettingsViewModel : ViewModelBase
+    public class SettingsGameViewModel : ViewModelBase
     {
 
     }

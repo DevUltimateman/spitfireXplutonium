@@ -38,71 +38,113 @@ namespace spitfire_solutions.ViewModels
             } 
         }
         //CAPTION CHANGER
-        public string Caption { get { return _caption; } set { _caption = value; OnPropertyChanged(nameof(Caption)); } }
+        public string Caption 
+        { 
+            get 
+            { 
+                return _caption; 
+            } 
+            set 
+            { 
+                _caption = value; 
+                OnPropertyChanged(nameof(Caption));
+            }
+        }
         //ICON / IMAGE CHANGER
-        public IconChar Icon { get { return _icon; } set { _icon = value; OnPropertyChanged(nameof(Icon)); } }
+        public IconChar Icon 
+        { 
+            get 
+            { 
+                return _icon; 
+            } 
+            set
+            { 
+                _icon = value; 
+                OnPropertyChanged(nameof(Icon)); 
+            }
+        }
 
         //COMMANDS
-        public ICommand ShowHomeViewCommand     { get; }
-        public ICommand ShowInfoViewCommand     { get; }
-        public ICommand ShowMainViewCommand     { get; }
-        public ICommand ShowModsViewCommand     { get; }
-        public ICommand ShowServersViewCommand  { get; }
-        public ICommand ShowSupportViewCommand  { get; }
-        public ICommand ShowSettingsViewCommand { get; }
+        public ICommand ShowHomeViewCommand                 { get; }
+        public ICommand ShowInfoViewCommand                 { get; }
+        public ICommand ShowMainViewCommand                 { get; }
+        public ICommand ShowModsViewCommand                 { get; }
+        public ICommand ShowServersViewCommand              { get; }
+        public ICommand ShowSupportViewCommand              { get; }
+        public ICommand ShowGameSettingsViewCommand         { get; }
+        public ICommand ShowAppSettingsViewCommand          { get; }
+        public ICommand ShowH2omeViewCommand                { get; }
         
+
 
         //MainViewModel to be referenced
         public MainViewModel()
         {
             //INIT COMMANDS
-            ShowHomeViewCommand = new ViewModelCommand( ExecuteShowHomeViewCommand );
-            ShowInfoViewCommand = new ViewModelCommand(ExecuteShowInfoViewCommand);
-            ShowMainViewCommand = new ViewModelCommand(ExecuteShowMainViewCommand);
-            ShowModsViewCommand = new ViewModelCommand(ExecuteShowModsViewCommand);
-            ShowServersViewCommand = new ViewModelCommand(ExecuteShowServersViewCommand);
+            ShowHomeViewCommand = new ViewModelCommand( ExecuteHomeViewCommand );
+            ShowInfoViewCommand = new ViewModelCommand(ExecuteInfoViewCommand);
+            ShowMainViewCommand = new ViewModelCommand(ExecuteMainViewCommand);
+            ShowModsViewCommand = new ViewModelCommand(ExecuteModsViewCommand);
+            ShowServersViewCommand = new ViewModelCommand(ExecuteServersViewCommand);
             ShowSupportViewCommand = new ViewModelCommand(ExecuteSupportViewCommand);
-            ShowSettingsViewCommand = new ViewModelCommand(ExecuteSettingsViewCommand);
+            ShowGameSettingsViewCommand = new ViewModelCommand(ExecuteGameSettingsViewCommand);
+            ShowAppSettingsViewCommand = new ViewModelCommand(ExecuteAppSettingsViewCommand);
+            ShowH2omeViewCommand = new ViewModelCommand(ExecuteH2omeViewCommand);
+            
 
             //DEFAULT
             //BOOT UP VIEW - SO THAT NOTHING IS SHOWN AT UPON BOOTING TILL USER CLICKS ONE OF THE SUB MENUS
-            ExecuteShowHomeViewCommand(null);
+            ExecuteHomeViewCommand(null);
         }
 
-        private void ExecuteSettingsViewCommand(object obj)
+        private void ExecuteAppSettingsViewCommand(object obj)
         {
-            CurrentChildView = new SettingsViewModel();
-            Caption = "Settings";
+            CurrentChildView = new SettingsAppViewModel();
+            Caption = "Application Settings";
+            Icon = IconChar.Tools;
+        }
+
+        private void ExecuteH2omeViewCommand(object obj)
+        {
+            CurrentChildView = new H2omeViewModel();
+            Caption = "h2 test";
+            Icon = IconChar.Laugh;
+        }
+
+        private void ExecuteGameSettingsViewCommand(object obj)
+        {
+            CurrentChildView = new SettingsGameViewModel();
+            Caption = "Game Settings";
             Icon = IconChar.Gears;
         }
 
         //VOIDS FOR CREATING A NEW INSTANCE OF SAID VIEWMODEL & DISPLAYING IT ON THE RIGHT BLOCK
-        private void ExecuteShowModsViewCommand(object obj) 
+        private void ExecuteModsViewCommand(object obj) 
         { 
             CurrentChildView = new ModsViewModel();
             Caption = "Mods";
             Icon = IconChar.Modx;
             
         }
-        private void ExecuteShowHomeViewCommand(object obj) 
+        private void ExecuteHomeViewCommand(object obj) 
         {
             CurrentChildView = new HomeViewModel();
             Caption = "Home";
             Icon = IconChar.Home;
         }
-        private void ExecuteShowInfoViewCommand(object obj) 
+        private void ExecuteInfoViewCommand(object obj) 
         { 
             CurrentChildView = new InfoViewModel();
             Caption = "Info";
             Icon = IconChar.Info;
         }  
-        private void ExecuteShowMainViewCommand(object obj) 
+        private void ExecuteMainViewCommand(object obj) 
         {
             CurrentChildView = new MainViewModel();
             Caption = "Dashboard";
             Icon = IconChar.Home;
         }
-        private void ExecuteShowServersViewCommand(object obj) 
+        private void ExecuteServersViewCommand(object obj) 
         {
             CurrentChildView = new ServersViewModel();
             Caption = "Servers";

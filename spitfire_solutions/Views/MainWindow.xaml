@@ -35,27 +35,31 @@
         
         
         <DataTemplate DataType="{x:Type vM:HomeViewModel  }">
-            <vMV:HomeView/>
+            <vMV:Home2View/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type vM:ModsViewModel }">
-            <vMV:ModsView/>
+            <vMV:Mods2View/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type vM:ServersViewModel  }">
-            <vMV:ServersView/>
+            <vMV:Servers2View/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vM:SettingsViewModel }">
-            <vMV:SettingsView/>
+        <DataTemplate DataType="{x:Type vM:SettingsGameViewModel }">
+            <vMV:SettingsGame2View/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vM:SettingsAppViewModel }">
+            <vMV:SettingsApp2View/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type vM:InfoViewModel}">
-            <vMV:InfoView/>
+            <vMV:Info2View/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type vM:SupportViewModel }">
-            <vMV:SupportView/>
+            <vMV:Support2View/>
         </DataTemplate>
 
     </Window.Resources>
@@ -131,6 +135,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="{StaticResource color4}"
                              Command="{Binding ShowHomeViewCommand}"    
+                                 IsChecked="True"
                                  >
                         <StackPanel Orientation="Horizontal">
                             
@@ -146,6 +151,7 @@
                     <!--MODS BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
                                  Command="{Binding ShowModsViewCommand}"
+                                 
                              Tag="{StaticResource color6}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Modx" Style="{StaticResource menuButtonIcon}"/>
@@ -165,13 +171,23 @@
                     </RadioButton>
                     
                     
-                    <!--SETTINGS BUTTON-->
+                    <!--SETTINGS GAME BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="{StaticResource color10}"
-                                 Command="{Binding ShowSettingsViewCommand }">
+                                 Command="{Binding ShowGameSettingsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Gears" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Game Settings" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!--SETTINGS APP BUTTON-->
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color6}"
+                                 Command="{Binding ShowAppSettingsViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Tools" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="App Settings" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
@@ -198,7 +214,16 @@
                         </StackPanel>
                     </RadioButton>
 
- 
+
+                    <TextBlock 
+                        Text="Developed by Ultimateman"
+                        Foreground="{StaticResource plainTextColor1}"
+                        Margin="45,150,0,0"
+                        
+                        />
+
+
+
                 </StackPanel>
             </Border>
             
@@ -283,6 +308,8 @@
                                 Grid.Row="1"
                                 Orientation="Horizontal"
                                 VerticalAlignment="Center">
+                        
+                        
 
                         <fa:IconImage Icon="{Binding Icon}"
                                       Height="20"
@@ -297,8 +324,21 @@
                                    FontFamily="Monsterrat"
                                    FontWeight="Medium"
                                    VerticalAlignment="Center"/>
+                        
 
                     </StackPanel>
+                    
+                    
+                    <!--Underneath the Caption text & logo, a small bar-->
+
+                    <Border Grid.Row="1"  CornerRadius="2" Height="5" Width="175" Margin="0,25,730,0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="{StaticResource winBorderColor1}"/>
+                                <GradientStop Color="{StaticResource winBorderColor2}"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
 
                     <!--USER OPTIONS-->
 

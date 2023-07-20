@@ -72,52 +72,59 @@
       <DependentUpon>PageServersGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="SolutionImages.cs" />
-    <Compile Include="ViewModels\HomeViewModel.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="ViewModels\InfoViewModel.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="ViewModels\H2omeViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\InfoViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="ViewModels\ModsViewModel.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="ViewModels\ServersViewModel.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="ViewModels\SettingsViewModel.cs" />
-    <Compile Include="ViewModels\SupportViewModel.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="ViewModels\ModsViewModel.cs" />
+    <Compile Include="ViewModels\ServersViewModel.cs" />
+    <Compile Include="ViewModels\SettingsAppViewModel.cs" />
+    <Compile Include="ViewModels\SettingsGameViewModel.cs" />
+    <Compile Include="ViewModels\SupportViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ViewModels\ViewModelCommand.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Views\SettingsView.xaml.cs">
-      <DependentUpon>SettingsView.xaml</DependentUpon>
+    <Compile Include="Views\Home2View.xaml.cs">
+      <DependentUpon>Home2View.xaml</DependentUpon>
     </Compile>
-    <None Include="Views\HomeView.xaml.cs">
-      <DependentUpon>HomeView.xaml</DependentUpon>
-    </None>
-    <None Include="Views\InfoView.xaml.cs">
-      <DependentUpon>InfoView.xaml</DependentUpon>
-    </None>
-    <None Include="Views\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
-    </None>
-    <None Include="Views\ModsView.xaml.cs">
-      <DependentUpon>ModsView.xaml</DependentUpon>
-    </None>
-    <None Include="Views\ServersView.xaml.cs">
-      <DependentUpon>ServersView.xaml</DependentUpon>
-    </None>
-    <None Include="Views\SupportView.xaml.cs">
-      <DependentUpon>SupportView.xaml</DependentUpon>
-    </None>
+    <Compile Include="Views\Info2View.xaml.cs">
+      <DependentUpon>Info2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main2View.xaml.cs">
+      <DependentUpon>Main2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mods2View.xaml.cs">
+      <DependentUpon>Mods2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Servers2View.xaml.cs">
+      <DependentUpon>Servers2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsApp2View.xaml.cs">
+      <DependentUpon>SettingsApp2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsGame2View.xaml.cs">
+      <DependentUpon>SettingsGame2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Support2View.xaml.cs">
+      <DependentUpon>Support2View.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\Home2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Info2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,31 +163,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HomeView.xaml">
+    <Page Include="Views\Mods2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\InfoView.xaml">
+    <Page Include="Views\Servers2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainView.xaml">
+    <Page Include="Views\SettingsApp2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ModsView.xaml">
+    <Page Include="Views\SettingsGame2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ServersView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SettingsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SupportView.xaml">
+    <Page Include="Views\Support2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

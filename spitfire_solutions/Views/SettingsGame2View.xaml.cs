@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace spitfire_solutions.Views
 {
     /// <summary>
-    /// Interaction logic for SettingsView.xaml
+    /// Interaction logic for SettingsGame2View.xaml
     /// </summary>
-    public partial class SettingsView : UserControl
+    public partial class SettingsGame2View : UserControl
     {
-        public SettingsView()
+        public SettingsGame2View()
         {
             InitializeComponent();
         }
