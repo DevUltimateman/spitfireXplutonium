@@ -312,9 +312,10 @@
                         
 
                         <fa:IconImage Icon="{Binding Icon}"
+                                      
                                       Height="20"
                                       Width="20"
-                                      Foreground="{StaticResource titleColor2}"
+                                      Foreground="{StaticResource titleColor1}"
                                       Margin="35,0,10,0"
                                       />
 

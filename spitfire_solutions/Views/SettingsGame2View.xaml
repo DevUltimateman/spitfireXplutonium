@@ -6,11 +6,138 @@
              xmlns:local="clr-namespace:spitfire_solutions.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="GAME SETTINGS VIEW FUKK"
-                   Foreground="WHITE"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="50"></Label>
-    </Grid>
+
+
+    <Border CornerRadius="10">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.25"/>
+                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <!--LEFT SIDE OF THE APP SETTINGS MENU-->
+            <StackPanel Orientation="Horizontal" Grid.Column="0"
+                        Margin="10,5,10,5">
+
+                <!--VERTICAL SIDE OF THE LEFT STACK-->
+                <StackPanel Orientation="Vertical" Grid.Column="0" Width="370">
+
+                    <TextBlock Foreground="White"
+                       HorizontalAlignment="Left"
+                           
+                        FontFamily="Monsterrat"
+                           FontStyle="Normal"
+                        FontSize="15"
+                        FontWeight="DemiBold">
+                    Please select the game from the list <LineBreak/>
+                    that you wish to modify.
+                    </TextBlock>
+
+
+                    <!--Some text styling for the list items with TextBlock.blahblah-->
+                    <ListBox x:Name="lstBoxChooseGame" Width="230"
+                             Height="170"
+                             
+                             ButtonBase.Click="lstBoxChooseGame_Click"
+                             Cursor="Hand"
+                             
+                             TextBlock.FontSize="15"
+                             TextBlock.FontWeight="DemiBold"
+                             TextBlock.FontFamily="Monsterrat"
+                             HorizontalAlignment="Left"
+                             Margin="0,5,0,0"
+                             BorderBrush="White"
+                             Background="{StaticResource color1}"
+                             Foreground="White" SelectionChanged="lstBoxChooseGame_SelectionChanged">
+                        
+                        <!--MAKE THE LIST BOX ROUNDED TOO!-->
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Resources>
+
+                                    <!--ITEM ROUNDATION-->
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+
+                                </Style.Resources>
+                            </Style>
+
+                        </ListBox.ItemContainerStyle>
+                        
+                        <ListBox.Style>
+    
+                            <Style TargetType="ListBox">
+                                <Style.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.Style>
+
+                    </ListBox>
+
+
+
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Selected game:"
+                           Foreground="White"
+                               HorizontalAlignment="Left"
+                           FontSize="25"/>
+                        <Label x:Name="lblGameName" Content=""
+                           Foreground="White"
+                               HorizontalAlignment="Left"
+                           FontSize="25"/>
+                        <Label Content="I AM GAY UUUUU"
+                               HorizontalAlignment="Left"
+                           Foreground="White"
+                           FontSize="25"/>
+                    </StackPanel>
+
+
+
+
+                </StackPanel>
+
+            </StackPanel>
+            
+            
+            <!--LEFT SIDE STACK PANEL-->
+
+            <StackPanel Grid.Column="1" Orientation="Vertical"
+                        Margin="10,5,10,5">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Game Location"
+                           FontSize="15"
+                           FontWeight="DemiBold"
+                           FontFamily="Monsterrat"
+                           Foreground="White"/>
+
+                    <TextBlock x:Name="txtGameLoc" Text=""
+                               Margin="30,0,0,0"
+                           FontSize="15"
+                           FontWeight="DemiBold"
+                           FontFamily="Monsterrat"
+                           Foreground="White"/>
+
+                </StackPanel>
+                
+
+            </StackPanel>
+        </Grid>
+
+
+    </Border>
+    
 </UserControl>

@@ -30,6 +30,7 @@ namespace spitfire_solutions
         //textures
         private string textureFolderPath = "\\images";
 
+        private string pluto = "\\Plutonium\\storage\\";
         //generic expressions
         private string gameFolderNotFound = "Spitfire was unable to locate ";
         private string gameFolderAsk = "Would you like the program to create this path for you?";
@@ -45,8 +46,52 @@ namespace spitfire_solutions
         }
 
 
+        //INCASE WE WANT TO KNOW THE GAME LOCATIONS IN ANOTHER CLASS WITHOUT THE ARRAY RETURN DEFINED IN RETURNMODFOLDERS()
 
+        
 
+        //ALL RETURN VALUES FOR INHERITANCES
+        public string bo1ScriptLocations( bool scripts, string mode )
+        {
+            if( scripts )
+            {
+                if (mode == "mp") { return giveMeAppData() + pluto + "t5" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto + "t5" + scriptsFolderPath_zombie;
+            }
+            else { return giveMeAppData() + pluto + "t5"; }
+        }
+
+        public string bo2ScriptLocations( bool scripts, bool images, string mode )
+        {
+            if (scripts)
+            {
+                if (mode == "mp") { return giveMeAppData() + pluto + "t6" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto + "t6" + scriptsFolderPath_zombie;
+            }
+            else { return giveMeAppData() + pluto + "t6"; }
+        }
+
+        public string wawScriptLocations( bool scripts, bool images, string mode )
+        {
+            if (scripts)
+            {
+                if (mode == "mp") { return giveMeAppData() + pluto + "t4" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto + "t4" + scriptsFolderPath_zombie;
+            }
+            else { return giveMeAppData() + pluto + "t4"; }
+        }
+
+        public string mwScriptLocations( bool scripts, bool images, string mode )
+        {
+            if (scripts)
+            {
+                if (mode == "mp") { return giveMeAppData() + pluto + "iw5" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto + "iw5" + scriptsFolderPath_zombie;
+            }
+            else { return giveMeAppData() + pluto + "iw5"; }
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //all the available games on plutonium atm
         public string[] returnGames()
@@ -66,14 +111,14 @@ namespace spitfire_solutions
         }
 
         //let's populate the list box with our gamelist
-        public void makeGameList( bool showMessage )
+        public void makeGameList( bool showMessage, ListBox lboxParam )
         {
             //clear all previous items just in case
-            if( gameListBox.Items.Count > 0 )
+            if( lboxParam.Items.Count > 0 )
             {
                 try
                 {
-                    gameListBox.Items.Clear();
+                    lboxParam.Items.Clear();
                 }
 
                 catch( Exception a)
@@ -84,21 +129,21 @@ namespace spitfire_solutions
 
             //okay the list is clear, now populate it.
             string[] templist = returnGames();
-            gameListBox.ItemsSource = templist;
+            lboxParam.ItemsSource = templist;
 
             //debug stuff
             //let's see if we have populated the list and and print em out in console.
-            for( int i = 0; i < gameListBox.Items.Count; i++ )
+            for( int i = 0; i < lboxParam.Items.Count; i++ )
             {
                 if( showMessage )
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine( gameListBox.Items[i].ToString() );
+                    Console.WriteLine( lboxParam.Items[i].ToString() );
                 }
             }
 
             //show the total amount ( during prod. )
-            MessageBox.Show("Total amount of games: " + gameListBox.Items.Count.ToString(), spit );
+            MessageBox.Show("Total amount of games: " + lboxParam.Items.Count.ToString(), spit );
 
             //if debug enable
             if( showMessage )

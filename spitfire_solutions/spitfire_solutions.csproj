@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>fireLogo2k.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -62,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ListBoxToGames.cs" />
     <Compile Include="PageHome.xaml.cs">
       <DependentUpon>PageHome.xaml</DependentUpon>
     </Compile>
@@ -231,6 +235,9 @@
   <ItemGroup>
     <Resource Include="images\logos\fireLogo2k.png" />
     <Resource Include="images\logos\spitLogo2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fireLogo2k.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,11 +6,58 @@
              xmlns:local="clr-namespace:spitfire_solutions.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="I AM A FUCKING HOME PAGE"
-                   Foreground="WHITE"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="50"></Label>
-    </Grid>
+    <Border
+        CornerRadius="20">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor2}"  Offset="0.6"/>
+            </LinearGradientBrush>
+
+        </Border.Background>
+
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <Image Source="/images/logos/spitLogo2k.png"
+               Width="502"
+               Height="568"
+               
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="109,-56,0,0" Grid.RowSpan="3"/>
+
+
+            <TextBlock
+           
+            
+            Height="101"
+            Width="500"
+            FontStretch="Medium"
+            FontFamily="Monsterrat"
+            Grid.Row="1"
+            Foreground="AntiqueWhite"
+            
+            FontSize="20"
+            FontWeight="Bold"
+            FontStyle="Italic"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            
+            TextWrapping="Wrap" Margin="290,100,0,0" Grid.RowSpan="2">
+            Spitfire is here to simplify your experience. <LineBreak/>
+            Easy to use "all in one" tool, developed by Ultimateman for the community.
+
+            </TextBlock>
+
+        </Grid>
+
+    </Border>
 </UserControl>
