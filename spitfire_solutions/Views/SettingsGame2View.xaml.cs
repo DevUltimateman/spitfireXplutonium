@@ -34,7 +34,10 @@ namespace spitfire_solutions.Views
 
         private void CallGameFolderClass()
         {
-            ListBoxToGames game = new ListBoxToGames( "Black Ops", )
+            ListBoxToGames game = new ListBoxToGames("Black Ops", gameFolderCall.bo1ScriptLocations(false, "s"));
+            lstBoxChooseGame.Items.Add(game);
+            game = new ListBoxToGames("Black Ops II", gameFolderCall.bo2ScriptLocations(false, "s") );
+            lstBoxChooseGame.Items.Add(game);
         }
 
         private void lstBoxChooseGame_Click(object sender, RoutedEventArgs e)
@@ -44,7 +47,23 @@ namespace spitfire_solutions.Views
 
         private void lstBoxChooseGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lblGameName.Content = lstBoxChooseGame.SelectedItem.ToString();
+            //hard coded, cant be bothered out to figure out the proper way with all this workload
+            switch( lstBoxChooseGame.SelectedIndex )
+            {
+                case 0:
+                    lblGameName.Content = lstBoxChooseGame.Items[0].ToString();
+                    txtGameLoc.Text = gameFolderCall.bo1ScriptLocations(false, "s").ToString();
+                    break;
+
+                case 1:
+                    lblGameName.Content = lstBoxChooseGame.Items[1].ToString();
+                    txtGameLoc.Text = gameFolderCall.bo2ScriptLocations(false, "s").ToString();
+                    break;
+
+
+            }
+            
+            //txtGameLoc.Text = 
         }
     }
 

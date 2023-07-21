@@ -61,7 +61,7 @@ namespace spitfire_solutions
             else { return giveMeAppData() + pluto + "t5"; }
         }
 
-        public string bo2ScriptLocations( bool scripts, bool images, string mode )
+        public string bo2ScriptLocations( bool scripts, string mode )
         {
             if (scripts)
             {
@@ -71,7 +71,7 @@ namespace spitfire_solutions
             else { return giveMeAppData() + pluto + "t6"; }
         }
 
-        public string wawScriptLocations( bool scripts, bool images, string mode )
+        public string wawScriptLocations( bool scripts, string mode )
         {
             if (scripts)
             {
@@ -81,7 +81,7 @@ namespace spitfire_solutions
             else { return giveMeAppData() + pluto + "t4"; }
         }
 
-        public string mwScriptLocations( bool scripts, bool images, string mode )
+        public string mwScriptLocations( bool scripts, string mode )
         {
             if (scripts)
             {

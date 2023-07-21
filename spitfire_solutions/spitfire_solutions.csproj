@@ -209,6 +209,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="images\bo1zombiebg.webp" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -238,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="fireLogo2k.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\bo1mpbg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

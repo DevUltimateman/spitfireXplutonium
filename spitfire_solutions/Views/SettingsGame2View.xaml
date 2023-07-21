@@ -4,18 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:spitfire_solutions.Views"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
 
-    <Border CornerRadius="10">
+    <Border CornerRadius="10"
+            Opacity="1">
         <Border.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.25"/>
                 <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-
+        
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -23,6 +25,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            <Image Source="/images/bo1mpbg.jpg"
+               Height="720"
+               Width="1280"
+                   Grid.Column="0"
+                   Opacity="0.2"/>
 
             <!--LEFT SIDE OF THE APP SETTINGS MENU-->
             <StackPanel Orientation="Horizontal" Grid.Column="0"
@@ -112,12 +119,26 @@
             </StackPanel>
             
             
-            <!--LEFT SIDE STACK PANEL-->
+            <!--RIGHT SIDE STACK PANEL-->
 
             <StackPanel Grid.Column="1" Orientation="Vertical"
                         Margin="10,5,10,5">
 
-                <StackPanel Orientation="Horizontal">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="AliceBlue"/>
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Style.Resources>
+                    </Style>
+                </StackPanel.Style>
+                
+                
+                <StackPanel Orientation="Vertical" >
+
+                    
                     <TextBlock Text="Game Location"
                            FontSize="15"
                            FontWeight="DemiBold"
@@ -125,11 +146,37 @@
                            Foreground="White"/>
 
                     <TextBlock x:Name="txtGameLoc" Text=""
-                               Margin="30,0,0,0"
+                               Margin="0,0,0,0"
                            FontSize="15"
                            FontWeight="DemiBold"
                            FontFamily="Monsterrat"
                            Foreground="White"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0"
+                                Background="{StaticResource color5}">
+
+                        <TextBlock Text="Set location manually?"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,0"
+                                   FontSize="20"
+                                   FontWeight="DemiBold"
+                                   Foreground="{StaticResource color6}"
+                                    Height="30"/>
+                        <Button
+                            Width="30"
+                            Height="30"
+                            Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                            Background="Transparent">
+                            <fa:IconImage Icon="Toolbox" Style="{StaticResource iconBtnIcon }" Foreground="{StaticResource color6}"/>
+                        </Button>
+
+                    </StackPanel>
+                    
+
+                        
+                    
+
 
                 </StackPanel>
                 
