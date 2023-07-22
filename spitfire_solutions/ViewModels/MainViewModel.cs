@@ -73,6 +73,7 @@ namespace spitfire_solutions.ViewModels
         private void ExecuteAppSettingsViewCommand(object obj)
         {
             CurrentChildView = new SettingsAppViewModel();
+            Caption = "App Settings";
             Icon = IconChar.Tools;
         }
 
@@ -101,6 +102,7 @@ namespace spitfire_solutions.ViewModels
         private void ExecuteHomeViewCommand(object obj) 
         {
             CurrentChildView = new HomeViewModel();
+            Caption = "Home";
             Icon = IconChar.Home;
         }
         private void ExecuteInfoViewCommand(object obj) 
@@ -112,12 +114,12 @@ namespace spitfire_solutions.ViewModels
         private void ExecuteMainViewCommand(object obj) 
         {
             CurrentChildView = new MainViewModel();
-            Caption = "Dashboard";
-            Icon = IconChar.Home;
+            
         }
         private void ExecuteServersViewCommand(object obj) 
         {
             CurrentChildView = new ServersViewModel();
+            Caption = "Servers";
             Icon = IconChar.Server;
         }  
         private void ExecuteSupportViewCommand(object obj) 
