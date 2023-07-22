@@ -25,45 +25,14 @@ namespace spitfire_solutions.ViewModels
         private IconChar _icon;
       
         //CHILD VIEW ON GRID
-        public ViewModelBase CurrentChildView 
-        { 
-            get 
-            {  
-                return _currentChildView; 
-            } 
-            set 
-            { 
-                _currentChildView = value;
-                OnPropertyChanged(nameof(CurrentChildView)); 
-            } 
-        }
+        public ViewModelBase CurrentChildView { get { return _currentChildView; } set { _currentChildView = value; OnPropertyChanged(nameof(CurrentChildView)); } }
+        
         //CAPTION CHANGER
-        public string Caption 
-        { 
-            get 
-            { 
-                return _caption; 
-            } 
-            set 
-            { 
-                _caption = value; 
-                OnPropertyChanged(nameof(Caption));
-            }
-        }
+        public string Caption { get { return _caption; } set { _caption = value; OnPropertyChanged(nameof(Caption)); } }
+        
         //ICON / IMAGE CHANGER
-        public IconChar Icon 
-        { 
-            get 
-            { 
-                return _icon; 
-            } 
-            set
-            { 
-                _icon = value; 
-                OnPropertyChanged(nameof(Icon)); 
-            }
-        }
-
+        public IconChar Icon { get { return _icon; } set { _icon = value; OnPropertyChanged(nameof(Icon)); } }
+        
         //COMMANDS
         public ICommand ShowHomeViewCommand                 { get; }
         public ICommand ShowInfoViewCommand                 { get; }
