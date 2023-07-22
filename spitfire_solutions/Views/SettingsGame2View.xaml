@@ -54,7 +54,7 @@
                     <ListBox x:Name="lstBoxChooseGame" Width="230"
                              Height="170"
                              
-                             ButtonBase.Click="lstBoxChooseGame_Click"
+                             
                              Cursor="Hand"
                              
                              TextBlock.FontSize="15"

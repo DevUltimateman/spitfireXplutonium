@@ -21,7 +21,7 @@ using Microsoft.Win32;
 namespace spitfire_solutions.Views
 {
     /// <summary>
-    /// Interaction logic for SettingsGame2View.xaml
+    /// Game settings page for Spitfire
     /// </summary>
     public partial class SettingsGame2View : System.Windows.Controls.UserControl
     {
@@ -36,11 +36,12 @@ namespace spitfire_solutions.Views
         {
             InitializeComponent();
             CallGameFolderClass();
-
         }
 
 
         //creating the listbox items that we show on the GAMESETTINGS PAGE, inherits from "gamefolderlist" class
+        //false pass = no scripts folder, just the executable folder
+        //string pass != mp, return a zm location
         private void CallGameFolderClass()
         {
             ListBoxToGames game = new ListBoxToGames("Black Ops", gameFolderCall.bo1ScriptLocations(false, "s"));
@@ -49,7 +50,7 @@ namespace spitfire_solutions.Views
             lstBoxChooseGame.Items.Add(game);
             game = new ListBoxToGames("World At War", gameFolderCall.wawScriptLocations(false, "f"));
             lstBoxChooseGame.Items.Add(game);
-            game = new ListBoxToGames( "Modern Warfare", gameFolderCall.mwScriptLocations(false, "f") );
+            game = new ListBoxToGames( "Modern Warfare III", gameFolderCall.mwScriptLocations(false, "f") );
             lstBoxChooseGame.Items.Add(game);
         }
 
@@ -62,8 +63,12 @@ namespace spitfire_solutions.Views
                 throw new Exception();
                 
             }
-            //hard coded, cant be bothered out to figure out the proper way with all this workload
-            switch( lstBoxChooseGame.SelectedIndex )
+
+            lblGameName.Content = ((ListBoxToGames)lstBoxChooseGame.SelectedItem).ObjectGameName;
+            txtGameLoc.Text = ((ListBoxToGames)lstBoxChooseGame.SelectedItem).ObjectGamePath;
+            //hard coded, cant be bothered out to figure out the proper way with all this workload, oops it seems like I figured it out ^
+            /*
+            switch ( lstBoxChooseGame.SelectedIndex )
             {
                 case 0:
                     lblGameName.Content = lstBoxChooseGame.Items[0].ToString();
@@ -85,6 +90,7 @@ namespace spitfire_solutions.Views
                     txtGameLoc.Text = gameFolderCall.mwScriptLocations(false, "s").ToString();
                     break;
             } 
+            */
         }
 
 
@@ -107,11 +113,11 @@ namespace spitfire_solutions.Views
         [DllImport("user32.dll")]
         static extern int SetWindowText(IntPtr hWnd, string lpText);
 
+
+        ///open window exploer with said parameter
         private void showGameLoc( string path )
         {
-            ///open window exploer with said parameter
-            Process.Start(path);
-            
+            Process.Start(path);   
         }
     }
 }

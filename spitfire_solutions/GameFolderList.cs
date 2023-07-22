@@ -21,16 +21,24 @@ namespace spitfire_solutions
 
         //extension names for folder paths / scripts
 
-        //multi
+        //multi scripts folder
         private string scriptsFolderPath_multi = "\\scripts\\zm";
 
-        //zombie
+        //zombie scripts folder
         private string scriptsFolderPath_zombie = "\\scripts\\zm";
 
-        //textures
+        //textures folder
         private string textureFolderPath = "\\images";
 
-        private string pluto = "\\Plutonium\\storage\\";
+        //pluto folder
+        private string pluto = "\\Plutonium\\";
+
+        //storage folder
+        private string storage = "\\storage\\";
+
+        //executables
+        private string games = "\\games";
+
         //generic expressions
         private string gameFolderNotFound = "Spitfire was unable to locate ";
         private string gameFolderAsk = "Would you like the program to create this path for you?";
@@ -55,40 +63,44 @@ namespace spitfire_solutions
         {
             if( scripts )
             {
-                if (mode == "mp") { return giveMeAppData() + pluto + "t5" + scriptsFolderPath_multi; }
-                else return giveMeAppData() + pluto + "t5" + scriptsFolderPath_zombie;
+                if (mode == "mp") { return giveMeAppData() + pluto + storage + "t5" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto +  storage + "t5" + scriptsFolderPath_zombie;
             }
-            else { return giveMeAppData() + pluto + "t5"; }
+            //if scripts false == return game executable
+            else { return giveMeAppData() + pluto + games; }
         }
 
         public string bo2ScriptLocations( bool scripts, string mode )
         {
             if (scripts)
             {
-                if (mode == "mp") { return giveMeAppData() + pluto + "t6" + scriptsFolderPath_multi; }
-                else return giveMeAppData() + pluto + "t6" + scriptsFolderPath_zombie;
+                if (mode == "mp") { return giveMeAppData() + pluto + storage + "t6" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto + storage + "t6" + scriptsFolderPath_zombie;
             }
-            else { return giveMeAppData() + pluto + "t6"; }
+            //if scripts false == return game executable
+            else { return giveMeAppData() + pluto + games; }
         }
 
         public string wawScriptLocations( bool scripts, string mode )
         {
             if (scripts)
             {
-                if (mode == "mp") { return giveMeAppData() + pluto + "t4" + scriptsFolderPath_multi; }
-                else return giveMeAppData() + pluto + "t4" + scriptsFolderPath_zombie;
+                if (mode == "mp") { return giveMeAppData() + pluto + storage + "t4" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto + storage + "t4" + scriptsFolderPath_zombie;
             }
-            else { return giveMeAppData() + pluto + "t4"; }
+            //if scripts false == return game executable
+            else { return giveMeAppData() + pluto + games; }
         }
 
         public string mwScriptLocations( bool scripts, string mode )
         {
             if (scripts)
             {
-                if (mode == "mp") { return giveMeAppData() + pluto + "iw5" + scriptsFolderPath_multi; }
-                else return giveMeAppData() + pluto + "iw5" + scriptsFolderPath_zombie;
+                if (mode == "mp") { return giveMeAppData() + pluto + games + "iw5" + scriptsFolderPath_multi; }
+                else return giveMeAppData() + pluto + games + "iw5" + scriptsFolderPath_zombie;
             }
-            else { return giveMeAppData() + pluto + "iw5"; }
+            //if scripts false == return game executable
+            else { return giveMeAppData() + pluto + games; }
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////

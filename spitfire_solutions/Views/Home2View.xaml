@@ -7,15 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Border
-        CornerRadius="20">
+        CornerRadius="20"
+        
+        >
         <Border.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.6">
                 <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
                 <GradientStop Color="{StaticResource winBorderColor2}"  Offset="0.6"/>
             </LinearGradientBrush>
 
         </Border.Background>
 
+        
 
         <Grid>
 
@@ -25,36 +28,79 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <Image Source="/images/bg/zombie_derriese.jpg"
+               Width="1200"
+               Height="Auto"
+                   
+                   Grid.Row="0"
+                   Grid.RowSpan="3"
+                   Opacity="0.55">
+
+                
+
+            </Image>
+
+
 
             <Image Source="/images/logos/spitLogo2k.png"
                Width="502"
                Height="568"
                
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               Margin="109,-56,0,0" Grid.RowSpan="3"/>
+               
+               HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="1"
+                   Margin="0,-60,0,0"/>
 
+            <Border CornerRadius="4"
+                    
+                    Background="White"
+                    Height="8"
+                    Width="360"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Margin="90,-142,0,0">
+                
+            </Border>
 
-            <TextBlock
-           
+            <Border>
+                
+            </Border>
             
-            Height="101"
+            
+            <TextBlock
+            
+                
+            
+                
+            Height="100"
             Width="500"
             FontStretch="Medium"
             FontFamily="Monsterrat"
             Grid.Row="1"
             Foreground="AntiqueWhite"
             
-            FontSize="20"
+            FontSize="18"
             FontWeight="Bold"
             FontStyle="Italic"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="230,-25,0,0"
+                
             
-            TextWrapping="Wrap" Margin="290,100,0,0" Grid.RowSpan="2">
+            
+            TextWrapping="Wrap"  Grid.RowSpan="2" UseLayoutRounding="True">
             Spitfire is here to simplify your experience. <LineBreak/>
-            Easy to use "all in one" tool, developed by Ultimateman for the community.
+            Easy to use, "all in one" for Plutonium Project.<LineBreak/>
+            Developed by Ultimateman for the community.
 
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        ShadowDepth="4"
+                        BlurRadius="4">
+                        
+                    </DropShadowEffect>
+                </TextBlock.Effect>
             </TextBlock>
 
         </Grid>
