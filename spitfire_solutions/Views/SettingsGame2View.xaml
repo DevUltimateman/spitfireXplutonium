@@ -105,8 +105,10 @@
                            Foreground="White"
                                HorizontalAlignment="Left"
                            FontSize="25"/>
-                        <Label Content="I AM GAY UUUUU"
+                        <Label Content="YOU JUST GOT PAWNED FUUUUK"
                                HorizontalAlignment="Left"
+                               VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
                            Foreground="White"
                            FontSize="25"/>
                     </StackPanel>
@@ -136,39 +138,45 @@
                 </StackPanel.Style>
                 
                 
-                <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Vertical"
+                            Background="{StaticResource color4}">
 
                     
                     <TextBlock Text="Game Location"
-                           FontSize="15"
+                           FontSize="20"
                            FontWeight="DemiBold"
                            FontFamily="Monsterrat"
                            Foreground="White"/>
 
                     <TextBlock x:Name="txtGameLoc" Text=""
                                Margin="0,0,0,0"
+                               Opacity="0.8"
                            FontSize="15"
                            FontWeight="DemiBold"
                            FontFamily="Monsterrat"
                            Foreground="White"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0"
-                                Background="{StaticResource color5}">
+                                Background="{StaticResource color2}">
 
-                        <TextBlock Text="Set location manually?"
+                        <TextBlock Text="Open the game folder location?"
                                    VerticalAlignment="Center"
                                    Margin="0,0,0,0"
                                    FontSize="20"
                                    FontWeight="DemiBold"
-                                   Foreground="{StaticResource color6}"
+                                   Foreground="White"
                                     Height="30"/>
                         <Button
+                            BorderBrush="Transparent"
+                            
+
                             Width="30"
+                            Cursor="Hand"
                             Height="30"
                             Margin="10,0,0,0"
                         VerticalAlignment="Center"
                             Background="Transparent">
-                            <fa:IconImage Icon="Toolbox" Style="{StaticResource iconBtnIcon }" Foreground="{StaticResource color6}"/>
+                            <fa:IconImage Icon="Toolbox" Style="{StaticResource iconBtnIcon }" Foreground="{StaticResource color3}" MouseDown="IconImage_MouseDown"/>
                         </Button>
 
                     </StackPanel>
