@@ -13,8 +13,8 @@
             Opacity="1">
         <Border.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.25"/>
-                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0.9"/>
             </LinearGradientBrush>
         </Border.Background>
         
@@ -99,11 +99,13 @@
                     <StackPanel Orientation="Vertical">
                         <Label Content="Selected game:"
                            Foreground="White"
+                               FontWeight="DemiBold"
                                HorizontalAlignment="Left"
                            FontSize="25"/>
                         <Label x:Name="lblGameName" Content=""
-                           Foreground="White"
+                           Foreground="Orange"
                                HorizontalAlignment="Left"
+                               FontWeight="Bold"
                            FontSize="25"/>
                         <Label Content="YOU JUST GOT PAWNED FUUUUK"
                                HorizontalAlignment="Left"

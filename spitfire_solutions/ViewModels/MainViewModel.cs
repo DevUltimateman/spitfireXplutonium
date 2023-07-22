@@ -80,6 +80,7 @@ namespace spitfire_solutions.ViewModels
         //MainViewModel to be referenced
         public MainViewModel()
         {
+            
             //INIT COMMANDS
             ShowHomeViewCommand = new ViewModelCommand( ExecuteHomeViewCommand );
             ShowInfoViewCommand = new ViewModelCommand(ExecuteInfoViewCommand);
@@ -97,16 +98,18 @@ namespace spitfire_solutions.ViewModels
             ExecuteHomeViewCommand(null);
         }
 
+        //let's initialize these here so that the views wont be restored upon page swapping.
+        
+
         private void ExecuteAppSettingsViewCommand(object obj)
         {
             CurrentChildView = new SettingsAppViewModel();
-            Caption = "Application Settings";
             Icon = IconChar.Tools;
         }
 
         private void ExecuteH2omeViewCommand(object obj)
         {
-            CurrentChildView = new H2omeViewModel();
+            CurrentChildView = new HomeViewModel();
             Caption = "h2 test";
             Icon = IconChar.Laugh;
         }
@@ -120,7 +123,7 @@ namespace spitfire_solutions.ViewModels
 
         //VOIDS FOR CREATING A NEW INSTANCE OF SAID VIEWMODEL & DISPLAYING IT ON THE RIGHT BLOCK
         private void ExecuteModsViewCommand(object obj) 
-        { 
+        {
             CurrentChildView = new ModsViewModel();
             Caption = "Mods";
             Icon = IconChar.Modx;
@@ -129,11 +132,10 @@ namespace spitfire_solutions.ViewModels
         private void ExecuteHomeViewCommand(object obj) 
         {
             CurrentChildView = new HomeViewModel();
-            Caption = "Home";
             Icon = IconChar.Home;
         }
         private void ExecuteInfoViewCommand(object obj) 
-        { 
+        {
             CurrentChildView = new InfoViewModel();
             Caption = "Info";
             Icon = IconChar.Info;
@@ -147,7 +149,6 @@ namespace spitfire_solutions.ViewModels
         private void ExecuteServersViewCommand(object obj) 
         {
             CurrentChildView = new ServersViewModel();
-            Caption = "Servers";
             Icon = IconChar.Server;
         }  
         private void ExecuteSupportViewCommand(object obj) 

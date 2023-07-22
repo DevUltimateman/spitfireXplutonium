@@ -92,17 +92,19 @@
             TextWrapping="Wrap"  Grid.RowSpan="2" UseLayoutRounding="True">
             Spitfire is here to simplify your experience. <LineBreak/>
             Easy to use, "all in one" for Plutonium Project.<LineBreak/>
-            Developed by Ultimateman for the community.
-
+            Developed by Ultimateman for the community.<LineBreak/>
                 <TextBlock.Effect>
                     <DropShadowEffect
                         ShadowDepth="4"
                         BlurRadius="4">
-                        
+
                     </DropShadowEffect>
                 </TextBlock.Effect>
-            </TextBlock>
 
+
+            </TextBlock>
+            
+            
         </Grid>
 
     </Border>
