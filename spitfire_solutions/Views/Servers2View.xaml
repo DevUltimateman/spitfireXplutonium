@@ -12,5 +12,37 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="50"></Label>
+
+        <TextBlock x:Name="txtBSerTest"
+                   Width="400"
+                   Height="400"
+                   Foreground="White"></TextBlock>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="txt1"
+                       Text=""
+                       Foreground="White"
+                       FontSize="12"
+                       Width="Auto"
+                       ></TextBlock>
+            <TextBlock x:Name="txt2"
+                       Text=""
+                       Foreground="White"
+                       FontSize="12"
+                       Width="Auto"
+                       ></TextBlock>
+            <TextBlock x:Name="txt3"
+                       Text=""
+                       Foreground="White"
+                       FontSize="12"
+                       Width="Auto"
+                       ></TextBlock>
+            <TextBlock x:Name="txt4"
+                       Text=""
+                       Foreground="White"
+                       FontSize="12"
+                       Width="Auto"
+                       ></TextBlock>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -12,9 +12,9 @@
     <Border CornerRadius="10"
             Opacity="1">
         <Border.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0"/>
-                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0.9"/>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.1">
+                <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0.9"/>
             </LinearGradientBrush>
         </Border.Background>
         
@@ -28,8 +28,9 @@
             <Image Source="/images/bo1mpbg.jpg"
                Height="720"
                Width="1280"
+                   
                    Grid.Column="0"
-                   Opacity="0.2"/>
+                   Opacity="0.04"/>
 
             <!--LEFT SIDE OF THE APP SETTINGS MENU-->
             <StackPanel Orientation="Horizontal" Grid.Column="0"
@@ -38,67 +39,80 @@
                 <!--VERTICAL SIDE OF THE LEFT STACK-->
                 <StackPanel Orientation="Vertical" Grid.Column="0" Width="370">
 
-                    <TextBlock Foreground="White"
+                    <TextBlock Foreground="{StaticResource color10}"
                        HorizontalAlignment="Left"
                            
                         FontFamily="Monsterrat"
                            FontStyle="Normal"
-                        FontSize="15"
-                        FontWeight="DemiBold">
+                        FontSize="16"
+                               
+                               Margin="-5,-2,0,0"
+                        FontWeight="Normal" VerticalAlignment="Top" TextAlignment="Left">
                     Please select the game from the list <LineBreak/>
                     that you wish to modify.
                     </TextBlock>
 
 
-                    <!--Some text styling for the list items with TextBlock.blahblah-->
-                    <ListBox x:Name="lstBoxChooseGame" Width="230"
+                    <StackPanel Orientation="Horizontal">
+                        <!--Some text styling for the list items with TextBlock.blahblah-->
+                        <ListBox x:Name="lstBoxChooseGame" Width="220"
                              Height="170"
                              
                              
                              Cursor="Hand"
                              
-                             TextBlock.FontSize="15"
+                             TextBlock.FontSize="18"
+                             TextBlock.TextAlignment="Left"
                              TextBlock.FontWeight="DemiBold"
                              TextBlock.FontFamily="Monsterrat"
                              HorizontalAlignment="Left"
-                             Margin="0,5,0,0"
-                             BorderBrush="White"
-                             Background="{StaticResource color1}"
+                             HorizontalContentAlignment="Left"
+                             Margin="-10,10,0,0"
+                             BorderBrush="Transparent"
+                                 
+                             Background="Transparent"
                              Foreground="White" SelectionChanged="lstBoxChooseGame_SelectionChanged">
+
+                            <!--MAKE THE LIST BOX ROUNDED TOO!-->
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Style.Resources>
+
+                                        <!--ITEM ROUNDATION-->
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+
+
+                                    </Style.Resources>
+                                </Style>
+
+                            </ListBox.ItemContainerStyle>
+
+                            <ListBox.Style>
+
+                                <Style TargetType="ListBox">
+                                    <Style.Resources>
+                                        <Style TargetType="Border">
+                                            
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                            <Setter Property="Opacity" Value="1"/>
+                                        </Style>
+                                    </Style.Resources>
+                                </Style>
+                            </ListBox.Style>
+
+                        </ListBox>
+
                         
-                        <!--MAKE THE LIST BOX ROUNDED TOO!-->
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Style.Resources>
 
-                                    <!--ITEM ROUNDATION-->
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="5"/>
-                                    </Style>
-
-                                </Style.Resources>
-                            </Style>
-
-                        </ListBox.ItemContainerStyle>
-                        
-                        <ListBox.Style>
-    
-                            <Style TargetType="ListBox">
-                                <Style.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="10"/>
-                                    </Style>
-                                </Style.Resources>
-                            </Style>
-                        </ListBox.Style>
-
-                    </ListBox>
-
-
+                    </StackPanel>
+                    
+                    
 
                     <StackPanel Orientation="Vertical">
                         <Label Content="Selected game:"
-                           Foreground="White"
+                           Foreground="{StaticResource color10}"
                                FontWeight="DemiBold"
                                HorizontalAlignment="Left"
                            FontSize="25"/>
@@ -141,14 +155,14 @@
                 
                 
                 <StackPanel Orientation="Vertical"
-                            Background="{StaticResource color4}">
+                            Background="{StaticResource panelActiveColor}">
 
                     
                     <TextBlock Text="Game Location"
                            FontSize="20"
                            FontWeight="DemiBold"
                            FontFamily="Monsterrat"
-                           Foreground="White"/>
+                           Foreground="{StaticResource color10}"/>
 
                     <TextBlock x:Name="txtGameLoc" Text=""
                                Margin="0,0,0,0"
@@ -159,14 +173,14 @@
                            Foreground="White"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0"
-                                Background="{StaticResource color2}">
+                                Background="{StaticResource panelActiveColor}">
 
                         <TextBlock Text="Open the game folder location?"
                                    VerticalAlignment="Center"
                                    Margin="0,0,0,0"
                                    FontSize="20"
                                    FontWeight="DemiBold"
-                                   Foreground="White"
+                                   Foreground="{StaticResource color10}"
                                     Height="30"/>
                         <Button
                             BorderBrush="Transparent"

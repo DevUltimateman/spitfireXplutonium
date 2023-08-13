@@ -11,9 +11,9 @@
         
         >
         <Border.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.6">
-                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
-                <GradientStop Color="{StaticResource winBorderColor2}"  Offset="0.6"/>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05  ">
+                <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource primaryBackColor2}"  Offset="0.6"/>
             </LinearGradientBrush>
 
         </Border.Background>
@@ -34,7 +34,7 @@
                    
                    Grid.Row="0"
                    Grid.RowSpan="3"
-                   Opacity="0.55">
+                   Opacity="0.05">
 
                 
 

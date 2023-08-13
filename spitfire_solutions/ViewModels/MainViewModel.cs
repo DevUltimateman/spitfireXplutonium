@@ -67,8 +67,9 @@ namespace spitfire_solutions.ViewModels
             ExecuteHomeViewCommand(null);
         }
 
-        //let's initialize these here so that the views wont be restored upon page swapping.
         
+        //let's initialize these here so that the views wont be restored upon page swapping.
+        //public SettingsGameViewModel lol = new SettingsGameViewModel();
 
         private void ExecuteAppSettingsViewCommand(object obj)
         {

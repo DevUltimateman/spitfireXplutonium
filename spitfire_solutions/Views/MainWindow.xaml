@@ -8,6 +8,7 @@
         x:Class="spitfire_solutions.MainWindow"
         xmlns:vM="clr-namespace:spitfire_solutions.ViewModels"
         xmlns:vMV="clr-namespace:spitfire_solutions.Views" 
+        
     mc:Ignorable="d"
         Title="Spitfire_" Height="720" Width="1280" Foreground="Transparent"
         
@@ -104,8 +105,8 @@
 
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
-                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
-                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -133,7 +134,7 @@
                     
                     <!--HOME BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color4}"
+                             Tag="{StaticResource color1}"
                              Command="{Binding ShowHomeViewCommand}"    
                                  IsChecked="True"
                                  >
@@ -152,7 +153,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                  Command="{Binding ShowModsViewCommand}"
                                  
-                             Tag="{StaticResource color6}">
+                             Tag="{StaticResource color3}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Modx" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Mods" Style="{StaticResource menuButtonText}"/>
@@ -162,7 +163,7 @@
                     
                     <!--SERVERS BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color8}"
+                             Tag="{StaticResource color1}"
                                  Command="{Binding ShowServersViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Server" Style="{StaticResource menuButtonIcon}"/>
@@ -173,7 +174,7 @@
                     
                     <!--SETTINGS GAME BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color10}"
+                             Tag="{StaticResource color3}"
                                  Command="{Binding ShowGameSettingsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Gears" Style="{StaticResource menuButtonIcon}"/>
@@ -183,7 +184,7 @@
 
                     <!--SETTINGS APP BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color6}"
+                             Tag="{StaticResource color1}"
                                  Command="{Binding ShowAppSettingsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Tools" Style="{StaticResource menuButtonIcon}"/>
@@ -195,7 +196,7 @@
 
                     <!--INFO BUTTON-->
                     <RadioButton Style="{StaticResource menuButton}"
-                             Tag="{StaticResource color9}"
+                             Tag="{StaticResource color3}"
                                  Command="{Binding ShowInfoViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="InfoCircle" Style="{StaticResource menuButtonIcon}"/>
@@ -217,7 +218,7 @@
 
                     <TextBlock 
                         Text="Developed by Ultimateman"
-                        Foreground="{StaticResource plainTextColor1}"
+                        Foreground="{StaticResource plainTextColor3}"
                         Margin="45,150,0,0"
                         
                         />
@@ -237,7 +238,7 @@
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
                         <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
-                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="2"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -335,7 +336,7 @@
                     <Border Grid.Row="1"  CornerRadius="2" Height="5" Width="175" Margin="0,25,730,0">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="{StaticResource winBorderColor1}"/>
+                                <GradientStop Color="{StaticResource secondaryBackColor2}"/>
                                 <GradientStop Color="{StaticResource winBorderColor2}"/>
                             </LinearGradientBrush>
                         </Border.Background>
@@ -362,6 +363,8 @@
                     </StackPanel>
 
                     <ContentControl Content="{Binding CurrentChildView}"
+                                    
+                                    
                                     Grid.Row="2"
                                     
 
