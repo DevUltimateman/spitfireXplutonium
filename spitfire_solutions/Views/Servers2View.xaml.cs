@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -16,7 +18,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
+
+
 
 namespace spitfire_solutions.Views
 {
@@ -39,7 +44,7 @@ namespace spitfire_solutions.Views
 
         public string api = "https://plutonium.pw/api/servers/plutonium";
         public string apiRaid = "http://api.raidmax.org:5000/servers";
-        public string v1Api = "https://api.plutools.pw/v1/servers";
+        public string v1Api = ("https://api.plutools.pw/v1/servers");
         public string Tt;
         HttpClient _httpClient = new HttpClient();
 
@@ -54,6 +59,20 @@ namespace spitfire_solutions.Views
         public void txttest()
         {
            
+        }
+
+        
+
+
+
+        public void CreateApiCall()
+        {
+            ListView myListView = new ListView();
+            //string[] 
+        }   
+
+        public void Get_Api()
+        {
         }
         public async void MyJsonOutput()
         {
@@ -107,17 +126,26 @@ namespace spitfire_solutions.Views
             using (StreamReader r = new StreamReader( CurrentApi() ))
             {
                string json = r.ReadToEnd();
-                List<jItems> items = JsonConvert.DeserializeObject<List<jItems>>(json);
-                
-                
+                List<jItems> items = JsonConvert.DeserializeObject<List<jItems>>(json);   
             }
-
             ListBox lol = new ListBox();
-           
-            
-            
-
         }
+
+
+        public void TestingStuff()
+        {
+            string json = v1Api.ToString();
+            var data = (JObject)JsonConvert.DeserializeObject(json);
+            string user = data["username"].Value<string>();
+            Console.WriteLine(user);
+        }
+
+
+
+
+        
+
+
 
         public class jItems
         {
@@ -135,5 +163,41 @@ namespace spitfire_solutions.Views
 
             
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //JsonTest jtest = new JsonTest();
+            //jtest.MakeApiCall();
+
+            //var model = JsonConvert.DeserializeObject<List<Root>>(v1Api);
+            //TestingStuff();
+
+            dgG.Visibility = Visibility.Visible;
+            //jsonDataDisplay();
+
+
+
+
+
+        }
+
+        //Making an object from human class
+        public void MakeNObject()
+        {
+            Human human = new Human { Name = "John ", LastName = "Alias ", Age = 23 };
+            Console.WriteLine(human.Name + human.LastName +  human.Age);
+            
+        }
+    }
+
+        
+
+    //this how you create a class
+    public class Human
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string LastName { get; set; }
+
     }
 }

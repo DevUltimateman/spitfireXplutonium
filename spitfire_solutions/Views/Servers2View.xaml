@@ -43,6 +43,12 @@
                        FontSize="12"
                        Width="Auto"
                        ></TextBlock>
+            <Button Content="Button" Click="Button_Click"/>
+
+            <DataGrid x:Name="dgG"></DataGrid>
+            
         </StackPanel>
+        
     </Grid>
+    
 </UserControl>

@@ -141,7 +141,7 @@
                         <StackPanel Orientation="Horizontal">
                             
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Home" Style="{StaticResource menuButtonText}" FontFamily="Cascadia Code SemiBold"/>
                         </StackPanel>
                         
                         
@@ -156,7 +156,7 @@
                              Tag="{StaticResource color3}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Modx" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Mods" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Mods" Style="{StaticResource menuButtonText}" FontFamily="Cascadia Code SemiBold"/>
                         </StackPanel>
                     </RadioButton>
 
@@ -167,7 +167,7 @@
                                  Command="{Binding ShowServersViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Server" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Servers" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Servers" Style="{StaticResource menuButtonText}" FontFamily="Cascadia Code SemiBold"/>
                         </StackPanel>
                     </RadioButton>
                     
@@ -178,7 +178,7 @@
                                  Command="{Binding ShowGameSettingsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Gears" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Game Settings" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Game Settings" Style="{StaticResource menuButtonText}" FontFamily="Cascadia Code SemiBold"/>
                         </StackPanel>
                     </RadioButton>
 
@@ -188,7 +188,7 @@
                                  Command="{Binding ShowAppSettingsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Tools" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="App Settings" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="App Settings" Style="{StaticResource menuButtonText}" FontFamily="Cascadia Code SemiBold"/>
                         </StackPanel>
                     </RadioButton>
 
@@ -200,7 +200,7 @@
                                  Command="{Binding ShowInfoViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="InfoCircle" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Info" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Info" Style="{StaticResource menuButtonText}" FontFamily="Cascadia Code SemiBold"/>
                         </StackPanel>
                     </RadioButton>
 
@@ -211,7 +211,7 @@
                                  Command="{Binding ShowSupportViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Donate" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Support" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Support" Style="{StaticResource menuButtonText}" FontFamily="Cascadia Code SemiBold"/>
                         </StackPanel>
                     </RadioButton>
 

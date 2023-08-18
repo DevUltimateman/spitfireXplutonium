@@ -18,94 +18,55 @@
 
         </Border.Background>
 
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            
+            <!--IMAGE FOR SPIT FIRE-->
+            <Image Source="/images/logos/fireLogo2k.png"
+                   Width="200"
+                   Height="200"
+                   Opacity="0.95"/>
+
+            <Rectangle
+                    Width="20"
+                    Height="225"
+                    Fill="{StaticResource color3}">
+
+            </Rectangle>
+
+            <StackPanel Orientation="Vertical"
+                        Margin="25,100,0,100"
+                        VerticalAlignment="Center">
+                <TextBlock x:Name="txtSpitFireLogo"
+                       FontSize="100"
+                       FontWeight="Bold"
+                       
+                           FontFamily="Berlin Sans FB Demi"
+                       Foreground="{StaticResource color10}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="0,0,0,0"
+                       >
+                spitfire
+                </TextBlock>
+                <TextBlock
+                Foreground="{StaticResource plainTextColor2}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                FontSize="18"
+                Opacity="0.8" FontFamily="Cascadia Mono SemiBold"
+                >
+                Spitfire made for Plutonium community, <LineBreak/> Software by Ultimateman.
+
+
+                </TextBlock>
+            </StackPanel>
+            
+        </StackPanel>
+
         
 
-        <Grid>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Image Source="/images/bg/zombie_derriese.jpg"
-               Width="1200"
-               Height="Auto"
-                   
-                   Grid.Row="0"
-                   Grid.RowSpan="3"
-                   Opacity="0.05">
-
-                
-
-            </Image>
-
-
-
-            <Image Source="/images/logos/spitLogo2k.png"
-               Width="502"
-               Height="568"
-               
-               
-               HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Grid.Row="1"
-                   Margin="0,-60,0,0"/>
-
-            <Border CornerRadius="4"
-                    
-                    Background="White"
-                    Height="8"
-                    Width="360"
-                    Grid.Row="1"
-                    Grid.RowSpan="2"
-                    Margin="90,-142,0,0">
-                
-            </Border>
-
-            <Border>
-                
-            </Border>
-            
-            
-            <TextBlock
-            
-                
-            
-                
-            Height="100"
-            Width="500"
-            FontStretch="Medium"
-            FontFamily="Monsterrat"
-            Grid.Row="1"
-            Foreground="AntiqueWhite"
-            
-            FontSize="18"
-            FontWeight="Bold"
-            FontStyle="Italic"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Margin="230,-25,0,0"
-                
-            
-            
-            TextWrapping="Wrap"  Grid.RowSpan="2" UseLayoutRounding="True">
-            Spitfire is here to simplify your experience. <LineBreak/>
-            Easy to use, "all in one" for Plutonium Project.<LineBreak/>
-            Developed by Ultimateman for the community.<LineBreak/>
-                <TextBlock.Effect>
-                    <DropShadowEffect
-                        ShadowDepth="4"
-                        BlurRadius="4">
-
-                    </DropShadowEffect>
-                </TextBlock.Effect>
-
-
-            </TextBlock>
-            
-            
-        </Grid>
+        
 
     </Border>
 </UserControl>

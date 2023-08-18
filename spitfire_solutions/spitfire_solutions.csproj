@@ -86,6 +86,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters.cs" />
+    <Compile Include="GamesStruct.cs" />
+    <Compile Include="JsonServers.cs" />
+    <Compile Include="JsonTest.cs" />
     <Compile Include="ListBoxToGames.cs" />
     <Compile Include="PageHome.xaml.cs">
       <DependentUpon>PageHome.xaml</DependentUpon>
@@ -96,6 +99,8 @@
     <Compile Include="PageServersGame.xaml.cs">
       <DependentUpon>PageServersGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Root.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="SolutionImages.cs" />
     <Compile Include="ViewModels\H2omeViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />

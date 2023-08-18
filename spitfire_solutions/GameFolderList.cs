@@ -122,6 +122,20 @@ namespace spitfire_solutions
             return gameNames;
         }
 
+        public string[] returnGamesExe()
+        {
+            string[] GameExeList =
+            {
+                "t5mp.exe",
+                "t5zm.exe",
+                "t6mp.exe",
+                "t6zm.exe",
+                "t4mp.exe",
+                "t4zm.exe",
+                "iw5mp.exe"
+            };
+            return GameExeList;
+        }
         //let's populate the list box with our gamelist
         public void makeGameList( bool showMessage, ListBox lboxParam )
         {
