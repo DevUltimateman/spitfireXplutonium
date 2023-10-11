@@ -20,6 +20,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
+using System.Text.Json;
+
+
+//for json
+
 
 
 
@@ -35,77 +40,155 @@ namespace spitfire_solutions.Views
             InitializeComponent();
             //txtBSerTest.Text = CurrentApi();
             //LoadJson();
-            MyJsonOutput();
+            //MyJsonOutput();
             //txtBSerTest.Text = Tt;
 
 
 
         }
 
-        public string api = "https://plutonium.pw/api/servers/plutonium";
+        public string api = "https://plutonium.pw/api/servers/plutonium/t6mp";
         public string apiRaid = "http://api.raidmax.org:5000/servers";
         public string v1Api = ("https://api.plutools.pw/v1/servers");
         public string Tt;
         HttpClient _httpClient = new HttpClient();
 
-        public string CurrentApi()
+        public string ServerFile = @"C:\Temp\ServerList.txt";
+
+        public string zombie_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5zm";
+        public string zombie_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6zm";
+        public string zombie_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawzm";
+
+
+        public string multi_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5mp";
+        public string multi_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6mp";
+        public string multi_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawmp";
+        public string multi_mw3_servers = "https://api.plutools.pw/v1/servers/plutonium/mw3";
+
+        public void showServers()
         {
-            string url = 
-                "https://plutonium.pw/api/servers";
-            
-            return url;
+            /*
+            //server urls for each game ( json )
+            string zombie_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5zm";
+            string zombie_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6zm";
+            string zombie_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawzm";
+
+
+            string multi_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5mp";
+            string multi_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6mp";
+            string multi_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawmp";
+            string multi_mw3_servers = "https://api.plutools.pw/v1/servers/plutonium/mw3";
+            */
         }
-        
-        public void txttest()
-        {
-           
-        }
 
-        
-
-
-
-        public void CreateApiCall()
-        {
-            ListView myListView = new ListView();
-            //string[] 
-        }   
-
-        public void Get_Api()
-        {
-        }
-        public async void MyJsonOutput()
+        //rip showServers() string into this file
+        //ok this now working as intended. 
+        //we need to populate the file.txt with json data, 
+        //figure that out next 11/10/23
+        public async void CreateTextFile()
         {
             try
             {
-                var response_msg = await _httpClient.GetAsync(v1Api);
+                if( System.IO.File.Exists( ServerFile ) )
+                {
+                    System.IO.File.Delete( ServerFile );
+                }
+
+                using ( System.IO.FileStream fs = System.IO.File.Create( ServerFile ))
+                {
+                   
+                    //lets write the json string to a file.
+                    //first we need to call the api
+                    var response_msg = await _httpClient.GetAsync(zombie_bo2_servers);
+                    //read it
+                    string jsonResponse = await response_msg.Content.ReadAsStringAsync();
+                    //convert it to bytes
+                    byte[] bytes = Encoding.ASCII.GetBytes( jsonResponse );
+                    fs.Write(bytes, 0, bytes.Length);
+
+                    
+                }
+
+                using (StreamReader sr = new StreamReader(ServerFile))
+                {
+                    string s = "";
+                    while( ( s = sr.ReadLine()) != null )
+                    {
+                        //Console.WriteLine(s);
+                        Console.WriteLine("DONE");
+                        
+                    }
+                }
+
+                    /*
+                    //deserialize it
+                    string serverData = System.IO.File.ReadAllText(ServerFile);
+                    Console.Write(serverData);
+                    */
+                    using var stream = System.IO.File.OpenRead( ServerFile );
+                    var servers = System.Text.Json.JsonSerializer.Deserialize<List<Servers>>(stream);
+
+                    foreach (var s in servers)
+                    {
+                        Console.WriteLine(s);
+                        Console.WriteLine("DONE2");
+                    }
+
+                    //MakeServerListReadable();
+                
+                
+                }
+            catch (Exception ex )
+            {
+
+                Console.WriteLine (ex.Message);
+            }
+        }
+
+        //Make it readable
+        public void MakeServerListReadable()
+        {
+            if( !System.IO.File.Exists( ServerFile ) )
+            {
+                return;
+            }
+            string serverData = System.IO.File.ReadAllText( ServerFile );
+            Console.Write(serverData);
+
+            var servers = System.Text.Json.JsonSerializer.Deserialize<List<Servers>>(serverData);
+
+            foreach( var s in servers )
+            {
+                Console.WriteLine(s);
+                Console.WriteLine("DONE");
+            }
+        }
+
+
+        public void tester()
+        {
+            //CONTINUE FROM HERE LATER ON!
+            //11.10.23 
+        }
+        // THIS FETCHES THE URL AND DESERIALIZES IT
+        public async void MyJsonOutput( string str )
+        {
+            try
+            {
+                var response_msg = await _httpClient.GetAsync(str);
                 //read it
                 string jsonResponse = await response_msg.Content.ReadAsStringAsync();
                 Console.WriteLine(jsonResponse);
                 
-                
-                /*
-                foreach ( var item in jsonResponse.Split() )
-                {
-                   Console.WriteLine(item);
-                    txt1.Text = item;
-                    txt2.Text = item;
-                    item.Split();
-
-
-                }
-
-                */
-
             }
 
-            
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
                 
             }
         }
+
         public List<SpitFireServers> servers = new List<SpitFireServers>();
         public class SpitFireServers
         {
@@ -120,65 +203,10 @@ namespace spitfire_solutions.Views
 
 
         }
-        public void LoadJson()
-        {
-            
-            using (StreamReader r = new StreamReader( CurrentApi() ))
-            {
-               string json = r.ReadToEnd();
-                List<jItems> items = JsonConvert.DeserializeObject<List<jItems>>(json);   
-            }
-            ListBox lol = new ListBox();
-        }
-
-
-        public void TestingStuff()
-        {
-            string json = v1Api.ToString();
-            var data = (JObject)JsonConvert.DeserializeObject(json);
-            string user = data["username"].Value<string>();
-            Console.WriteLine(user);
-        }
-
-
-
-
         
-
-
-
-        public class jItems
-        {
-
-            public string serverName;
-            public string serverLocation;
-            public string serverIP;
-            public int serverPort;
-
-            public int playerSize;
-            public string playerName;
-            public string playerSizeMax;
-
-            
-
-            
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //JsonTest jtest = new JsonTest();
-            //jtest.MakeApiCall();
-
-            //var model = JsonConvert.DeserializeObject<List<Root>>(v1Api);
-            //TestingStuff();
-
-            dgG.Visibility = Visibility.Visible;
-            //jsonDataDisplay();
-
-
-
-
-
+            CreateTextFile();
         }
 
         //Making an object from human class
