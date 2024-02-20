@@ -118,7 +118,6 @@
     <Compile Include="JsonServers.cs" />
     <Compile Include="JsonTest.cs" />
     <Compile Include="ListBoxToGames.cs" />
-    <Compile Include="Models\Servers.cs" />
     <Compile Include="PageHome.xaml.cs">
       <DependentUpon>PageHome.xaml</DependentUpon>
     </Compile>
@@ -128,8 +127,9 @@
     <Compile Include="PageServersGame.xaml.cs">
       <DependentUpon>PageServersGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Root.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="ServerClasses\Player.cs" />
+    <Compile Include="ServerClasses\Root.cs" />
+    <Compile Include="ServerClasses\Server.cs" />
     <Compile Include="SolutionImages.cs" />
     <Compile Include="ViewModels\H2omeViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
@@ -265,7 +265,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="images\bo1zombiebg.webp" />
-    <None Include="Models\Serverss.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

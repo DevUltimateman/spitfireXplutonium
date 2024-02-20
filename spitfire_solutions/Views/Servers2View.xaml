@@ -13,10 +13,8 @@
                    VerticalAlignment="Center"
                    FontSize="50"></Label>
 
-        <TextBlock x:Name="txtBSerTest"
-                   Width="400"
-                   Height="400"
-                   Foreground="White"></TextBlock>
+        
+        
 
         <StackPanel Orientation="Horizontal">
             <TextBlock x:Name="txt1"
@@ -44,9 +42,22 @@
                        Width="Auto"
                        ></TextBlock>
             <Button Content="Button" Click="Button_Click"/>
+            <ListBox
+                Width="500"
+                Height="300"
+                x:Name="lstServer"
+                />
 
-            <DataGrid x:Name="dgG"></DataGrid>
+            <Grid
+                Name="gdServerList"
+                Width="300"
+                Height="300">
+                <DataGrid>
+                    
+                </DataGrid>
+            </Grid>
             
+
         </StackPanel>
         
     </Grid>

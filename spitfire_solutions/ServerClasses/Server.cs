@@ -1,6 +1,6 @@
-using System.Collections.Generic; 
-namespace spitfire_solutions{ 
-
+﻿using System.Collections.Generic;
+namespace spitfire_solutions.ServerClasses
+{
     public class Server
     {
         public string ip { get; set; }
@@ -9,7 +9,7 @@ namespace spitfire_solutions{
         public string hostname { get; set; }
         public string map { get; set; }
         public string gametype { get; set; }
-        public List<object> players { get; set; }
+        public List<Player> players { get; set; }
         public int maxplayers { get; set; }
         public bool hardcore { get; set; }
         public bool password { get; set; }
@@ -35,20 +35,6 @@ namespace spitfire_solutions{
         public string identifier { get; set; }
         public string platform { get; set; }
         public int realClients { get; set; }
-        public string challenge { get; set; }
-        public string checksum { get; set; }
-        public string gamename { get; set; }
-        public string sv_motd { get; set; }
-        public string xuid { get; set; }
-        public int? clients { get; set; }
-        public int? protocol { get; set; }
-        public string fs_game { get; set; }
-        public bool? hc { get; set; }
-        public int? securityLevel { get; set; }
-        public string shortversion { get; set; }
-        public bool? sv_running { get; set; }
-        public bool? wwwDownload { get; set; }
-        public string wwwUrl { get; set; }
-    }
 
+    }
 }
