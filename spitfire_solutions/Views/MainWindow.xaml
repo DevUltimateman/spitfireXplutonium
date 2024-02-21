@@ -368,7 +368,7 @@
                                     Grid.Row="2"
                                     
 
-                                    Margin="25" />
+                                    Margin="25" Width="970" Height="580" />
 
                 </Grid>
             

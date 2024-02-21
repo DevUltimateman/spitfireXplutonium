@@ -3,63 +3,128 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
              xmlns:local="clr-namespace:spitfire_solutions.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="I AM GAY SERVER"
-                   Foreground="WHITE"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="50"></Label>
-
-        
+             d:DesignHeight="580" d:DesignWidth="970">
+    <Grid Background="Red">
+        <Grid.RowDefinitions>
+        <RowDefinition Height="40"/>
+        <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
 
-        <StackPanel Orientation="Horizontal">
-            <TextBlock x:Name="txt1"
-                       Text=""
-                       Foreground="White"
-                       FontSize="12"
-                       Width="Auto"
-                       ></TextBlock>
-            <TextBlock x:Name="txt2"
-                       Text=""
-                       Foreground="White"
-                       FontSize="12"
-                       Width="Auto"
-                       ></TextBlock>
-            <TextBlock x:Name="txt3"
-                       Text=""
-                       Foreground="White"
-                       FontSize="12"
-                       Width="Auto"
-                       ></TextBlock>
-            <TextBlock x:Name="txt4"
-                       Text=""
-                       Foreground="White"
-                       FontSize="12"
-                       Width="Auto"
-                       ></TextBlock>
-            <Button Content="Button" Click="Button_Click"/>
-            <ListBox
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
                 Width="500"
-                Height="300"
-                x:Name="lstServer"
-                />
-
-            <Grid
-                Name="gdServerList"
-                Width="300"
-                Height="300">
-                <DataGrid>
-                    
-                </DataGrid>
-            </Grid>
+                ></ColumnDefinition>
             
+            <ColumnDefinition
+                ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Orientation="Horizontal"
+                    Margin=" 25,0,25,0"
+                    Grid.ColumnSpan="2">
+
+            <TextBlock Foreground="Azure" Text="Find Servers > "
+                       FontSize="10"
+                       TextAlignment="Center"
+                       Margin="10,0,0,0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"></TextBlock>
+
+            <TextBlock x:Name="btnRefresh" Foreground="Azure" Text="Refresh List > "
+                       FontSize="10"
+                       Margin="10,0,0,0"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" MouseDown="btnRefresh_MouseDown"></TextBlock>
+
+            <TextBlock Foreground="Azure" Text="Choose a game > "
+                       FontSize="10"
+                       TextAlignment="Center"
+                       Margin="10,0,0,0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"></TextBlock>
+
+            <Image x:Name="fnbo1mp"
+                   Width="30"
+                   Height="30"
+                   Source="\images\logos\bo1mplogo.png"
+                   Margin="10,0,0,0" MouseDown="fnbo1mp_MouseDown"
+                   ></Image>
+
+            <Image x:Name="fnbo1zm"
+                   Width="30"
+                   Height="30"
+                   Margin="10,0,0,0"
+                   Source="\images\logos\bo1zmlogo.png" MouseDown="fnbo1zm_MouseDown"></Image>
+            
+            <Image x:Name="fnbo2mp"
+                   Width="30"
+                   Height="30"
+                   Margin="10,0,0,0"
+                   Source="\images\logos\bo2mplogo.png" MouseDown="fnbo2mp_MouseDown"></Image>
+            
+            <Image x:Name="fnbo2zm"
+                   Margin="10,0,0,0"
+                   Width="30"
+                   Height="30"
+                   Source="\images\logos\bo2zmlogo.png" MouseDown="fnbo2zm_MouseDown"></Image>
+
+            <TextBlock x:Name="txtSortList" Foreground="Azure" Text="Sort List "
+                       FontSize="10"
+                       TextAlignment="Center"
+                       Margin="10,0,0,0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" MouseDown="txtSortList_MouseDown"></TextBlock>
+
+
+
 
         </StackPanel>
         
+        
+        <StackPanel Grid.Column="0"
+                    Grid.Row="1"
+                    Orientation="Vertical">
+            
+            
+            <ListView x:Name="lstViewServer"     
+                Width="500"
+                Height="580" SelectionChanged="lstViewServer_SelectionChanged_1"
+                      >
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Servername" Width="500" ></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+
+        </StackPanel>
+        <StackPanel Orientation="Vertical"
+                        Grid.Column="1"
+                    Grid.Row="1"
+                     Background="Orange"
+                        Margin="0,0,0,0">
+            
+            <TextBlock Name="txtServerName" FontSize="15" Foreground="Green" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
+            <TextBlock Name="txtMapName" FontSize="15" Foreground="Green" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
+            <TextBlock Name="txtRound" FontSize="30" Foreground="Green" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
+            <TextBlock Name="txtRealClients" FontSize="30" Foreground="Green" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
+
+        </StackPanel>
+        
+        
+        
     </Grid>
+    
+    
+    
     
 </UserControl>
