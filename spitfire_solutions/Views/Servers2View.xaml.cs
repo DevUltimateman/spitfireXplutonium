@@ -23,6 +23,8 @@ using static System.Net.WebRequestMethods;
 using System.Text.Json;
 using spitfire_solutions.ServerClasses;
 using System.ComponentModel;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.IO.Packaging;
 
 
 
@@ -54,6 +56,24 @@ namespace spitfire_solutions.Views
         }
 
         
+        //HANDLE THE BITMAP IMAGE THAT WE SHOW IN THE INFO BOX
+        BitmapImage BmInfoBox = new BitmapImage();
+
+        //Don't repeat the bitmap everytime if the game stays same
+        public string IsTheGameSame;
+
+        //BITMAP URIS
+        //world at war
+        public string t4spuri = "/images/logo_titles/t4sp_logotitle.png";
+        public string t4mpuri = "/images/logo_titles/t4mp_logotitle.png";
+        //black ops
+        public string t5spuri = "/images/logo_titles/t5sp_logotitle.png";
+        public string t5mpuri = "/images/logo_titles/t5mp_logotitle.png";
+        //black ops 2
+        public string t6zmuri = "/images/logo_titles/t6zm_logotitle.png";
+        public string t6mpuri = "/images/logo_titles/t6mp_logotitle.png";
+        //modern warfare 3
+        public string iw5uri = "/images/logo_titles/iw5_logotitle.png";
 
         //DEFINE THE SERVER LISTS
         List<string> slst_Hostname = new List<string>();
@@ -76,9 +96,10 @@ namespace spitfire_solutions.Views
         List<string> slst_Userslug = new List<string>();
 
 
+        //moved this from CreateServerList() to be a public instance
+        List<ServerListInfo> serverinfo = new List<ServerListInfo>();
 
-
-
+        public int current_index = 0;
 
         public string api = "https://plutonium.pw/api/servers/plutonium/t6mp";
         public string apiRaid = "http://api.raidmax.org:5000/servers";
@@ -187,7 +208,7 @@ namespace spitfire_solutions.Views
                             //specify the server sub class that we want to "print"
                             //ex. deserial.servers[ key ].whattype
                             Console.WriteLine("Server name: " + deserial.servers[i].hostname);
-                            lstViewServer.Items.Add( deserial.servers[i].hostname);
+                            //lstViewServer.Items.Add( deserial.servers[i].hostname);
 
 
                             //Add to specific list
@@ -196,25 +217,41 @@ namespace spitfire_solutions.Views
                             slst_Mapname.Add(deserial.servers[i].map);
                             slst_Round.Add(deserial.servers[i].round);
                             slst_Players.Add(deserial.servers[i].realClients);
+                            slst_Game.Add(deserial.servers[i].game);
 
                             //debug laterrr
+                            CreateServerList(
+                                                deserial.servers[i].hostname,
+                                                deserial.servers[i].map,
+                                                deserial.servers[i].round,
+                                                deserial.servers[i].realClients,
+                                                deserial.servers[i].game );
                             //CreateServerList(deserial.servers[i].hostname, deserial.servers[i].map, deserial.servers[i].round, deserial.servers[i].realClients);
 
                         }
+
+                        //let's try to fill in the list view
+                        MakeListViewItemSource();
+                        //auto click the first row to display some data on the right info box area
+                        lstViewServer.SelectedIndex = 0;
                     }
 
-                    //else { MessageBox.Show("We couldn't retrieve serverlist data. \nPlease try again later."); }
+                    if( deserial == null )
+                    {
+                        System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n");
+                    }
                     
+                    //else { MessageBox.Show("We couldn't retrieve serverlist data. \nPlease try again later."); }
+
 
                 }
 
-                //auto click the first row to display some data on the right info box area
-                lstViewServer.SelectedIndex = 0;
+                
                 
             }
             catch (Exception e )
             {
-                System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\n" + e.Message);
+                System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n" + e.Message);
             }
            
             
@@ -264,10 +301,11 @@ namespace spitfire_solutions.Views
 
         private void lstViewServer_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            int current_index;
+            
+            
             current_index = lstViewServer.SelectedIndex;
 
-            txtServerName.Text = lstViewServer.SelectedItem.ToString();
+            txtServerName.Text = "HOMO";
 
             txtMapName.Text = slst_Mapname.ElementAt(current_index);
             //make it read right instead of consolename
@@ -275,44 +313,99 @@ namespace spitfire_solutions.Views
             txtRound.Text = slst_Round.ElementAt(current_index).ToString();
             txtRealClients.Text = slst_Players.ElementAt(current_index).ToString();
 
-            
+
+
+
+            DisplayServerGameLogo(slst_Game.ElementAt(current_index));
+
+
+
         }
 
+        public string DisplayServerGameLogo( string game )
+        {
+            //Check if the game stays same
+            //we don't need to remake bitmap unless the image needs to be rendered again
+            if( IsTheGameSame == game )
+            {
+                Console.WriteLine("don't repeat the image"); 
 
+            }
+
+            //Create a new bitmap image based on the game parameter
+            else if( IsTheGameSame != game )
+            {
+                switch (game)
+                {
+                    case "t4sp":
+                        BitmapImage bm_t4sp= new BitmapImage(new Uri(t4spuri, UriKind.Relative));
+                        imgServerGameLogo.Source = bm_t4sp;
+                        break;
+
+                    case "t4mp":
+                        BitmapImage bm_t4mp = new BitmapImage(new Uri(t4mpuri, UriKind.Relative));
+                        imgServerGameLogo.Source = bm_t4mp;
+                        break;
+
+                    case "t5sp":
+                        BitmapImage bm_t5sp = new BitmapImage( new Uri(t5spuri, UriKind.Relative));
+                        imgServerGameLogo.Source = bm_t5sp;
+                        break;
+
+                    case "t5mp":
+                        BitmapImage bm_t5mp = new BitmapImage( new Uri( t5mpuri, UriKind.Relative));
+                        imgServerGameLogo.Source = bm_t5mp;
+                        break;
+
+                    case "t6zm":
+                        
+                        BitmapImage bm_t6zm = new BitmapImage(new Uri(t6zmuri, UriKind.Relative));
+                        imgServerGameLogo.Source = bm_t6zm;
+                        break;
+                    case "t6mp":
+                        BitmapImage bm_t6mp = new BitmapImage(new Uri(t6mpuri, UriKind.Relative));
+                        imgServerGameLogo.Source = bm_t6mp;
+                        break;
+                    case "iw5":
+                        BitmapImage bm_iw5 = new BitmapImage(new Uri(iw5uri, UriKind.Relative));
+                        imgServerGameLogo.Source = bm_iw5;
+                        break;
+                }
+            }
+            return null;
+            
+        }
         public string DisplayConsoleNameInReadable(string str)
         {   
             switch ( str )
             {
                 case "zm_buried":
                     return "Buried";
-                    
-
                 case "zm_nuketown":
                     return "Nuketown";
-
                 case "zm_transit":
                     return "Tranzit";
-
                 case "zm_tomb":
                     return "Origins";
-
                 case "zm_highrise":
                     return "Die Rise";
-
                 case "zm_prison":
                     return "Mob Of The Dead";
-
-            }
-
-            
+            }        
             return "FAILED TO LOAD";
-
-
         }
 
         private void DeleteAllCurrentElements()
         {
-            lstViewServer.Items.Clear();
+            /* THESE CAUSE PROBLEMS ATM
+            lstViewServer.ItemsSource = null;
+            for ( int i = 0; i < lstViewServer.Items.Count; i++ )
+            {
+                lstViewServer.Items.Remove(lstViewServer.Items[i]);
+                
+                
+            }
+            */
             slst_Mapname.Clear();
             slst_Round.Clear();
             slst_Players.Clear();
@@ -355,28 +448,22 @@ namespace spitfire_solutions.Views
 
 
 
-        public void SortList()
-        {
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lstViewServer.Items);
-            view.SortDescriptions.Add(new SortDescription("hostname", ListSortDirection.Ascending));
+        public void SortList( )
+        { 
+            
         }
 
 
-        public void CreateServerList(
-            string host,
-            string mapname,
-            int playersize,
-            int round )
+        public void CreateServerList(string host, string mapname, int playersize, int round, string game )
         {
-            List<ServerListInfo> serverinfo = new List<ServerListInfo>();
+            serverinfo.Add(new ServerListInfo() { Host = host, MapName = mapname, Round = round.ToString(), PlayersPlaying = playersize.ToString(), Game = game });
+            
+            
+        }
 
-            serverinfo.Add(new ServerListInfo() { Host = host, MapName = mapname, Round = round.ToString(), PlayersPlaying = playersize.ToString() });
+        public void MakeListViewItemSource()
+        {
             lstViewServer.ItemsSource = serverinfo;
-
-            //SortList();
-
-
         }
     }
 }

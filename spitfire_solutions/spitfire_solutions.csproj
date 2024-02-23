@@ -318,13 +318,13 @@
     <Folder Include="ServerFileStorage\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\logo_titles\iw5_logo.9bd3a45d.png" />
-    <Resource Include="images\logo_titles\t4mp_logo.59e4aebd.png" />
-    <Resource Include="images\logo_titles\t4sp_logo.3b95821f.png" />
-    <Resource Include="images\logo_titles\t5mp_logo.ab399f8f.png" />
-    <Resource Include="images\logo_titles\t5sp_logo.923e4106.png" />
-    <Resource Include="images\logo_titles\t6mp_logo.e4fc734b.png" />
-    <Resource Include="images\logo_titles\t6zm_logo.6935c7f4.png" />
+    <Resource Include="images\logo_titles\iw5_logotitle.png" />
+    <Resource Include="images\logo_titles\t4mp_logotitle.png" />
+    <Resource Include="images\logo_titles\t4sp_logotitle.png" />
+    <Resource Include="images\logo_titles\t5mp_logotitle.png" />
+    <Resource Include="images\logo_titles\t5sp_logotitle.png" />
+    <Resource Include="images\logo_titles\t6mp_logotitle.png" />
+    <Resource Include="images\logo_titles\t6zm_logotitle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
