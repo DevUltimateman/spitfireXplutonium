@@ -98,7 +98,7 @@
                       Background="White"
                       Opacity="0.85"
                       Foreground="Black"
-                Height="580" SelectionChanged="lstViewServer_SelectionChanged_1"
+                Height="580" SelectionChanged="lstViewServer_SelectionChanged_1" SourceUpdated="lstViewServer_SourceUpdated"
                       >
 
                 <ListView.View>
@@ -115,14 +115,76 @@
                     Grid.Row="1"
                      Background="Black"
                         Margin="0,0,0,0">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
             
-            <TextBlock Name="txtServerName" FontSize="25" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
-            <TextBlock Name="txtMapName" FontSize="25" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
-            <TextBlock Name="txtRound" FontSize="30" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
-            <TextBlock Name="txtRealClients" FontSize="30" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left" TextAlignment="Center" Text="LOL MOI SULLE"></TextBlock>
-            <Image x:Name="imgServerGameLogo" Width="300" Height="100" HorizontalAlignment="Left" />
-            
-            
+
+            <TextBlock  Name="txtServerName"
+                        FontSize="15"
+                        FontWeight="DemiBold"
+                        Foreground="{StaticResource color3}"
+                        HorizontalAlignment="Left"
+                        TextAlignment="Center"
+                        Text="Server: "
+                        Grid.Column="0"
+                       
+                            Grid.Row="1"/>
+
+            <TextBlock Name="txtMapName"
+                       FontSize="20"
+                       FontWeight="DemiBold"
+                       Foreground="{StaticResource color6}"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Center"
+                       Text="Mapname: "
+                       Grid.Column="0"
+                       Grid.Row="2"/>
+
+            <TextBlock Name="txtRound"
+                       FontSize="20"
+                       FontWeight="DemiBold"
+                       Foreground="{StaticResource color2}"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Center"
+                       Text="Current round: "
+                       Grid.Column="0"
+                       Grid.Row="3"/>
+
+            <TextBlock Name="txtRealClients"
+                       FontSize="20"
+                       FontWeight="DemiBold"
+                       Foreground="White"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Center"
+                       Text="Playing: "
+                       Grid.Column="0"
+                       Grid.Row="4"/>
+                
+            <Image x:Name="imgServerGameLogo"
+                   Width="300"
+                   Height="100"
+                   HorizontalAlignment="Left"
+                   Grid.Column="0"
+                       Grid.Row="5"/>
+
+            </Grid>
         </StackPanel>
         
         
