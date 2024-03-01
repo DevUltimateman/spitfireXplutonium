@@ -184,7 +184,8 @@ namespace spitfire_solutions.Views
             
             //THIS THE GHETTO CHECK
             bool KeepLooping = true;
-
+            //DEBUGGING
+            int KeepTrack = 0;
             while( KeepLooping)
             {
                 //failsafe
@@ -269,6 +270,10 @@ namespace spitfire_solutions.Views
                 catch (Exception e)
                 {
                     KeepLooping = true;
+                    KeepTrack++;
+                    
+                    Console.
+                        WriteLine("Progma has tried " + KeepTrack.ToString() + " to process the ´try loop() ");
                     //System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n" + e.Message);
 
                 }
@@ -328,12 +333,12 @@ namespace spitfire_solutions.Views
             
 
 
-            string s_host = serverinfo[lstViewServer.SelectedIndex].SL_Host;
-            string s_mapname = serverinfo[lstViewServer.SelectedIndex].SL_MapName;
-            string s_game = serverinfo[lstViewServer.SelectedIndex].SL_Game;
+            string s_host = serverinfo[lstViewServer.SelectedIndex].Host;
+            string s_mapname = serverinfo[lstViewServer.SelectedIndex].MapName;
+            string s_game = serverinfo[lstViewServer.SelectedIndex].Game;
 
-            string s_round = serverinfo[lstViewServer.SelectedIndex].SL_Round;
-            string s_rclients = serverinfo[lstViewServer.SelectedIndex].SL_PlayersPlaying;
+            string s_round = serverinfo[lstViewServer.SelectedIndex].Round;
+            string s_rclients = serverinfo[lstViewServer.SelectedIndex].PlayersPlaying;
             //string s_playernames = serverinfo[lstViewServer.SelectedIndex].SL_Players;
 
             //string s_gametype = serverinfo[lstViewServer.SelectedIndex]
@@ -342,7 +347,7 @@ namespace spitfire_solutions.Views
             txtRound.Text = "Match round: " + s_round;
             txtRealClients.Text = "Players playing: " + s_rclients;
 
-            string temp = "";
+            
             //(int i = 0; i < s_playernames.Length; i++ )
             /////{
             //    if( s_playernames.Substring( i ) == "," )
@@ -373,6 +378,8 @@ namespace spitfire_solutions.Views
         {
             
         }
+
+
         //for now
         public bool ShouldWriteConsoleNames( string gamename )
         {
@@ -382,6 +389,8 @@ namespace spitfire_solutions.Views
             }
             return false;
         }
+
+
         public string DisplayServerGameLogo( string game )
         {
             //Check if the game stays same
@@ -530,13 +539,11 @@ namespace spitfire_solutions.Views
         {
             
             serverinfo.Add(new ServerListInfo() { 
-                SL_Host = host,
-                SL_MapName = mapname,
-                SL_Round = round.ToString(),
-                SL_PlayersPlaying = playersize.ToString(),
-                SL_Game = game//,
-                //SL_Players = playernames.ToString()
-
+                Host = host,
+                MapName = mapname,
+                Round = round.ToString(),
+                PlayersPlaying = playersize.ToString(),
+                Game = game
                 });
             
             
@@ -549,7 +556,7 @@ namespace spitfire_solutions.Views
 
         private void lstViewServer_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            
+
         }
     }
 }

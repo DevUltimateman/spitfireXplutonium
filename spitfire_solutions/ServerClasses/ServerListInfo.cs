@@ -8,16 +8,16 @@ namespace spitfire_solutions.ServerClasses
 {
     class ServerListInfo
     {
-        public string SL_Host { get; set; }
-        public string SL_Round { get; set; }
-        public string SL_MapName { get; set; }
-        public string SL_PlayersPlaying { get;set; }
-        public string SL_Game { get; set; }
+        public string Host { get; set; }
+        public string Round { get; set; }
+        public string MapName { get; set; }
+        public string PlayersPlaying { get;set; }
+        public string Game { get; set; }
 
 
-        public string? SL_Gametype { get; set; }
-        public string? SL_Ip { get; set; }
+        public string? Gametype { get; set; }
+        public string? Ip { get; set; }
 
-        public string SL_Players { get; set; }
+        public string Players { get; set; }
     }
 }
