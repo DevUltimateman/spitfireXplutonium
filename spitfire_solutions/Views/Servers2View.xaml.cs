@@ -25,10 +25,6 @@ using spitfire_solutions.ServerClasses;
 using System.ComponentModel;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.IO.Packaging;
-
-
-
-
 /*
 
 R58KB0RVX3E
@@ -38,21 +34,13 @@ R58KB0RVX3E
 */
 //for json
 
-
-
-
 namespace spitfire_solutions.Views
 {
-    /// <summary>
-    /// Interaction logic for Servers2View.xaml
-    /// </summary>
     public partial class Servers2View : UserControl
     {
         public Servers2View()
         {
             InitializeComponent();
-            //CreateTextFile();
-            //CreateTextFile
         }
 
         
@@ -79,6 +67,9 @@ namespace spitfire_solutions.Views
         //modern warfare 3
         public string iw5uri = "/images/logo_titles/iw5_logotitle.png";
 
+        /*THESE MIGHT GET DEFUCKED SINCE THEY ARE PRETTY MUCH USELESS
+        WITH THE NEW LISTVIEWITEM SOURCE METHOD GETS THE DATA DIRECTLY FROM
+        CUSTOM SERVERINFO CLASS*/
         //DEFINE THE SERVER LISTS
         List<string> slst_Hostname = new List<string>();
         List<string> slst_Mapname= new List<string>();
@@ -185,108 +176,105 @@ namespace spitfire_solutions.Views
         //ANOTHER METHOD HANDLES TYPE RANGING
         public void ServerListParser()
         {
+
+            //ANOTHER FAILSAFE
+            //WE GET ERROR EVERYNOW AND THEN THAT THE INDEX IS OUT OF RANGE,
+            //LOOP THE TRY METOD TILL WE SETTLE INDEX AND CAN DISPLAY DATA.
+            //ONCE INDEX SETTLED, BREAK OUT OF THE LOOP. GHETTO FIX BUT WORKS AND BRINGS THE LSTVIEW ITEMS TO VIEW CORRECTLY
             
-            //failsafe
-            try
+            //THIS THE GHETTO CHECK
+            bool KeepLooping = true;
+
+            while( KeepLooping)
             {
-
-                //another failsafe
-                
-                slst_Hostname.Clear();
-                slst_Mapname.Clear();
-                slst_Round.Clear();
-                slst_Players.Clear();
-                slst_Game.Clear();
-                serverinfo.Clear();
-                for( int s = 0; s < lstViewServer.Items.Count; s++ )
+                //failsafe
+                try
                 {
-                    lstViewServer.Items.Remove(lstViewServer.Items[s]);
+
+                    //another failsafe
+                    slst_Hostname.Clear();
+                    slst_Mapname.Clear();
+                    slst_Round.Clear();
+                    slst_Players.Clear();
+                    slst_Game.Clear();
+                    serverinfo.Clear();
+
+                    //if we have any objects in the list, remove them
+                    for (int s = 0; s < lstViewServer.Items.Count; s++)
+                    {
+                        lstViewServer.Items.Remove(lstViewServer.Items[s]);
+                    }
+                    lstViewServer.Items.Clear();
+                    //READ THE JSON DATA FROM THE FILE THAT WE JUST CREATED!
+                    using (StreamReader su = new StreamReader(ServerFile))
+                    {
+                        //CREATE A STRING THAT STORES THE JSON DATA AS A VARIABLE
+                        string jsonString = System.IO.File.ReadAllText(ServerFile);
+
+                        //MAKE INSTANCE OF EACH "SERVERCLASSES" MODULE
+                        var deserial = JsonConvert.DeserializeObject<Root>(jsonString);
+
+                        //Let's test print
+
+                        //check that we retrieve json data for the server list
+                        //otherwise we crash unless theres no check
+                        if (deserial != null)
+                        {
+                            Console.WriteLine("Total player count: " + deserial.countPlayers);
+                            Console.WriteLine("Mapname: " + deserial.servers[0].hostname);
+                            //print all servers to console for now
+                            for (int i = 0; i < deserial.countServers; i++)
+                            {
+                                //specify the server sub class that we want to "print"
+                                //ex. deserial.servers[ key ].whattype
+                                Console.WriteLine("Server name: " + deserial.servers[i].hostname);
+                                //lstViewServer.Items.Add( deserial.servers[i].hostname);
+
+                                //Add to specific list
+                                slst_Hostname.Add(deserial.servers[i].hostname);
+                                slst_Mapname.Add(deserial.servers[i].map);
+                                slst_Round.Add(deserial.servers[i].round);
+                                slst_Players.Add(deserial.servers[i].realClients);
+                                slst_Game.Add(deserial.servers[i].game);
+
+                                //debug laterrr
+                                //works now
+                                CreateServerList(
+                                                    deserial.servers[i].hostname,
+                                                    deserial.servers[i].map,
+                                                    deserial.servers[i].realClients,
+                                                    deserial.servers[i].round,
+                                                    deserial.servers[i].game
+                                                   /* deserial.servers[i].players.ToString()*/);
+                            }
+                            for (int j = 0; j < slst_Hostname.Count; j++)
+                            {
+                                lstViewServer.Items.Add(serverinfo[j]);
+                            }
+                            //auto click the first row to display some data on the right info box area
+                            lstViewServer.SelectedIndex = 0;
+                        }
+                        //maybe couldnt fetch anything, tell it to the user
+                        if (deserial == null)
+                        {
+                            System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n");
+                        }
+                        //let's jump out of the loop, we found servers and can display them
+                        KeepLooping = false;
+                        break;
+                    }
                 }
-                lstViewServer.Items.Clear();
-                //READ THE JSON DATA FROM THE FILE THAT WE JUST CREATED!
-                using (StreamReader su = new StreamReader(ServerFile))
+                //the index is out of range, happens if the method is called when the previous one is running
+                //skip crash and keep the try method looping till index is non negative
+                catch (Exception e)
                 {
-                    //CREATE A STRING THAT STORES THE JSON DATA AS A VARIABLE
-                    string jsonString = System.IO.File.ReadAllText(ServerFile);
-
-                    //MAKE INSTANCE OF EACH "SERVERCLASSES" MODULE
-                    var deserial = JsonConvert.DeserializeObject<Root>(jsonString);
-
-                    //Let's test print
-
-                    //check that we retrieve json data for the server list
-                    //otherwise we crash unless theres no check
-                    if( deserial != null)
-                    {
-                        Console.WriteLine("Total player count: " + deserial.countPlayers);
-                        Console.WriteLine("Mapname: " + deserial.servers[0].hostname);
-                        //print all servers to console for now
-                        for (int i = 0; i < deserial.countServers; i++)
-                        {
-                            //specify the server sub class that we want to "print"
-                            //ex. deserial.servers[ key ].whattype
-                            Console.WriteLine("Server name: " + deserial.servers[i].hostname);
-                            //lstViewServer.Items.Add( deserial.servers[i].hostname);
-
-
-                            //Add to specific list
-                            
-                            slst_Hostname.Add(deserial.servers[i].hostname);
-                            slst_Mapname.Add(deserial.servers[i].map);
-                            slst_Round.Add(deserial.servers[i].round);
-                            slst_Players.Add(deserial.servers[i].realClients);
-                            slst_Game.Add(deserial.servers[i].game);
-                            
-
-                            
-
-                            //debug laterrr
-                            CreateServerList(
-                                                deserial.servers[i].hostname,
-                                                deserial.servers[i].map,
-                                                deserial.servers[i].round,
-                                                deserial.servers[i].realClients,
-                                                deserial.servers[i].game );
-                            //CreateServerList(deserial.servers[i].hostname, deserial.servers[i].map, deserial.servers[i].round, deserial.servers[i].realClients);
-                            //moved this from CreateServerList() to be a public instance
-                            
-                            //let's try to fill in the list view
-                            //MakeListViewItemSource();
-                        }
-
-                        for (int j = 0; j < slst_Hostname.Count; j++)
-                        {
-                            lstViewServer.Items.Add(serverinfo[j]);
-                        }
-                        //auto click the first row to display some data on the right info box area
-                        lstViewServer.SelectedIndex = 0;
-                    }
-
-                    if( deserial == null )
-                    {
-                        System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n");
-                    }
-                    
-                    //else { MessageBox.Show("We couldn't retrieve serverlist data. \nPlease try again later."); }
-
+                    KeepLooping = true;
+                    //System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n" + e.Message);
 
                 }
-
-                
-                
             }
-            catch (Exception e )
-            {
-                System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n" + e.Message);
-            }
-           
-            
         }
 
-
-        
-        
-        
 
         // THIS FETCHES THE URL AND DESERIALIZES IT
         public async void MyJsonOutput(string str)
@@ -312,7 +300,7 @@ namespace spitfire_solutions.Views
         
 
         
-
+        //BUTTON STUFF, MAKE PRETTIER LATER
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
             //new test, make the text file of all api return
@@ -330,35 +318,61 @@ namespace spitfire_solutions.Views
         }
 
 
-
-
-
-        
-
         //FILLS THE PROPER INFO TO PROPER ELEMENTS FROM SERVER
         public void DisplayServerData( int? index_at )
         {
 
-            txtServerName.Text = "Server: " + slst_Hostname.ElementAt(lstViewServer.SelectedIndex);
 
-                string s = slst_Mapname.ElementAt(lstViewServer.SelectedIndex);
-                //make it read right instead of consolename
-                //txtmapName.Text = "Map: " + DisplayConsoleNameInReadable(txtMapName.Text);
-                txtRound.Text = "Match round: " + slst_Round.ElementAt(lstViewServer.SelectedIndex).ToString();
-                txtRealClients.Text = "Players playing: " + slst_Players.ElementAt(lstViewServer.SelectedIndex).ToString();
+
+            //string s = slst_Mapname.ElementAt(lstViewServer.SelectedIndex);
+            
+
+
+            string s_host = serverinfo[lstViewServer.SelectedIndex].SL_Host;
+            string s_mapname = serverinfo[lstViewServer.SelectedIndex].SL_MapName;
+            string s_game = serverinfo[lstViewServer.SelectedIndex].SL_Game;
+
+            string s_round = serverinfo[lstViewServer.SelectedIndex].SL_Round;
+            string s_rclients = serverinfo[lstViewServer.SelectedIndex].SL_PlayersPlaying;
+            //string s_playernames = serverinfo[lstViewServer.SelectedIndex].SL_Players;
+
+            //string s_gametype = serverinfo[lstViewServer.SelectedIndex]
+
+            txtServerName.Text = "Server: " + s_host;
+            txtRound.Text = "Match round: " + s_round;
+            txtRealClients.Text = "Players playing: " + s_rclients;
+
+            string temp = "";
+            //(int i = 0; i < s_playernames.Length; i++ )
+            /////{
+            //    if( s_playernames.Substring( i ) == "," )
+              //  {
+               //     temp = temp + "\n";
+               // }
+               // else
+               // {
+                 //   temp += s_playernames[i];
+               // }
                 
-                DisplayServerGameLogo(slst_Game.ElementAt(lstViewServer.SelectedIndex));
+           // }
+            //txtPlayerNames.Text = ""; //temp
 
-                //for displaying only t6 zom mapnames now till we get more important things worked on first
-                if (ShouldWriteConsoleNames(slst_Game.ElementAt(lstViewServer.SelectedIndex)) == true)
-                {
-                    txtMapName.Text = "Map: " + DisplayConsoleNameInReadable(s);
-                }
-                else { txtMapName.Text = "Map: " + s; }
+            DisplayServerGameLogo(s_game);
+
+            //for displaying only t6 zom mapnames now till we get more important things worked on first
+            if ( ShouldWriteConsoleNames( s_game ) )
+            {
+                txtMapName.Text = "Map: " + DisplayConsoleNameInReadable(s_mapname);
+            }
+            else { txtMapName.Text = "Map: " + s_mapname; }
             
            
         }
 
+        public void SeeTest()
+        {
+            
+        }
         //for now
         public bool ShouldWriteConsoleNames( string gamename )
         {
@@ -512,10 +526,18 @@ namespace spitfire_solutions.Views
         }
 
 
-        public void CreateServerList(string host, string mapname, int playersize, int round, string game )
+        public void CreateServerList(string host, string mapname, int playersize, int round, string game/*string playernames*/ )
         {
             
-            serverinfo.Add(new ServerListInfo() { Host = host, MapName = mapname, Round = round.ToString(), PlayersPlaying = playersize.ToString(), Game = game });
+            serverinfo.Add(new ServerListInfo() { 
+                SL_Host = host,
+                SL_MapName = mapname,
+                SL_Round = round.ToString(),
+                SL_PlayersPlaying = playersize.ToString(),
+                SL_Game = game//,
+                //SL_Players = playernames.ToString()
+
+                });
             
             
         }

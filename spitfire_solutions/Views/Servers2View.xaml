@@ -176,8 +176,18 @@
                        Text="Playing: "
                        Grid.Column="0"
                        Grid.Row="4"/>
-                
-            <Image x:Name="imgServerGameLogo"
+
+                <TextBlock Name="txtPlayerNames"
+                       FontSize="20"
+                       FontWeight="DemiBold"
+                       Foreground="White"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Center"
+                       Text="Players: "
+                       Grid.Column="0"
+                       Grid.Row="5"/>
+
+                <Image x:Name="imgServerGameLogo"
                    Width="300"
                    Height="100"
                    HorizontalAlignment="Left"
