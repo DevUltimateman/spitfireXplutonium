@@ -272,7 +272,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="images\bo1zombiebg.webp" />
+    <None Include="images\map_images\bo2\mp\cove.webp" />
+    <None Include="images\map_images\bo2\mp\detour.webp" />
+    <None Include="images\map_images\bo2\mp\encore.webp" />
+    <None Include="images\map_images\bo2\mp\grind.webp" />
+    <None Include="images\map_images\bo2\mp\hijacked.webp" />
+    <None Include="images\map_images\bo2\mp\magma.webp" />
+    <None Include="images\map_images\bo2\mp\meltdown.webp" />
+    <None Include="images\map_images\bo2\mp\mirage.webp" />
+    <None Include="images\map_images\bo2\mp\overflow.webp" />
+    <None Include="images\map_images\bo2\mp\plaza.webp" />
+    <None Include="images\map_images\bo2\mp\raid.webp" />
+    <None Include="images\map_images\bo2\mp\rush.webp" />
+    <None Include="images\map_images\bo2\mp\slums.webp" />
+    <None Include="images\map_images\bo2\mp\studio.webp" />
+    <None Include="images\map_images\bo2\mp\takeoff.webp" />
+    <None Include="images\map_images\bo2\mp\uplink.webp" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -304,9 +319,6 @@
     <Resource Include="fireLogo2k.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\bo1mpbg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\bg\zombie_derriese.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +334,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ImagesConvert\" />
     <Folder Include="ServerFileStorage\" />
   </ItemGroup>
   <ItemGroup>
@@ -332,6 +345,60 @@
     <Resource Include="images\logo_titles\t5sp_logotitle.png" />
     <Resource Include="images\logo_titles\t6mp_logotitle.png" />
     <Resource Include="images\logo_titles\t6zm_logotitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\logos\iw5mplogo.png" />
+    <Resource Include="images\logos\t4mplogo.png" />
+    <Resource Include="images\logos\t4splogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_cove.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_encore.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_skate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_hijacked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_magma.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_meltdown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_mirage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_overflow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_plaza.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_raid.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_paintball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_slums.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_studio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_takeoff.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_uplink.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

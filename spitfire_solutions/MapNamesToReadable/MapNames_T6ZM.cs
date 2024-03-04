@@ -22,6 +22,7 @@ namespace spitfire_solutions.MapNamesToReadable
                 case "zm_buried": return "Buried";
                 case "zm_tomb": return "Origins";
             }
+            //if we can't display any pre determined maps, show the map console name
             return "Server is playing a custom map called: " + mapToConvert;
         }
     }

@@ -22,6 +22,7 @@ namespace spitfire_solutions.MapNamesToReadable
                 case "mp_downhill": return "Downhill";
                 case "mp_drone": return "Drone";
                 case "mp_concert": return "Encore";
+                case "mp_express": return "Express";
                 case "mp_frostbite": return "Frost";
                 case "mp_skate": return "Grind";
                 case "mp_hijacked": return "Hijacked";
@@ -44,6 +45,7 @@ namespace spitfire_solutions.MapNamesToReadable
                 case "mp_vertigo": return "Vertigo";
                 case "mp_socotra": return "Yemen";
             }
+            //if we can't display any pre determined maps, show the map console name
             return "Server is playing a custom map called: " + mapToConvert;
         }
     }

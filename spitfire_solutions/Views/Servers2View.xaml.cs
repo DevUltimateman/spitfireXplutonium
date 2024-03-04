@@ -25,6 +25,7 @@ using spitfire_solutions.ServerClasses;
 using System.ComponentModel;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.IO.Packaging;
+using spitfire_solutions.MapNamesToReadable;
 /*
 
 R58KB0RVX3E
@@ -108,31 +109,19 @@ namespace spitfire_solutions.Views
         //TEST FILE
         public string TestFile = @"C:\Temp\A_TEST_SERVERLIST_HOST.txt";
 
-        public string zombie_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5zm";
-        public string zombie_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6zm";
-        public string zombie_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawzm";
-
+        //game thats chosen from list
         public string ChosenGame;
+
+        public string zombie_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5sp";
+        public string zombie_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6zm";
+        public string zombie_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/t4sp";
+
+        
         public string multi_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5mp";
         public string multi_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6mp";
-        public string multi_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawmp";
-        public string multi_mw3_servers = "https://api.plutools.pw/v1/servers/plutonium/mw3";
+        public string multi_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/t4mp";
+        public string multi_mw3_servers = "https://api.plutools.pw/v1/servers/plutonium/iw5mp";
 
-        public void showServers()
-        {
-            /*
-            //server urls for each game ( json )
-            string zombie_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5zm";
-            string zombie_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6zm";
-            string zombie_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawzm";
-
-
-            string multi_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5mp";
-            string multi_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6mp";
-            string multi_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/wawmp";
-            string multi_mw3_servers = "https://api.plutools.pw/v1/servers/plutonium/mw3";
-            */
-        }
 
         //Creates server list file
         //Another method handles parsing info from the file that this method creates
@@ -148,19 +137,15 @@ namespace spitfire_solutions.Views
                     System.IO.File.Delete(ServerFile);
                 }
 
-                using (System.IO.FileStream fs = System.IO.File.Create(ServerFile))
+                using (FileStream fs = System.IO.File.Create(ServerFile))
                 {
                     //uses method's arg to pass in the correct game url
                     var response_msg = await _httpClient.GetAsync(servers);
-
-                   
-                        //waits
-                        string jsonResponse = await response_msg.Content.ReadAsStringAsync();
-                        //write the string to blanco
-                        byte[] bytes = Encoding.ASCII.GetBytes(jsonResponse);
-                        fs.Write(bytes, 0, bytes.Length);
-                    
-                    
+                    //waits
+                    string jsonResponse = await response_msg.Content.ReadAsStringAsync();
+                    //write the string to blanco
+                    byte[] bytes = Encoding.ASCII.GetBytes(jsonResponse);
+                    fs.Write(bytes, 0, bytes.Length);
                 }
                 //deserialize it
                 string serverData = System.IO.File.ReadAllText(ServerFile);
@@ -176,23 +161,14 @@ namespace spitfire_solutions.Views
         //ANOTHER METHOD HANDLES TYPE RANGING
         public void ServerListParser()
         {
-
-            //ANOTHER FAILSAFE
-            //WE GET ERROR EVERYNOW AND THEN THAT THE INDEX IS OUT OF RANGE,
-            //LOOP THE TRY METOD TILL WE SETTLE INDEX AND CAN DISPLAY DATA.
-            //ONCE INDEX SETTLED, BREAK OUT OF THE LOOP. GHETTO FIX BUT WORKS AND BRINGS THE LSTVIEW ITEMS TO VIEW CORRECTLY
-            
-            //THIS THE GHETTO CHECK
+            //we need to keep a check to not get a null value, otherwise we crash
             bool KeepLooping = true;
-            //DEBUGGING
             int KeepTrack = 0;
-            while( KeepLooping)
+            while( KeepLooping )
             {
-                //failsafe
                 try
                 {
-
-                    //another failsafe
+                    //failsafe
                     slst_Hostname.Clear();
                     slst_Mapname.Clear();
                     slst_Round.Clear();
@@ -229,7 +205,6 @@ namespace spitfire_solutions.Views
                                 //specify the server sub class that we want to "print"
                                 //ex. deserial.servers[ key ].whattype
                                 Console.WriteLine("Server name: " + deserial.servers[i].hostname);
-                                //lstViewServer.Items.Add( deserial.servers[i].hostname);
 
                                 //Add to specific list
                                 slst_Hostname.Add(deserial.servers[i].hostname);
@@ -254,6 +229,8 @@ namespace spitfire_solutions.Views
                             }
                             //auto click the first row to display some data on the right info box area
                             lstViewServer.SelectedIndex = 0;
+                            //need this so that we can index the list with arrows without pressing on the list with mouse first
+                            lstViewServer.Focus();
                         }
                         //maybe couldnt fetch anything, tell it to the user
                         if (deserial == null)
@@ -287,12 +264,10 @@ namespace spitfire_solutions.Views
             try
             {
                 var response_msg = await _httpClient.GetAsync(str);
-                //read it
                 string jsonResponse = await response_msg.Content.ReadAsStringAsync();
                 Console.WriteLine(jsonResponse);
 
             }
-
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.Message);
@@ -301,65 +276,32 @@ namespace spitfire_solutions.Views
         }
 
 
-
-        
-
-        
-        //BUTTON STUFF, MAKE PRETTIER LATER
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
             //new test, make the text file of all api return
-
             ServerListParser();
         }
 
         private void lstViewServer_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            
-                
-                DisplayServerData(lstViewServer.SelectedIndex);
-            
-                   
+               DisplayServerData(lstViewServer.SelectedIndex);           
         }
 
 
         //FILLS THE PROPER INFO TO PROPER ELEMENTS FROM SERVER
         public void DisplayServerData( int? index_at )
         {
-
-
-
-            //string s = slst_Mapname.ElementAt(lstViewServer.SelectedIndex);
-            
-
-
             string s_host = serverinfo[lstViewServer.SelectedIndex].Host;
             string s_mapname = serverinfo[lstViewServer.SelectedIndex].MapName;
             string s_game = serverinfo[lstViewServer.SelectedIndex].Game;
 
             string s_round = serverinfo[lstViewServer.SelectedIndex].Round;
             string s_rclients = serverinfo[lstViewServer.SelectedIndex].PlayersPlaying;
-            //string s_playernames = serverinfo[lstViewServer.SelectedIndex].SL_Players;
-
-            //string s_gametype = serverinfo[lstViewServer.SelectedIndex]
 
             txtServerName.Text = "Server: " + s_host;
             txtRound.Text = "Match round: " + s_round;
             txtRealClients.Text = "Players playing: " + s_rclients;
 
-            
-            //(int i = 0; i < s_playernames.Length; i++ )
-            /////{
-            //    if( s_playernames.Substring( i ) == "," )
-              //  {
-               //     temp = temp + "\n";
-               // }
-               // else
-               // {
-                 //   temp += s_playernames[i];
-               // }
-                
-           // }
             //txtPlayerNames.Text = ""; //temp
 
             DisplayServerGameLogo(s_game);
@@ -367,16 +309,58 @@ namespace spitfire_solutions.Views
             //for displaying only t6 zom mapnames now till we get more important things worked on first
             if ( ShouldWriteConsoleNames( s_game ) )
             {
-                txtMapName.Text = "Map: " + DisplayConsoleNameInReadable(s_mapname);
+                Console.WriteLine("WE SHOULD PARSE CONSOLE NAMES FOR " + s_game.ToString() );
             }
-            else { txtMapName.Text = "Map: " + s_mapname; }
-            
-           
+            //SelectedGameToParseMapName invokes 2 methods and returns the converted name
+            txtMapName.Text = "Map: " + s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
+
+            //stckpanel background img. Methdo handles the changing the object too
+            ConvertImagesToStack(s_mapname);
         }
 
-        public void SeeTest()
+        //chooses which method to unfuck console_mapnames
+        public string SelectGameToParseMapName( string exc, string map )
         {
-            
+            string readable_mapname;
+            switch( exc )
+            {
+                case "t6zm":
+                    MapNames_T6ZM t6z = new MapNames_T6ZM();
+                    readable_mapname = t6z.ConvertT6ZombieMaps(map);
+                    return readable_mapname;
+
+                case "t6mp":
+                    MapNames_T6MP t6m = new MapNames_T6MP();
+                    readable_mapname = t6m.ConvertT6MultiMaps(map);
+                    return readable_mapname;
+
+                case "t5sp":
+                    MapNames_T5SP t5s = new MapNames_T5SP();
+                    readable_mapname = t5s.ConvertT5ZombieMaps(map);
+                    return readable_mapname;
+
+                case "t5mp":
+                    MapNames_T5MP t5m = new MapNames_T5MP();
+                    readable_mapname = t5m.ConvertT5MultiMaps(map);
+                    return readable_mapname;
+
+                case "t4sp":
+                    MapNames_T4SP t4s = new MapNames_T4SP();
+                    readable_mapname = t4s.ConvertT4ZombieMaps(map);
+                    return readable_mapname;
+
+                case "t4mp":
+                    MapNames_T4MP t4m = new MapNames_T4MP();
+                    readable_mapname = t4m.ConvertT4MultiMaps(map);
+                    return readable_mapname;
+
+                case "iw5mp":
+                    MapNames_IW5MP iw5m = new MapNames_IW5MP();
+                    readable_mapname = iw5m.ConvertIW5MultiMaps(map);
+                    return readable_mapname;
+
+            }
+            return "SelectGameToParseMapName() failed to execute proper method.";
         }
 
 
@@ -390,19 +374,34 @@ namespace spitfire_solutions.Views
             return false;
         }
 
+        //CRASHES FIX THIS
+        //TODO
+        //stackpanel background converter, game_to_image == the exact filename that we need to match based on console.mapnamev
+        public void ConvertImagesToStack(string game_to_image)
+        {
+            
+                
+                //stckImage.ImageSource(Background, game_to_image);
+            
+            
+
+
+            
+            
+           //stckServerPanel.Background = Brushes.AliceBlue;
+           
+        }
 
         public string DisplayServerGameLogo( string game )
         {
             //Check if the game stays same
             //we don't need to remake bitmap unless the image needs to be rendered again
-            if( IsTheGameSame != game )
+            if( IsTheGameSame == game )
             {
                 Console.WriteLine("don't repeat the image"); 
 
             }
-
-            //Create a new bitmap image based on the game parameter
-            else if( IsTheGameSame == game )
+            else if( IsTheGameSame != game )
             {
                 switch (game)
                 {
@@ -442,121 +441,78 @@ namespace spitfire_solutions.Views
                 }
             }
             return null;
-            
         }
+
         public string DisplayConsoleNameInReadable(string str)
         {   
             switch ( str )
             {
                 case "zm_buried":
                     return "Buried";
-                    break;
+
                 case "zm_nuked":
                     return "Nuketown";
-                    break;
                 case "zm_transit":
-                    return "Tranzit";
-                    break;
+                    return "Tranzit";                    
                 case "zm_tomb":
                     return "Origins";
-                    break;
                 case "zm_highrise":
-                    return "Die Rise";
-                    break;
+                    return "Die Rise";                    
                 case "zm_prison":
-                    return"Mob Of The Dead";
-                    break;
+                    return "Mob Of The Dead";                    
             }        
             return "FAILED TO LOAD";
         }
 
-        private void DeleteAllCurrentElements()
-        {
-            /* THESE CAUSE PROBLEMS ATM
-            lstViewServer.ItemsSource = null;
-            for ( int i = 0; i < lstViewServer.Items.Count; i++ )
-            {
-                lstViewServer.Items.Remove(lstViewServer.Items[i]);
-                
-                
-            }
-            */
 
-            lstViewServer.Items.Clear();
-            //another failsafe
-            slst_Hostname.Clear();
-            slst_Mapname.Clear();
-            slst_Round.Clear();
-            slst_Players.Clear();
-            slst_Game.Clear();
-            
-        }
         private void btnRefresh_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DeleteAllCurrentElements();
-            //clear also all text elements later
-            //todo: 
-            //ServerListParser();
+            //DeleteAllCurrentElements();
         }
-
-
-        
 
         private void fnbo1mp_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateTextFile( multi_bo1_servers );
         }
-
         private void fnbo1zm_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            CreateTextFile(zombie_bo1_servers);
         }
-
         private void fnbo2mp_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateTextFile(multi_bo2_servers);
         }
-
         private void fnbo2zm_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateTextFile(zombie_bo2_servers);
         }
-
+        private void fnt4sp_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CreateTextFile(zombie_waw_servers);
+        }
+        private void fnt4mp_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CreateTextFile(multi_waw_servers);
+        }
+        private void fniw5mp_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CreateTextFile(multi_mw3_servers);
+        }
         private void txtSortList_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            SortList();
+            //SortList();
         }
 
-
-
-        public void SortList( )
-        { 
-            
-        }
-
-
+        //add a new entry / item and it's sub items to serverinfo() class to listitem
         public void CreateServerList(string host, string mapname, int playersize, int round, string game/*string playernames*/ )
         {
-            
             serverinfo.Add(new ServerListInfo() { 
-                Host = host,
-                MapName = mapname,
-                Round = round.ToString(),
-                PlayersPlaying = playersize.ToString(),
-                Game = game
+            Host = host,
+            MapName = mapname,
+            Round = round.ToString(),
+            PlayersPlaying = playersize.ToString(),
+            Game = game
                 });
-            
-            
-        }
-
-        public void MakeListViewItemSource()
-        {
-            
-        }
-
-        private void lstViewServer_SourceUpdated(object sender, DataTransferEventArgs e)
-        {
-
         }
     }
 }

@@ -14,7 +14,7 @@ namespace spitfire_solutions.MapNamesToReadable
             {
                 //In release order
                 case "zombie_theater": return "Kino Der Toten";
-                case "zombie_five": return "Five";
+                case "zombie_pentagon": return "Five";
                 case "zombietron": return "Dead Ops Arcade";
                 case "zombie_cosmodrome": return "Asecension";
                 case "zombie_coast": return "Call Of The Dead";
@@ -25,6 +25,7 @@ namespace spitfire_solutions.MapNamesToReadable
                 case "zombie_cod5_sumpf": return "Shangri-La";
                 case "zombie_cod5_factory": return "Shangri-La";
             }
+            //if we can't display any pre determined maps, show the map console name
             return "Server is playing a custom map called: " + mapToConvert;
         }
     }

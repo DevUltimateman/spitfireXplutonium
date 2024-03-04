@@ -9,17 +9,17 @@
              d:DesignHeight="580" d:DesignWidth="970">
     <Grid Background="Red">
         <Grid.RowDefinitions>
-        <RowDefinition Height="40"/>
-        <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
 
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition
                 Width="500"
                 ></ColumnDefinition>
-            
+
             <ColumnDefinition
                 ></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -50,6 +50,19 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"></TextBlock>
 
+            <Image x:Name="fnt4sp"
+                   Width="30"
+                   Height="30"
+                   Source="\images\logos\t4splogo.png"
+                   Margin="10,0,0,0" MouseDown="fnt4sp_MouseDown" 
+                   ></Image>
+            <Image x:Name="fnt4mp"
+                   Width="30"
+                   Height="30"
+                   Source="\images\logos\t4mplogo.png"
+                   Margin="10,0,0,0" MouseDown="fnt4mp_MouseDown" 
+                   ></Image>
+
             <Image x:Name="fnbo1mp"
                    Width="30"
                    Height="30"
@@ -62,18 +75,25 @@
                    Height="30"
                    Margin="10,0,0,0"
                    Source="\images\logos\bo1zmlogo.png" MouseDown="fnbo1zm_MouseDown"></Image>
-            
+
             <Image x:Name="fnbo2mp"
                    Width="30"
                    Height="30"
                    Margin="10,0,0,0"
                    Source="\images\logos\bo2mplogo.png" MouseDown="fnbo2mp_MouseDown"></Image>
-            
+
             <Image x:Name="fnbo2zm"
                    Margin="10,0,0,0"
                    Width="30"
                    Height="30"
                    Source="\images\logos\bo2zmlogo.png" MouseDown="fnbo2zm_MouseDown"></Image>
+
+            <Image x:Name="fniw5mp"
+                   Width="30"
+                   Height="30"
+                   Source="\images\logos\iw5mplogo.png"
+                   Margin="10,0,0,0" MouseDown="fniw5mp_MouseDown" 
+                   ></Image>
 
             <TextBlock x:Name="txtSortList" Foreground="Azure" Text="Sort List "
                        FontSize="10"
@@ -86,19 +106,19 @@
 
 
         </StackPanel>
-        
-        
+
+
         <StackPanel Grid.Column="0"
                     Grid.Row="1"
                     Orientation="Vertical">
-            
-            
+
+
             <ListView x:Name="lstViewServer"     
                 Width="500"
                       Background="White"
                       Opacity="0.85"
                       Foreground="Black"
-                Height="580" SelectionChanged="lstViewServer_SelectionChanged_1" SourceUpdated="lstViewServer_SourceUpdated"
+                Height="580" SelectionChanged="lstViewServer_SelectionChanged_1"
                       >
 
                 <ListView.View>
@@ -110,16 +130,44 @@
             </ListView>
 
         </StackPanel>
+        
         <StackPanel Orientation="Vertical"
+                    Name="stckServerPanel"
                         Grid.Column="1"
                     Grid.Row="1"
-                     Background="Black"
-                        Margin="0,0,0,0">
+                     
+                        Margin="0,0,0,0"
+                    >
+            <StackPanel.Background>
+                
+                <ImageBrush x:Name="stckImage" ImageSource="\images\map_images\bo2\mp\processed\mp_encore.png"
+                            Stretch="Fill"/>
+            </StackPanel.Background>
 
-            <Grid>
+            
+
+
+
+            <Grid Height="540" >
+                <Grid.Background>
+                    
+                <RadialGradientBrush
+                    GradientOrigin="0.5,0.5"
+                    Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5" Opacity="0.35">
+                    <RadialGradientBrush.GradientStops>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="0" />
+                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.25"/>
+                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="1"/>
+                    </RadialGradientBrush.GradientStops>
+                </RadialGradientBrush>
+            
+                    
+                </Grid.Background>
+                
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    
+
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -134,9 +182,9 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-            
 
-            <TextBlock  Name="txtServerName"
+
+                <TextBlock  Name="txtServerName"
                         FontSize="15"
                         FontWeight="DemiBold"
                         Foreground="{StaticResource color3}"
@@ -147,8 +195,8 @@
                        
                             Grid.Row="1"/>
 
-            <TextBlock Name="txtMapName"
-                       FontSize="20"
+                <TextBlock Name="txtMapName"
+                       FontSize="16"
                        FontWeight="DemiBold"
                        Foreground="{StaticResource color6}"
                        HorizontalAlignment="Left"
@@ -157,7 +205,7 @@
                        Grid.Column="0"
                        Grid.Row="2"/>
 
-            <TextBlock Name="txtRound"
+                <TextBlock Name="txtRound"
                        FontSize="20"
                        FontWeight="DemiBold"
                        Foreground="{StaticResource color2}"
@@ -167,7 +215,7 @@
                        Grid.Column="0"
                        Grid.Row="3"/>
 
-            <TextBlock Name="txtRealClients"
+                <TextBlock Name="txtRealClients"
                        FontSize="20"
                        FontWeight="DemiBold"
                        Foreground="White"
@@ -192,16 +240,19 @@
                    Height="100"
                    HorizontalAlignment="Left"
                    Grid.Column="0"
-                       Grid.Row="5"/>
+                       Grid.Row="6"/>
 
             </Grid>
         </StackPanel>
         
         
         
+
+
+
     </Grid>
-    
-    
-    
-    
+
+
+
+
 </UserControl>

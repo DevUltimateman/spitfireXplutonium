@@ -44,6 +44,7 @@ namespace spitfire_solutions.MapNamesToReadable
                 case "mp_silo": return "Silo";
                 case "mp_golfcourse": return "Hazard";
             }
+            //if we can't display any pre determined maps, show the map console name
             return "Server is playing a custom map called: " + mapToConvert;
         }
     }
