@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,134 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bo1mplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\bo1mplogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bo1zmlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\bo1zmlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bo2mplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\bo2mplogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bo2zmlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\bo2zmlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fireLogo2k" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\fireLogo2k.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iw5mplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\iw5mplogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iw5_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logo_titles\iw5_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_bridge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_carrier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_carrier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_cove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_cove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_dockside" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_dockside.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_drone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_drone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_encore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_encore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_express" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_express.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_hijacked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_hijacked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_la" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_la.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_magma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_magma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_meltdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_meltdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_mirage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_mirage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_overflow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_overflow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_paintball" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_paintball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  
+  <data name="mp_raid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_raid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_skate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_skate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_slums" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_slums.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_studio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_studio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_takeoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_takeoff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_test.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_turbine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_turbine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_uplink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_uplink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mp_village" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_village.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spitfire_flat_white500x500" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\spitfire_flat_white500x500.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spitfire_flat_white_shadow500x500" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\spitfire_flat_white_shadow500x500.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spitLogo2k" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\spitLogo2k.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t4mplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\t4mplogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t4mp_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logo_titles\t4mp_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t4splogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logos\t4splogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t4sp_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logo_titles\t4sp_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t5mp_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logo_titles\t5mp_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t5sp_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logo_titles\t5sp_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t6mp_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logo_titles\t6mp_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="t6zm_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\logo_titles\t6zm_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

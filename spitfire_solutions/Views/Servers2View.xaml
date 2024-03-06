@@ -115,7 +115,7 @@
 
             <ListView x:Name="lstViewServer"     
                 Width="500"
-                      Background="White"
+                      Background="Transparent"
                       Opacity="0.85"
                       Foreground="Black"
                 Height="580" SelectionChanged="lstViewServer_SelectionChanged_1"
@@ -130,7 +130,7 @@
             </ListView>
 
         </StackPanel>
-        
+
         <StackPanel Orientation="Vertical"
                     Name="stckServerPanel"
                         Grid.Column="1"
@@ -139,32 +139,32 @@
                         Margin="0,0,0,0"
                     >
             <StackPanel.Background>
-                
+
                 <ImageBrush x:Name="stckImage" ImageSource="\images\map_images\bo2\mp\processed\mp_encore.png"
                             Stretch="Fill"/>
             </StackPanel.Background>
 
-            
+
 
 
 
             <Grid Height="540" >
                 <Grid.Background>
-                    
-                <RadialGradientBrush
+
+                    <RadialGradientBrush
                     GradientOrigin="0.5,0.5"
                     Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5" Opacity="0.35">
-                    <RadialGradientBrush.GradientStops>
-                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="0" />
-                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.25"/>
-                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="1"/>
-                    </RadialGradientBrush.GradientStops>
-                </RadialGradientBrush>
-            
-                    
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="{StaticResource winBorderColor3}" Offset="0" />
+                            <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.25"/>
+                            <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="1"/>
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+
+
                 </Grid.Background>
-                
-                
+
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
 
@@ -244,11 +244,19 @@
 
             </Grid>
         </StackPanel>
-        
-        
-        
 
 
+
+
+
+
+
+        <Image Grid.Column="1"
+               HorizontalAlignment="Left" Height="210"
+               Margin="38,312,0,0" Grid.Row="1" 
+               VerticalAlignment="Top" Width="386"
+               Name="imgBack" RenderTransformOrigin="0.488,0.517" 
+               Source="/images/map_images/bo2/mp/processed/mp_magma.png"/>
 
     </Grid>
 

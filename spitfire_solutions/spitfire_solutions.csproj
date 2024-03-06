@@ -72,6 +72,7 @@
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -271,23 +272,8 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="images\map_images\bo2\mp\cove.webp" />
-    <None Include="images\map_images\bo2\mp\detour.webp" />
-    <None Include="images\map_images\bo2\mp\encore.webp" />
-    <None Include="images\map_images\bo2\mp\grind.webp" />
-    <None Include="images\map_images\bo2\mp\hijacked.webp" />
-    <None Include="images\map_images\bo2\mp\magma.webp" />
-    <None Include="images\map_images\bo2\mp\meltdown.webp" />
-    <None Include="images\map_images\bo2\mp\mirage.webp" />
-    <None Include="images\map_images\bo2\mp\overflow.webp" />
-    <None Include="images\map_images\bo2\mp\plaza.webp" />
-    <None Include="images\map_images\bo2\mp\raid.webp" />
-    <None Include="images\map_images\bo2\mp\rush.webp" />
-    <None Include="images\map_images\bo2\mp\slums.webp" />
-    <None Include="images\map_images\bo2\mp\studio.webp" />
-    <None Include="images\map_images\bo2\mp\takeoff.webp" />
-    <None Include="images\map_images\bo2\mp\uplink.webp" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -376,7 +362,7 @@
     <Resource Include="images\map_images\bo2\mp\processed\mp_overflow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="images\map_images\bo2\mp\processed\mp_plaza.png">
+    <Resource Include="images\map_images\bo2\mp\processed\mp_nightclub.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\map_images\bo2\mp\processed\mp_raid.png">
@@ -399,6 +385,54 @@
     <Resource Include="images\map_images\bo2\mp\processed\mp_uplink.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp_test.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\map_images\bo2\mp\processed\mp_test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_bridge.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_carrier.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_dockside.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_drone.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_express.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_la.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_turbine.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_village.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_downhill.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_hydro.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_nuketown_2020.png" />
+    <Resource Include="images\map_images\bo2\mp\processed\mp_pod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_vertigo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_frostbite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_socotra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\mp\processed\mp_dig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\zm\processed\zm_highrise_mico.png" />
+    <Resource Include="images\map_images\bo2\zm\processed\zm_nuked_mico.png" />
+    <Resource Include="images\map_images\bo2\zm\processed\zm_prison_mico.png" />
+    <Resource Include="images\map_images\bo2\zm\processed\zm_tomb_mico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\zm\processed\zm_transit_mico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\zm\processed\zm_buried_mico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,6 +26,12 @@ using System.ComponentModel;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.IO.Packaging;
 using spitfire_solutions.MapNamesToReadable;
+using System.Runtime.InteropServices;
+using System.Windows.Interop;
+using System.Resources;
+using System.Drawing;
+using System.Net.NetworkInformation;
+using System.Globalization;
 /*
 
 R58KB0RVX3E
@@ -92,7 +98,7 @@ namespace spitfire_solutions.Views
         List<string> slst_Userslug = new List<string>();
 
 
-        
+        public CultureInfo cult;
 
         public int current_index = 0;
 
@@ -231,15 +237,18 @@ namespace spitfire_solutions.Views
                             lstViewServer.SelectedIndex = 0;
                             //need this so that we can index the list with arrows without pressing on the list with mouse first
                             lstViewServer.Focus();
+
+                            //let's jump out of the loop, we found servers and can display them
+                            KeepLooping = false;
+                            KeepTrack = 0;
+                            break;
                         }
                         //maybe couldnt fetch anything, tell it to the user
                         if (deserial == null)
                         {
                             System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n");
                         }
-                        //let's jump out of the loop, we found servers and can display them
-                        KeepLooping = false;
-                        break;
+                        
                     }
                 }
                 //the index is out of range, happens if the method is called when the previous one is running
@@ -257,6 +266,7 @@ namespace spitfire_solutions.Views
             }
         }
 
+        
 
         // THIS FETCHES THE URL AND DESERIALIZES IT
         public async void MyJsonOutput(string str)
@@ -266,13 +276,8 @@ namespace spitfire_solutions.Views
                 var response_msg = await _httpClient.GetAsync(str);
                 string jsonResponse = await response_msg.Content.ReadAsStringAsync();
                 Console.WriteLine(jsonResponse);
-
             }
-            catch (Exception e)
-            {
-                System.Windows.Forms.MessageBox.Show(e.Message);
-
-            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show(e.Message); }
         }
 
 
@@ -305,6 +310,8 @@ namespace spitfire_solutions.Views
             //txtPlayerNames.Text = ""; //temp
 
             DisplayServerGameLogo(s_game);
+            //stckpanel background img. Methdo handles the changing the object too
+           // 
 
             //for displaying only t6 zom mapnames now till we get more important things worked on first
             if ( ShouldWriteConsoleNames( s_game ) )
@@ -314,8 +321,7 @@ namespace spitfire_solutions.Views
             //SelectedGameToParseMapName invokes 2 methods and returns the converted name
             txtMapName.Text = "Map: " + s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
 
-            //stckpanel background img. Methdo handles the changing the object too
-            ConvertImagesToStack(s_mapname);
+            MakeImage(s_mapname, s_game );
         }
 
         //chooses which method to unfuck console_mapnames
@@ -374,24 +380,47 @@ namespace spitfire_solutions.Views
             return false;
         }
 
+
+        public async void MakeImage(string mapImage, string gameName)
+        {
+            ConvertImagesToStack(mapImage, gameName);
+            Console.WriteLine("DEBUGGING TO GET MAP: " + mapImage);
+        }
+
+        
         //CRASHES FIX THIS
         //TODO
         //stackpanel background converter, game_to_image == the exact filename that we need to match based on console.mapnamev
-        public void ConvertImagesToStack(string game_to_image)
+        public void ConvertImagesToStack(string game_to_image, string exe_to_image)
         {
-            
-                
-                //stckImage.ImageSource(Background, game_to_image);
-            
-            
+            string mp_starts = "mp";
+            string zm_starts = "zm";
+            string sp_starts = "sp";
 
-
-            
-            
-           //stckServerPanel.Background = Brushes.AliceBlue;
-           
+            try
+            {
+                //for multiplayer filtering ( temp )
+                if (game_to_image.Contains(mp_starts))
+                {
+                    imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/mp/processed/" + game_to_image + ".png"));
+                }
+                //for zombies filtering ( temp )
+                else if (game_to_image.Contains(sp_starts) || game_to_image.Contains(zm_starts))
+                {
+                    imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/zm/processed/" + game_to_image + "_mico" + ".png"));
+                }
+            }
+            //if we fail to get the image / the server plays custom map that we don't have the image for?...
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/mp_test.png"));
+            }
         }
 
+        [DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool DeleteObject([In] IntPtr hObject);
         public string DisplayServerGameLogo( string game )
         {
             //Check if the game stays same
@@ -442,28 +471,6 @@ namespace spitfire_solutions.Views
             }
             return null;
         }
-
-        public string DisplayConsoleNameInReadable(string str)
-        {   
-            switch ( str )
-            {
-                case "zm_buried":
-                    return "Buried";
-
-                case "zm_nuked":
-                    return "Nuketown";
-                case "zm_transit":
-                    return "Tranzit";                    
-                case "zm_tomb":
-                    return "Origins";
-                case "zm_highrise":
-                    return "Die Rise";                    
-                case "zm_prison":
-                    return "Mob Of The Dead";                    
-            }        
-            return "FAILED TO LOAD";
-        }
-
 
         private void btnRefresh_MouseDown(object sender, MouseButtonEventArgs e)
         {
