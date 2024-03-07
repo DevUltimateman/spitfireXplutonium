@@ -18,6 +18,8 @@ namespace spitfire_solutions.ServerClasses
         public string? Gametype { get; set; }
         public string? Ip { get; set; }
 
-        public string Players { get; set; }
+        //public string Players { get; set; }
+
+        public string PlayerList { get; set; }
     }
 }

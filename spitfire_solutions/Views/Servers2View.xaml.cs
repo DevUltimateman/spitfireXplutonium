@@ -61,6 +61,9 @@ namespace spitfire_solutions.Views
 
         //KEEP TRACK OF SELECTED LIST INDEX
         public int LST_CURRENT_INDEX;
+
+        //PUBLIC COUNT
+        public string debugval;
         //BITMAP URIS
         //world at war
         public string t4spuri = "/images/logo_titles/t4sp_logotitle.png";
@@ -170,7 +173,9 @@ namespace spitfire_solutions.Views
             //we need to keep a check to not get a null value, otherwise we crash
             bool KeepLooping = true;
             int KeepTrack = 0;
-            while( KeepLooping )
+            debugval = string.Empty;
+
+            while ( KeepLooping )
             {
                 try
                 {
@@ -221,13 +226,30 @@ namespace spitfire_solutions.Views
 
                                 //debug laterrr
                                 //works now
+                                //RN ONLY PRINTS FIRST NAME AND STOPS THEN
+
+                                //reset debugval for each instance we make
+                                //this seems to fix it for now
+                                debugval = string.Empty;
+                                //check server "x" player count and get players names if there are any
+                                int s = deserial.servers[i].players.Count;
+                                if( s > 0 )
+                                {
+                                    for (int a = 0; a < s; a++)
+                                    {
+                                        debugval += "\n" + deserial.servers[i].players[a].username;
+                                    }
+                                }
+                               
+                                
                                 CreateServerList(
                                                     deserial.servers[i].hostname,
                                                     deserial.servers[i].map,
                                                     deserial.servers[i].realClients,
                                                     deserial.servers[i].round,
-                                                    deserial.servers[i].game
-                                                   /* deserial.servers[i].players.ToString()*/);
+                                                    deserial.servers[i].game,
+                                                    debugval
+                                                   );
                             }
                             for (int j = 0; j < slst_Hostname.Count; j++)
                             {
@@ -266,35 +288,8 @@ namespace spitfire_solutions.Views
             }
         }
 
-        
-
-        // THIS FETCHES THE URL AND DESERIALIZES IT
-        public async void MyJsonOutput(string str)
-        {
-            try
-            {
-                var response_msg = await _httpClient.GetAsync(str);
-                string jsonResponse = await response_msg.Content.ReadAsStringAsync();
-                Console.WriteLine(jsonResponse);
-            }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show(e.Message); }
-        }
-
-
-        private void btnTest_Click(object sender, RoutedEventArgs e)
-        {
-            //new test, make the text file of all api return
-            ServerListParser();
-        }
-
-        private void lstViewServer_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-               DisplayServerData(lstViewServer.SelectedIndex);           
-        }
-
-
         //FILLS THE PROPER INFO TO PROPER ELEMENTS FROM SERVER
-        public void DisplayServerData( int? index_at )
+        public void DisplayServerData(int? index_at)
         {
             string s_host = serverinfo[lstViewServer.SelectedIndex].Host;
             string s_mapname = serverinfo[lstViewServer.SelectedIndex].MapName;
@@ -305,22 +300,25 @@ namespace spitfire_solutions.Views
 
             txtServerName.Text = "Server: " + s_host;
             txtRound.Text = "Match round: " + s_round;
-            txtRealClients.Text = "Players playing: " + s_rclients;
-
-            //txtPlayerNames.Text = ""; //temp
+            txtRealClients.Text = "Players: " + s_rclients;
 
             DisplayServerGameLogo(s_game);
-            //stckpanel background img. Methdo handles the changing the object too
-           // 
 
             //for displaying only t6 zom mapnames now till we get more important things worked on first
-            if ( ShouldWriteConsoleNames( s_game ) )
+            if (ShouldWriteConsoleNames(s_game))
             {
-                Console.WriteLine("WE SHOULD PARSE CONSOLE NAMES FOR " + s_game.ToString() );
+                Console.WriteLine("WE SHOULD PARSE CONSOLE NAMES FOR " + s_game.ToString());
             }
             //SelectedGameToParseMapName invokes 2 methods and returns the converted name
             txtMapName.Text = "Map: " + s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
 
+            //player name list
+
+            //serverinfo[lstViewServer.SelectedIndex].PlayerList != string.Empty )
+            
+            //for sSOME REASON MOST TEXT IS CUT OUT NOW. FIX LATERR!!
+                txtPlayerNames.Text = "Players playing: " + serverinfo[lstViewServer.SelectedIndex].PlayersPlaying  + serverinfo[lstViewServer.SelectedIndex].PlayerList.ToString();
+            
             MakeImage(s_mapname, s_game );
         }
 
@@ -510,16 +508,43 @@ namespace spitfire_solutions.Views
             //SortList();
         }
 
+        // THIS FETCHES THE URL AND DESERIALIZES IT
+        public async void MyJsonOutput(string str)
+        {
+            try
+            {
+                var response_msg = await _httpClient.GetAsync(str);
+                string jsonResponse = await response_msg.Content.ReadAsStringAsync();
+                Console.WriteLine(jsonResponse);
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show(e.Message); }
+        }
+
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            //new test, make the text file of all api return
+            ServerListParser();
+        }
+
+        private void lstViewServer_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            DisplayServerData(lstViewServer.SelectedIndex);
+        }
+
         //add a new entry / item and it's sub items to serverinfo() class to listitem
-        public void CreateServerList(string host, string mapname, int playersize, int round, string game/*string playernames*/ )
+        public void CreateServerList(string host, string mapname, int playersize, int round, string game, string player_names )
         {
             serverinfo.Add(new ServerListInfo() { 
             Host = host,
             MapName = mapname,
             Round = round.ToString(),
             PlayersPlaying = playersize.ToString(),
-            Game = game
-                });
+            Game = game,
+            PlayerList = player_names
+            
+
+                });;
         }
     }
 }

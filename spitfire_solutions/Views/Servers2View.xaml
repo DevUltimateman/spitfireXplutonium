@@ -167,6 +167,7 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
 
@@ -175,7 +176,7 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="253"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
@@ -189,21 +190,22 @@
                         FontWeight="DemiBold"
                         Foreground="{StaticResource color3}"
                         HorizontalAlignment="Left"
-                        TextAlignment="Center"
+                        TextAlignment="Left"
                         Text="Server: "
                         Grid.Column="0"
+                            Grid.Row="0" Width="52"
                        
-                            Grid.Row="1"/>
+                            />
 
                 <TextBlock Name="txtMapName"
                        FontSize="16"
                        FontWeight="DemiBold"
                        Foreground="{StaticResource color6}"
                        HorizontalAlignment="Left"
-                       TextAlignment="Center"
+                       TextAlignment="Left"
                        Text="Mapname: "
                        Grid.Column="0"
-                       Grid.Row="2"/>
+                       Grid.Row="1" Width="81"/>
 
                 <TextBlock Name="txtRound"
                        FontSize="20"
@@ -213,7 +215,7 @@
                        TextAlignment="Center"
                        Text="Current round: "
                        Grid.Column="0"
-                       Grid.Row="3"/>
+                       Grid.Row="2" Width="139"/>
 
                 <TextBlock Name="txtRealClients"
                        FontSize="20"
@@ -223,24 +225,24 @@
                        TextAlignment="Center"
                        Text="Playing: "
                        Grid.Column="0"
-                       Grid.Row="4"/>
-
+                       Grid.Row="3" Width="77"/>
                 <TextBlock Name="txtPlayerNames"
                        FontSize="20"
                        FontWeight="DemiBold"
                        Foreground="White"
                        HorizontalAlignment="Left"
-                       TextAlignment="Center"
-                       Text="Players: "
+                       TextAlignment="Left"
+                       Text="Players playing: "
                        Grid.Column="0"
-                       Grid.Row="5"/>
+                       Grid.Row="4"
+                           Grid.RowSpan="6" Width="172"/>
 
                 <Image x:Name="imgServerGameLogo"
-                   Width="300"
-                   Height="100"
+                   Width="50"
                    HorizontalAlignment="Left"
-                   Grid.Column="0"
-                       Grid.Row="6"/>
+                       
+                   Grid.Column="1"
+                       Grid.Row="9" Margin="0,0,0,20"/>
 
             </Grid>
         </StackPanel>
@@ -253,7 +255,7 @@
 
         <Image Grid.Column="1"
                HorizontalAlignment="Left" Height="210"
-               Margin="38,312,0,0" Grid.Row="1" 
+               Margin="38,312,0,0" Grid.Row="5" 
                VerticalAlignment="Top" Width="386"
                Name="imgBack" RenderTransformOrigin="0.488,0.517" 
                Source="/images/map_images/bo2/mp/processed/mp_magma.png"/>
