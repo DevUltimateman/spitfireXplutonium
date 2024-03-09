@@ -32,6 +32,7 @@ using System.Resources;
 using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Globalization;
+using spitfire_solutions.ProcessHandlers;
 /*
 
 R58KB0RVX3E
@@ -591,6 +592,12 @@ namespace spitfire_solutions.Views
             
 
                 });;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Executer ex = new Executer();
+            ex.MakeShitHappen();
         }
     }
 }

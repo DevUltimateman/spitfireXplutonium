@@ -135,6 +135,7 @@
     <Compile Include="PageServersGame.xaml.cs">
       <DependentUpon>PageServersGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProcessHandlers\Executer.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
