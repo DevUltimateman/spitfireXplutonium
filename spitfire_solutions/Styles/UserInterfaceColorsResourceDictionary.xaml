@@ -7,6 +7,18 @@
     <Color x:Key="primaryBackColor2">#FF0E0919</Color>
     <Color x:Key="secondaryBackColor1">#FF11111B</Color>
     <Color x:Key="secondaryBackColor2">#FF0E0919</Color>
+
+    
+
+    <Color x:Key="a1">#FF360A67</Color>
+    <Color x:Key="a2">#FF4B0F6A</Color>
+    <Color x:Key="a3">#FF074857</Color>
+    <Color x:Key="a4">#FF822611</Color>
+    <Color x:Key="a5">#FFE2A985</Color>
+    <Color x:Key="a6">#FF85E2A1</Color>
+    <Color x:Key="a7">#FFDE15AF</Color>
+    <Color x:Key="a8">#FFDBEC23</Color>
+    <Color x:Key="a9">#FFAB6924</Color>
     <!--Window Border Colors-->
     <Color x:Key="winBorderColor1">#FFBBE285</Color>
     <Color x:Key="winBorderColor2">#FFEC4A4A</Color>

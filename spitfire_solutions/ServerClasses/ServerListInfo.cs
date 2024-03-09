@@ -21,5 +21,16 @@ namespace spitfire_solutions.ServerClasses
         //public string Players { get; set; }
 
         public string PlayerList { get; set; }
+
+        //march 2024
+        public string GameType { get; set; }
+        public string Description { get; set; }
+
+        public string PlayerPing { get; set; }
+
+        public string MaxPlayers { get; set; }
+
+        public string GameTypeNormalText { get; set; }
+        public int ServersOnline { get; set; }
     }
 }

@@ -7,9 +7,10 @@
              xmlns:local="clr-namespace:spitfire_solutions.Views"
              mc:Ignorable="d" 
              d:DesignHeight="580" d:DesignWidth="970">
-    <Grid Background="Red">
+    <Grid Background="{StaticResource panelActiveColor}"
+          >
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -17,7 +18,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition
-                Width="500"
+                Width="375"
                 ></ColumnDefinition>
 
             <ColumnDefinition
@@ -26,71 +27,60 @@
 
 
         <StackPanel Orientation="Horizontal"
-                    Margin=" 25,0,25,0"
-                    Grid.ColumnSpan="2">
+                    Margin="10,10,0,0"
+                    Grid.ColumnSpan="2"
+                    >
 
             <TextBlock Foreground="Azure" Text="Find Servers > "
                        FontSize="10"
                        TextAlignment="Center"
-                       Margin="10,0,0,0"
+                       Margin="0,0,0,0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"></TextBlock>
 
-            <TextBlock x:Name="btnRefresh" Foreground="Azure" Text="Refresh List > "
-                       FontSize="10"
-                       Margin="10,0,0,0"
-                       TextAlignment="Center"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" MouseDown="btnRefresh_MouseDown"></TextBlock>
 
-            <TextBlock Foreground="Azure" Text="Choose a game > "
-                       FontSize="10"
-                       TextAlignment="Center"
-                       Margin="10,0,0,0"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"></TextBlock>
 
             <Image x:Name="fnt4sp"
-                   Width="30"
-                   Height="30"
+                   Width="25"
+                   Height="25"
                    Source="\images\logos\t4splogo.png"
                    Margin="10,0,0,0" MouseDown="fnt4sp_MouseDown" 
                    ></Image>
             <Image x:Name="fnt4mp"
-                   Width="30"
-                   Height="30"
+                   Width="25"
+                   Height="25"
                    Source="\images\logos\t4mplogo.png"
                    Margin="10,0,0,0" MouseDown="fnt4mp_MouseDown" 
                    ></Image>
 
             <Image x:Name="fnbo1mp"
-                   Width="30"
-                   Height="30"
+                   Width="25"
+                   Height="25"
                    Source="\images\logos\bo1mplogo.png"
                    Margin="10,0,0,0" MouseDown="fnbo1mp_MouseDown"
                    ></Image>
 
             <Image x:Name="fnbo1zm"
-                   Width="30"
-                   Height="30"
+                   Width="25"
+                   Height="25"
                    Margin="10,0,0,0"
                    Source="\images\logos\bo1zmlogo.png" MouseDown="fnbo1zm_MouseDown"></Image>
 
             <Image x:Name="fnbo2mp"
-                   Width="30"
-                   Height="30"
+                   Width="25"
+                   Height="25"
                    Margin="10,0,0,0"
                    Source="\images\logos\bo2mplogo.png" MouseDown="fnbo2mp_MouseDown"></Image>
 
             <Image x:Name="fnbo2zm"
                    Margin="10,0,0,0"
-                   Width="30"
-                   Height="30"
+                   Width="25"
+                   Height="25"
                    Source="\images\logos\bo2zmlogo.png" MouseDown="fnbo2zm_MouseDown"></Image>
 
             <Image x:Name="fniw5mp"
-                   Width="30"
-                   Height="30"
+                   Width="25"
+                   Height="25"
                    Source="\images\logos\iw5mplogo.png"
                    Margin="10,0,0,0" MouseDown="fniw5mp_MouseDown" 
                    ></Image>
@@ -114,16 +104,19 @@
 
 
             <ListView x:Name="lstViewServer"     
-                Width="500"
+                Width="375"
                       Background="Transparent"
                       Opacity="0.85"
-                      Foreground="Black"
-                Height="580" SelectionChanged="lstViewServer_SelectionChanged_1"
+                      FontWeight="DemiBold"
+                      Foreground="White"
+                Height="540" SelectionChanged="lstViewServer_SelectionChanged_1"
                       >
 
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Host" DisplayMemberBinding="{Binding Host}"  Width="500" ></GridViewColumn>
+                        <GridViewColumn Header="Host" DisplayMemberBinding="{Binding Host}" 
+                                        Width="375"
+                                        ></GridViewColumn>
                     </GridView>
                 </ListView.View>
 
@@ -140,8 +133,11 @@
                     >
             <StackPanel.Background>
 
-                <ImageBrush x:Name="stckImage" ImageSource="\images\map_images\bo2\mp\processed\mp_encore.png"
-                            Stretch="Fill"/>
+                <ImageBrush x:Name="stckImage" 
+                            
+                            Opacity="0.56"
+                            ImageSource="\images\map_images\bo2\mp\processed\mp_concert.png"
+                            Stretch="Fill"></ImageBrush>
             </StackPanel.Background>
 
 
@@ -151,15 +147,11 @@
             <Grid Height="540" >
                 <Grid.Background>
 
-                    <RadialGradientBrush
-                    GradientOrigin="0.5,0.5"
-                    Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5" Opacity="0.35">
-                        <RadialGradientBrush.GradientStops>
-                            <GradientStop Color="{StaticResource winBorderColor3}" Offset="0" />
-                            <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.25"/>
-                            <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="1"/>
-                        </RadialGradientBrush.GradientStops>
-                    </RadialGradientBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.70" >
+                        <GradientStop Color="{StaticResource a1}" Offset="0.0"/>
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0.35" />
+                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1" />
+                    </LinearGradientBrush>
 
 
                 </Grid.Background>
@@ -167,84 +159,327 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+
 
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="253"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
+
                 </Grid.RowDefinitions>
 
 
-                <TextBlock  Name="txtServerName"
-                        FontSize="15"
+
+
+
+
+
+
+
+
+                <Image x:Name="imgServerGameLogo"
+                   Width="176"
+                   HorizontalAlignment="Left"
+                       Source="/images/logo_titles/t6mp_logotitle.png"
+                   Grid.Column="0" Margin="10,-9,0,453"/>
+
+                <Border
+                    
+                    BorderThickness="2" CornerRadius="30" Margin="227,62,29,349">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+
+                            <GradientStop Color="{StaticResource a7}" Offset="0" />
+                            <GradientStop Color="{StaticResource a6}" Offset=".75" />
+                            <GradientStop Color="Transparent" Offset=" 1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+
+                            <GradientStop Color="{StaticResource a3}" Offset="0" />
+                            <GradientStop Color="{StaticResource a1}" Offset="0.3" />
+                            <GradientStop Color="Transparent" Offset="1.5"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+
+                        <Label 
+                       HorizontalAlignment="Left"
+                       Foreground="{StaticResource plainTextColor3}"
+                       FontSize="42"
+                    FontStyle="Italic"
+                    FontWeight="DemiBold"
+                    Height="Auto"
+                    Width="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                       Content="Server"
+                       Margin="10,0,0,0" VerticalAlignment="Top" 
+                      />
+
+                        <TextBlock  Name="txtServerName"
+                           Margin="15,0,20,0"
+                                    
+                        FontSize="20"
                         FontWeight="DemiBold"
-                        Foreground="{StaticResource color3}"
+                        Foreground="AntiqueWhite"
+                            
                         HorizontalAlignment="Left"
                         TextAlignment="Left"
-                        Text="Server: "
+                                   TextWrapping="Wrap"
+                        Text="Servername"
                         Grid.Column="0"
-                            Grid.Row="0" Width="52"
+                            
+                            Grid.Row="0" Width="Auto"
                        
                             />
 
-                <TextBlock Name="txtMapName"
-                       FontSize="16"
+                    </StackPanel>
+
+                </Border>
+
+
+                <Border Margin="10,202,397,132" CornerRadius="30">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="{StaticResource a7}" Offset="0.0"/>
+                            <GradientStop Color="{StaticResource a6}" Offset="0.75" />
+                            <GradientStop Color="{StaticResource a1}" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="{StaticResource a1}" Offset="0.0"/>
+                            <GradientStop Color="{StaticResource a2}" Offset="0.75" />
+                            <GradientStop Color="{StaticResource a1}" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+
+                    <StackPanel Margin="0,0,-29,0" >
+                        <Grid>
+
+
+
+
+                            <Label
+                            Width="Auto"
+                            Margin="10,0,119,126"
+                            Content="Map"
+                            Foreground="{StaticResource plainTextColor3}"
+                            FontSize="25"
+                                Grid.Row="0"/>
+
+
+                            <TextBlock Name="txtMapName"
+                                   
+                                   Margin="10,37,0,110"
+                       FontSize="15"
                        FontWeight="DemiBold"
-                       Foreground="{StaticResource color6}"
+                       Foreground="AntiqueWhite"
+                           
                        HorizontalAlignment="Left"
                        TextAlignment="Left"
-                       Text="Mapname: "
+                       Text="Nuketown 2020"
+                               Height="Auto"
                        Grid.Column="0"
-                       Grid.Row="1" Width="81"/>
+                       Width="Auto"/>
 
-                <TextBlock Name="txtRound"
-                       FontSize="20"
+                            <Label
+                            Width="Auto"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Left"
+                            Margin="0,53,10,-33"
+                                
+                            Content="Round"
+                            Foreground="{StaticResource titleColor3}"
+                            FontSize="25"/>
+
+                            <TextBlock Name="txtRound"
+                                   Margin="5,154,0,0"
+                       FontSize="15"
                        FontWeight="DemiBold"
-                       Foreground="{StaticResource color2}"
+                       Foreground="{StaticResource color1}"
                        HorizontalAlignment="Left"
                        TextAlignment="Center"
                        Text="Current round: "
-                       Grid.Column="0"
-                       Grid.Row="2" Width="139"/>
+                       Grid.Column="0" Width="Auto" Height="30" VerticalAlignment="Top"/>
 
-                <TextBlock Name="txtRealClients"
-                       FontSize="20"
+                            <Label
+                            Width="Auto"
+                            Margin="0,53,71,96"
+                            Content="Gametype"
+                            Foreground="{StaticResource titleColor3}"
+                            FontSize="25"/>
+
+                            <TextBlock Name="txtGametype"
+                                   Margin="10,96,0,43"
+                       FontSize="15"
                        FontWeight="DemiBold"
-                       Foreground="White"
+                       Foreground="{StaticResource color1}"
                        HorizontalAlignment="Left"
                        TextAlignment="Center"
-                       Text="Playing: "
-                       Grid.Column="0"
-                       Grid.Row="3" Width="77"/>
-                <TextBlock Name="txtPlayerNames"
-                       FontSize="20"
+                       Text="Gametype Normal"
+                       Grid.Column="0" Width="Auto"/>
+
+
+
+
+                        </Grid>
+
+
+
+                    </StackPanel>
+                </Border>
+
+
+                <Border Margin="227,202,213,201" CornerRadius="30">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="{StaticResource a7}" Offset="0.0"/>
+                            <GradientStop Color="{StaticResource a6}" Offset="0.75" />
+                            <GradientStop Color="{StaticResource a7}" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="{StaticResource a7}" Offset="0.0"/>
+                            <GradientStop Color="{StaticResource a1}" Offset="0.65" />
+                            <GradientStop Color="{StaticResource a1}" Offset="1.1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <StackPanel>
+
+
+                        <TextBlock
+                            Height="Auto"
+                            Width="Auto"
+                            Margin="15,5,0,0"
+                            Text="Servers online: "
+                            Foreground="{StaticResource color7}"
+                            FontSize="15"/>
+
+                        <TextBlock x:Name="txtServersOnline"
+                        Margin="20,0,0,0"
+                       FontSize="15"
                        FontWeight="DemiBold"
+                       Foreground="AntiqueWhite"  
+                       HorizontalAlignment="Left"
+                       TextAlignment="Left"
+                                   
+                       Text="348"
+                        Height="Auto"
+                       Grid.Column="0"
+                       Width="Auto"/>
+
+
+
+
+                        <TextBlock
+                            Height="Auto"
+                            Width="Auto"
+                            Margin="15,0,0,0"
+                            Text="Lobby Size"
+                            Foreground="{StaticResource color7}"
+                            FontSize="15"/>
+
+
+                        <TextBlock x:Name="txtLobbySize"
+                        Margin="15,0,0,0"
+                       FontSize="15"
+                       FontWeight="DemiBold"
+                       Foreground="AntiqueWhite"  
+                       HorizontalAlignment="Left"
+                       TextAlignment="Left"
+                                   
+                       Text="7 / 18"
+                        Height="Auto"
+                       Grid.Column="0"
+                       Width="Auto"/>
+
+
+
+
+
+                    </StackPanel>
+
+
+
+
+
+                </Border>
+
+
+                <Border Margin="410,202,29,10" CornerRadius="30">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="{StaticResource a7}" Offset="0.0"/>
+                            <GradientStop Color="{StaticResource a2}" Offset="0.75" />
+                            <GradientStop Color="{StaticResource a5}" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="{StaticResource a1}" Offset="0.0"/>
+                            <GradientStop Color="{StaticResource a3}" Offset="0.65" />
+                            <GradientStop Color="Transparent" Offset="2" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label
+                            Height="40"
+                            Width="Auto"
+                            Margin="10,0,0,0"
+                            Content="Players"
+                            Foreground="{StaticResource color5}"
+                            FontSize="25"></Label>
+                            <TextBlock Name="txtRealClients"
+                                   Margin="5,5,0,0"
+                       FontSize="25"
+                       FontWeight="DemiBold"
+                       Foreground="Orange"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Center"
+                       Text="18"
+                       Grid.Column="0"
+                       Grid.Row="3" Width="Auto"/>
+                        </StackPanel>
+
+
+                        <TextBlock Name="txtPlayerNames"
+                                   Margin="20,0,0,0"
+                       FontSize="12"
+                       Height="Auto"
                        Foreground="White"
                        HorizontalAlignment="Left"
                        TextAlignment="Left"
-                       Text="Players playing: "
+                       Text="Playername 1"
                        Grid.Column="0"
                        Grid.Row="4"
-                           Grid.RowSpan="6" Width="172"/>
+                           Grid.RowSpan="20" Width="Auto"/>
 
-                <Image x:Name="imgServerGameLogo"
-                   Width="50"
-                   HorizontalAlignment="Left"
-                       
-                   Grid.Column="1"
-                       Grid.Row="9" Margin="0,0,0,20"/>
+
+                    </StackPanel>
+
+
+
+
+
+                </Border>
+
+
+
+
 
             </Grid>
+
         </StackPanel>
 
 
@@ -254,14 +489,16 @@
 
 
         <Image Grid.Column="1"
-               HorizontalAlignment="Left" Height="210"
-               Margin="38,312,0,0" Grid.Row="5" 
-               VerticalAlignment="Top" Width="386"
+               HorizontalAlignment="Left"
+               Margin="10,67,0,348" Grid.Row="1" 
+                Width="287"
                Name="imgBack" RenderTransformOrigin="0.488,0.517" 
                Source="/images/map_images/bo2/mp/processed/mp_magma.png"/>
 
-    </Grid>
 
+
+
+    </Grid>
 
 
 

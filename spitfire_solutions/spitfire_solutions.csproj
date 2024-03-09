@@ -135,6 +135,11 @@
     <Compile Include="PageServersGame.xaml.cs">
       <DependentUpon>PageServersGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ServerClasses\Player.cs" />
     <Compile Include="ServerClasses\Root.cs" />
     <Compile Include="ServerClasses\Server.cs" />
@@ -259,11 +264,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -271,8 +271,8 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -321,6 +321,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ImagesConvert\" />
+    <Folder Include="images\map_images\bo2\NewFolder1\" />
+    <Folder Include="images\map_images\bo2\NewFolder2\" />
     <Folder Include="ServerFileStorage\" />
   </ItemGroup>
   <ItemGroup>
@@ -338,10 +340,10 @@
     <Resource Include="images\logos\t4splogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\map_images\bo2\mp\processed\mp_cove.png">
+    <Resource Include="images\map_images\bo2\mp\processed\mp_castaway.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="images\map_images\bo2\mp\processed\mp_encore.png">
+    <Resource Include="images\map_images\bo2\mp\processed\mp_concert.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\map_images\bo2\mp\processed\mp_skate.png">
@@ -433,6 +435,26 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\map_images\bo2\zm\processed\zm_buried_mico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\map_images\bo2\zm\processed\map_backgrounds\zm_buried.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\zm\processed\map_backgrounds\zm_nuked.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\zm\processed\map_backgrounds\zm_prison.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\zm\processed\map_backgrounds\zm_prison1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\zm\processed\map_backgrounds\zm_tomb.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\map_images\bo2\zm\processed\map_backgrounds\zm_transit.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

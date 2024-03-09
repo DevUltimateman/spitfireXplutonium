@@ -100,6 +100,8 @@ namespace spitfire_solutions.Views
         List<string> slst_Ping = new List<string>();
         List<string> slst_Userslug = new List<string>();
 
+        //to keep count of all of the available servers
+        public int pb_servers_online;
 
         public CultureInfo cult;
 
@@ -233,28 +235,39 @@ namespace spitfire_solutions.Views
                                 debugval = string.Empty;
                                 //check server "x" player count and get players names if there are any
                                 int s = deserial.servers[i].players.Count;
-                                if( s > 0 )
+                                if (s > 0)
                                 {
                                     for (int a = 0; a < s; a++)
                                     {
-                                        debugval += "\n" + deserial.servers[i].players[a].username;
+
+                                        debugval += deserial.servers[i].players[a].username + "    P: " + deserial.servers[i].players[a].ping.ToString() + "\n";
                                     }
                                 }
-                               
-                                
+
+
                                 CreateServerList(
                                                     deserial.servers[i].hostname,
                                                     deserial.servers[i].map,
                                                     deserial.servers[i].realClients,
                                                     deserial.servers[i].round,
                                                     deserial.servers[i].game,
-                                                    debugval
+                                                    debugval,
+                                                    deserial.servers[i].gametypeDisplay,
+                                                    deserial.servers[i].maxplayers.ToString(),
+                                                    "" //temp for player ping now,
+                                                    
+                                                    
+                                                    
+                                                    
                                                    );
                             }
                             for (int j = 0; j < slst_Hostname.Count; j++)
                             {
                                 lstViewServer.Items.Add(serverinfo[j]);
                             }
+
+
+                            pb_servers_online = deserial.countServers;
                             //auto click the first row to display some data on the right info box area
                             lstViewServer.SelectedIndex = 0;
                             //need this so that we can index the list with arrows without pressing on the list with mouse first
@@ -291,16 +304,42 @@ namespace spitfire_solutions.Views
         //FILLS THE PROPER INFO TO PROPER ELEMENTS FROM SERVER
         public void DisplayServerData(int? index_at)
         {
+            //servername
             string s_host = serverinfo[lstViewServer.SelectedIndex].Host;
+
+            //console mapname
             string s_mapname = serverinfo[lstViewServer.SelectedIndex].MapName;
+
+            //executable
             string s_game = serverinfo[lstViewServer.SelectedIndex].Game;
 
+            //current round i.e round 25 on zombies
             string s_round = serverinfo[lstViewServer.SelectedIndex].Round;
+
+            //current player size
             string s_rclients = serverinfo[lstViewServer.SelectedIndex].PlayersPlaying;
 
-            txtServerName.Text = "Server: " + s_host;
-            txtRound.Text = "Match round: " + s_round;
-            txtRealClients.Text = "Players: " + s_rclients;
+            //gametype readable
+            string s_gtypes = serverinfo[lstViewServer.SelectedIndex].GameType;
+
+            //empty return
+            string s_desc = serverinfo[lstViewServer.SelectedIndex].Description;
+
+            //max player size on lobby
+            string s_maxplayers = serverinfo[lstViewServer.SelectedIndex].MaxPlayers;
+
+            //all available servers in numbers
+            string s_server_online = pb_servers_online.ToString();
+            
+
+            txtServerName.Text = s_host;
+            txtRound.Text = s_round;
+            txtRealClients.Text =  s_rclients;
+
+            txtGametype.Text = s_gtypes;
+            txtLobbySize.Text = s_rclients + " / " + s_maxplayers;
+
+            txtServersOnline.Text = s_server_online;
 
             DisplayServerGameLogo(s_game);
 
@@ -310,14 +349,15 @@ namespace spitfire_solutions.Views
                 Console.WriteLine("WE SHOULD PARSE CONSOLE NAMES FOR " + s_game.ToString());
             }
             //SelectedGameToParseMapName invokes 2 methods and returns the converted name
-            txtMapName.Text = "Map: " + s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
+            txtMapName.Text = s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
 
             //player name list
 
             //serverinfo[lstViewServer.SelectedIndex].PlayerList != string.Empty )
             
             //for sSOME REASON MOST TEXT IS CUT OUT NOW. FIX LATERR!!
-                txtPlayerNames.Text = "Players playing: " + serverinfo[lstViewServer.SelectedIndex].PlayersPlaying  + serverinfo[lstViewServer.SelectedIndex].PlayerList.ToString();
+            
+                txtPlayerNames.Text = serverinfo[lstViewServer.SelectedIndex].PlayerList.ToString();
             
             MakeImage(s_mapname, s_game );
         }
@@ -401,18 +441,20 @@ namespace spitfire_solutions.Views
                 if (game_to_image.Contains(mp_starts))
                 {
                     imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/mp/processed/" + game_to_image + ".png"));
+                    stckImage.ImageSource = imgBack.Source;
                 }
                 //for zombies filtering ( temp )
-                else if (game_to_image.Contains(sp_starts) || game_to_image.Contains(zm_starts))
+                else if (game_to_image.Contains(zm_starts))
                 {
-                    imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/zm/processed/" + game_to_image + "_mico" + ".png"));
+                    imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/zm/processed/map_backgrounds/" + game_to_image + ".jpg"));
+                    stckImage.ImageSource = imgBack.Source;
                 }
             }
             //if we fail to get the image / the server plays custom map that we don't have the image for?...
             catch (Exception ex) 
             {
                 Console.WriteLine(ex.Message);
-                imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/mp_test.png"));
+                //imgBack.Source = new BitmapImage(new Uri(@"pack://application:,,,/images/map_images/bo2/mp_test.png"));
             }
         }
 
@@ -533,7 +575,7 @@ namespace spitfire_solutions.Views
         }
 
         //add a new entry / item and it's sub items to serverinfo() class to listitem
-        public void CreateServerList(string host, string mapname, int playersize, int round, string game, string player_names )
+        public void CreateServerList(string host, string mapname, int playersize, int round, string game, string player_names, string gametype, string maxplayers, string playerping )
         {
             serverinfo.Add(new ServerListInfo() { 
             Host = host,
@@ -541,7 +583,11 @@ namespace spitfire_solutions.Views
             Round = round.ToString(),
             PlayersPlaying = playersize.ToString(),
             Game = game,
-            PlayerList = player_names
+            PlayerList = player_names,
+            GameType = gametype,
+            MaxPlayers = maxplayers,
+            PlayerPing = playerping
+            //ServersOnline = servers_o
             
 
                 });;

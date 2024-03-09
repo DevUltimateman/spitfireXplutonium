@@ -153,9 +153,19 @@ namespace spitfire_solutions.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mp_cove {
+        internal static System.Drawing.Bitmap mp_castaway {
             get {
-                object obj = ResourceManager.GetObject("mp_cove", resourceCulture);
+                object obj = ResourceManager.GetObject("mp_castaway", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mp_concert {
+            get {
+                object obj = ResourceManager.GetObject("mp_concert", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,16 +186,6 @@ namespace spitfire_solutions.Properties {
         internal static System.Drawing.Bitmap mp_drone {
             get {
                 object obj = ResourceManager.GetObject("mp_drone", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap mp_encore {
-            get {
-                object obj = ResourceManager.GetObject("mp_encore", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,6 +466,66 @@ namespace spitfire_solutions.Properties {
         internal static System.Drawing.Bitmap t6zm_logotitle {
             get {
                 object obj = ResourceManager.GetObject("t6zm_logotitle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zm_buried {
+            get {
+                object obj = ResourceManager.GetObject("zm_buried", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zm_nuked {
+            get {
+                object obj = ResourceManager.GetObject("zm_nuked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zm_prison {
+            get {
+                object obj = ResourceManager.GetObject("zm_prison", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zm_prison1 {
+            get {
+                object obj = ResourceManager.GetObject("zm_prison1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zm_tomb {
+            get {
+                object obj = ResourceManager.GetObject("zm_tomb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zm_transit {
+            get {
+                object obj = ResourceManager.GetObject("zm_transit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

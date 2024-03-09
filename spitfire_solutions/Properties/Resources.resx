@@ -145,8 +145,8 @@
   <data name="mp_carrier" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\map_images\bo2\mp\processed\mp_carrier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mp_cove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\map_images\bo2\mp\processed\mp_cove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mp_castaway" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_castaway.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mp_dockside" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\map_images\bo2\mp\processed\mp_dockside.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +154,8 @@
   <data name="mp_drone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\map_images\bo2\mp\processed\mp_drone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mp_encore" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\map_images\bo2\mp\processed\mp_encore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mp_concert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\mp\processed\mp_concert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mp_express" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\map_images\bo2\mp\processed\mp_express.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,7 +181,6 @@
   <data name="mp_paintball" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\map_images\bo2\mp\processed\mp_paintball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  
   <data name="mp_raid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\map_images\bo2\mp\processed\mp_raid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -241,5 +240,23 @@
   </data>
   <data name="t6zm_logotitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\logo_titles\t6zm_logotitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zm_buried" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\zm\processed\map_backgrounds\zm_buried.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zm_nuked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\zm\processed\map_backgrounds\zm_nuked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zm_prison" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\zm\processed\map_backgrounds\zm_prison.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zm_prison1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\zm\processed\map_backgrounds\zm_prison1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zm_tomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\zm\processed\map_backgrounds\zm_tomb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zm_transit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\map_images\bo2\zm\processed\map_backgrounds\zm_transit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
