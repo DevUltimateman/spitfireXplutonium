@@ -33,6 +33,8 @@ using System.Drawing;
 using System.Net.NetworkInformation;
 using System.Globalization;
 using spitfire_solutions.ProcessHandlers;
+using System.Diagnostics;
+using System.Threading;
 /*
 
 R58KB0RVX3E
@@ -596,8 +598,23 @@ namespace spitfire_solutions.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Executer ex = new Executer();
-            ex.MakeShitHappen();
+            //Executer ex = new Executer();
+            //ex.MakeShitHappen();
+            ProcessChecker();
+        }
+
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        public void ProcessChecker( )
+        {
+            //DEFINES
+            string pr_name = "plutonium-bootstrapper-win32";
+            IntPtr hwnd = FindWindow(null, "Plutonium r3641");
+
+          
+
         }
     }
 }
