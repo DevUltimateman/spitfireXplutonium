@@ -353,7 +353,9 @@
 
 
                         <Button Style="{StaticResource iconBtn }"
-                                Tag="{StaticResource color1}">
+                                Tag="{StaticResource color1}"
+                               
+                                x:Name="btnTesters">
 
                             <fa:IconImage Icon="AngleDown"
                                           Style="{StaticResource iconBtnIcon}"/>

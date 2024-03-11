@@ -35,6 +35,7 @@ using System.Globalization;
 using spitfire_solutions.ProcessHandlers;
 using System.Diagnostics;
 using System.Threading;
+using System.Windows.Forms;
 /*
 
 R58KB0RVX3E
@@ -46,7 +47,7 @@ R58KB0RVX3E
 
 namespace spitfire_solutions.Views
 {
-    public partial class Servers2View : UserControl
+    public partial class Servers2View : System.Windows.Controls.UserControl
     {
         public Servers2View()
         {
@@ -600,21 +601,125 @@ namespace spitfire_solutions.Views
         {
             //Executer ex = new Executer();
             //ex.MakeShitHappen();
-            ProcessChecker();
+            //ProcessChecker();
+            TestPtr();
         }
 
 
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
+        public void TestProcessHandler()
+        {
+            string pr_name = "plutonium-bootstrapper-win32";
+            //Process p = new Process();
+            //Process pro = Process.GetProcessesByName(pr_name);
+            Process p = new Process();
+            // p.StartInfo.FileName = pr_name;
+            //p.StartInfo
+            
+            p.MainModule.FileName.FirstOrDefault();
+        }
         public void ProcessChecker( )
         {
             //DEFINES
-            string pr_name = "plutonium-bootstrapper-win32";
+           
             IntPtr hwnd = FindWindow(null, "Plutonium r3641");
 
           
 
         }
+
+
+
+
+
+        //NEXT PART TO FIND PROCESS AND WRITE TO IT
+        // Get a handle to an application window.
+        [DllImport("USER32.DLL", CharSet = CharSet.Unicode)]
+        public static extern IntPtr FindWindow(string lpClassName,
+            string lpWindowName);
+        
+        // Activate an application window.
+        [DllImport("USER32.DLL")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+        //private static extern IntPtr GetForegroundWindow();
+        //static extern uint GetWindowThreadProcessId(IntPtr hwnd, out uint lpdwProcessId);
+        
+        // Send a series of key presses to the Calculator application.
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Get a handle to the Calculator application. The window class
+            // and window name were obtained using the Spy++ tool.
+            IntPtr calculatorHandle = FindWindow("CalcFrame", "Calculator");
+
+            // Verify that Calculator is a running process.
+            if (calculatorHandle == IntPtr.Zero)
+            {
+                System.Windows.Forms.MessageBox.Show("Calculator is not running.");
+                return;
+            }
+
+            // Make Calculator the foreground application and send it
+            // a set of calculations.
+            SetForegroundWindow(calculatorHandle);
+            SendKeys.SendWait("111");
+            SendKeys.SendWait("*");
+            SendKeys.SendWait("11");
+            SendKeys.SendWait("=");
+        }
+
+
+
+        // public static extern bool ShowWindowASync(IntPtr hWnd, int nCmdShow);
+        //public const int SW_SHOWNORMAL = 1;
+        //public const int SW_SHOWMINIMIZED = 2;
+        //public const int SW_SHOWMAXIMIZED = 3;
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+
+
+
+
+        public void TestPtr()
+        {
+            btnTestBtn.IsEnabled = false;
+            uint processID = 0;
+            //IntPtr xhw = GetForegroundWindow();
+            //uint threadID = GetWindowThreadProcessId(xhw, out processID );
+            //Process fgProc = Process.GetProcessById(Convert.ToInt32(processID));
+
+            //console ingame
+            IntPtr hwnd = FindWindow(null, "Plutonium r3641");
+
+            //spitfire app
+            IntPtr hwnds = FindWindow(null, "Spitfire_");
+            string[] pro = { "E", "S", "I", "A", "DF", "I", "a", "i", "0", "2" };
+            Console.WriteLine(hwnd.ToString());
+            //imateman is gays gay
+
+            SetForegroundWindow(hwnd);
+            string sexy = "OLENHOMOHOMO";
+            for (int i = 0; i < pro.Length; i++)
+            {
+                SendKeys.SendWait(pro[i]);
+            }
+            SendKeys.SendWait("{ENTER}");
+           
+            //ShowWindowAsync(hwnd, 2);
+            
+            //VERY GHETTO, DOESNT WORK THAT WELL!!
+            //SendKeys.Flush();
+            SetForegroundWindow(hwnds);
+            Thread.Sleep(1000);
+            btnTestBtn.IsEnabled=true;
+            /*
+            ShowWindowASync(hwnd, SW_SHOWMINIMIZED);
+            
+            SetForegroundWindow(hwnds);
+            //SetForegroundWindow(xhw);
+            */
+        }
+
+
     }
 }
