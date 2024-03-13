@@ -601,30 +601,15 @@ namespace spitfire_solutions.Views
         {
             //Executer ex = new Executer();
             //ex.MakeShitHappen();
-            //ProcessChecker();
-            TestPtr();
+            //ProcessChecker();f
+            //TestPtr();
+            Test2();
         }
 
-
-        public void TestProcessHandler()
-        {
-            string pr_name = "plutonium-bootstrapper-win32";
-            //Process p = new Process();
-            //Process pro = Process.GetProcessesByName(pr_name);
-            Process p = new Process();
-            // p.StartInfo.FileName = pr_name;
-            //p.StartInfo
-            
-            p.MainModule.FileName.FirstOrDefault();
-        }
         public void ProcessChecker( )
         {
             //DEFINES
-           
             IntPtr hwnd = FindWindow(null, "Plutonium r3641");
-
-          
-
         }
 
 
@@ -636,34 +621,28 @@ namespace spitfire_solutions.Views
         [DllImport("USER32.DLL", CharSet = CharSet.Unicode)]
         public static extern IntPtr FindWindow(string lpClassName,
             string lpWindowName);
-        
+
+        [DllImport("User32.Dll", EntryPoint = "PostMessageA")]
+        private static extern bool PostMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
+
         // Activate an application window.
         [DllImport("USER32.DLL")]
         public static extern bool SetForegroundWindow(IntPtr hWnd);
         //private static extern IntPtr GetForegroundWindow();
         //static extern uint GetWindowThreadProcessId(IntPtr hwnd, out uint lpdwProcessId);
         
-        // Send a series of key presses to the Calculator application.
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            // Get a handle to the Calculator application. The window class
-            // and window name were obtained using the Spy++ tool.
-            IntPtr calculatorHandle = FindWindow("CalcFrame", "Calculator");
+            IntPtr handleR = FindWindow(null, "Calculator");
 
-            // Verify that Calculator is a running process.
-            if (calculatorHandle == IntPtr.Zero)
+            //is a running process.
+            if (handleR == IntPtr.Zero)
             {
                 System.Windows.Forms.MessageBox.Show("Calculator is not running.");
                 return;
             }
-
-            // Make Calculator the foreground application and send it
-            // a set of calculations.
-            SetForegroundWindow(calculatorHandle);
-            SendKeys.SendWait("111");
-            SendKeys.SendWait("*");
-            SendKeys.SendWait("11");
-            SendKeys.SendWait("=");
+            SetForegroundWindow(handleR);            
         }
 
 
@@ -673,8 +652,8 @@ namespace spitfire_solutions.Views
         //public const int SW_SHOWMINIMIZED = 2;
         //public const int SW_SHOWMAXIMIZED = 3;
 
-        [DllImport("user32.dll")]
-        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+        //[DllImport("user32.dll")]
+        //private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
 
 
 
@@ -682,44 +661,97 @@ namespace spitfire_solutions.Views
 
         public void TestPtr()
         {
-            btnTestBtn.IsEnabled = false;
+            //btnTestBtn.IsEnabled = false;
             uint processID = 0;
             //IntPtr xhw = GetForegroundWindow();
             //uint threadID = GetWindowThreadProcessId(xhw, out processID );
             //Process fgProc = Process.GetProcessById(Convert.ToInt32(processID));
 
-            //console ingame
+            //Plutonium
+            //so FindWindow( null, "Plutonium " + {revision} );
+            /*
             IntPtr hwnd = FindWindow(null, "Plutonium r3641");
+
+            //debug cmd.exe file
+            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe");
+            Process.Start(psi);
+
 
             //spitfire app
             IntPtr hwnds = FindWindow(null, "Spitfire_");
-            string[] pro = { "E", "S", "I", "A", "DF", "I", "a", "i", "0", "2" };
+
+            string[] testKeys =
+            {
+                "DemonSlayer",
+                "GamerBoy",
+                "Walkerman",
+                "Ultimateman",
+                "ThenWhen",
+                "DebugTester",
+                "Gullervo",
+                "Messageboy",
+                "Alternet",
+                "Plutonium",
+                "Black Ops Zombies",
+                "Gucciman",
+                "Test Complete! "
+            };
+            string[] pro = { "W", "S", "S", "A", "D", "U", "a", "i", "0", "2", "0", "0", "7" };
             Console.WriteLine(hwnd.ToString());
             //imateman is gays gay
 
             SetForegroundWindow(hwnd);
-            string sexy = "OLENHOMOHOMO";
-            for (int i = 0; i < pro.Length; i++)
+
+            //string sexy = "OLENHOMOHOMO";
+
+            DisableButtonTemporarily(4000); // in ms. / s
+
+            //testkeys to see if we can get all the "key pressess" on time...
+            foreach( string key in testKeys )
             {
-                SendKeys.SendWait(pro[i]);
+                SendKeys.SendWait(key + "\n");
+                SendKeys.SendWait("{ENTER}");
             }
-            SendKeys.SendWait("{ENTER}");
-           
-            //ShowWindowAsync(hwnd, 2);
-            
-            //VERY GHETTO, DOESNT WORK THAT WELL!!
-            //SendKeys.Flush();
-            SetForegroundWindow(hwnds);
-            Thread.Sleep(1000);
-            btnTestBtn.IsEnabled=true;
-            /*
-            ShowWindowASync(hwnd, SW_SHOWMINIMIZED);
-            
-            SetForegroundWindow(hwnds);
-            //SetForegroundWindow(xhw);
             */
+            //for (int i = 0; i < pro.Length; i++)
+            //{
+            //    SendKeys.SendWait(pro[i]);
+            //}
+            //SendKeys.SendWait("\n");
+            //SendKeys.SendWait("\n")
+            //ShowWindowAsync(hwnd, 2);
+        }
+
+        //so that we dont fuck up the console string due to spam
+        public async void DisableButtonTemporarily( int time )
+        {
+
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            t.Interval = 2000;
+
+            btnTestBtn.IsEnabled = false;
+            btnTestBtn.Visibility = Visibility.Hidden;
+            await Task.Delay( time );
+            
+            btnTestBtn.Visibility = Visibility.Visible;
+            btnTestBtn.IsEnabled = true;
         }
 
 
+        public void Test2()
+        {
+
+            Executer executer = new Executer();
+            DelayTimers wait = new DelayTimers();
+
+            btnTestBtn.IsEnabled = false;
+            btnTestBtn.Visibility = Visibility.Hidden;
+
+            executer.DemoConsole("cg_thirdpersonangle", 2.ToString());
+            wait.WaitFooSeconds(2);
+
+            btnTestBtn.IsEnabled = true;
+            btnTestBtn.Visibility = Visibility.Visible;
+        }
     }
 }
