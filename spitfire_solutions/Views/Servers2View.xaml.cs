@@ -54,7 +54,8 @@ namespace spitfire_solutions.Views
             InitializeComponent();
         }
 
-        
+        //public revision check for Executer.cs class
+        public string RevisionOneTimeCheck { get; set; }
         //HANDLE THE BITMAP IMAGE THAT WE SHOW IN THE INFO BOX
         BitmapImage BmInfoBox = new BitmapImage();
 
@@ -258,12 +259,23 @@ namespace spitfire_solutions.Views
                                                     debugval,
                                                     deserial.servers[i].gametypeDisplay,
                                                     deserial.servers[i].maxplayers.ToString(),
+
                                                     "" //temp for player ping now,
-                                                    
-                                                    
-                                                    
-                                                    
-                                                   );
+                                                    ,
+                                                    deserial.servers[i].ip.ToString(),
+                                                    deserial.servers[i].port.ToString(),
+                                                    deserial.servers[i].revision.ToString()
+
+
+
+
+                                                   ) ;
+                                //let's initialize RevisionOneTimeCheck string
+                                //so FindWindow knows where to aim
+                                if( i == 0 )
+                                {
+                                    RevisionOneTimeCheck = deserial.servers[i].revision.ToString();
+                                }
                             }
                             for (int j = 0; j < slst_Hostname.Count; j++)
                             {
@@ -334,7 +346,15 @@ namespace spitfire_solutions.Views
 
             //all available servers in numbers
             string s_server_online = pb_servers_online.ToString();
-            
+
+            //server's ip address
+            string s_ip = serverinfo[lstViewServer.SelectedIndex].ServerIp;
+
+            //server's port add this after ip
+            string s_port = serverinfo[lstViewServer.SelectedIndex].ServerPort;
+
+            //connect string
+            string s_connect = s_ip + ":" + s_port;
 
             txtServerName.Text = s_host;
             txtRound.Text = s_round;
@@ -344,6 +364,8 @@ namespace spitfire_solutions.Views
             txtLobbySize.Text = s_rclients + " / " + s_maxplayers;
 
             txtServersOnline.Text = s_server_online;
+            txtServerIp.Text = s_connect;
+            
 
             DisplayServerGameLogo(s_game);
 
@@ -355,13 +377,7 @@ namespace spitfire_solutions.Views
             //SelectedGameToParseMapName invokes 2 methods and returns the converted name
             txtMapName.Text = s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
 
-            //player name list
-
-            //serverinfo[lstViewServer.SelectedIndex].PlayerList != string.Empty )
-            
-            //for sSOME REASON MOST TEXT IS CUT OUT NOW. FIX LATERR!!
-            
-                txtPlayerNames.Text = serverinfo[lstViewServer.SelectedIndex].PlayerList.ToString();
+            txtPlayerNames.Text = serverinfo[lstViewServer.SelectedIndex].PlayerList.ToString();
             
             MakeImage(s_mapname, s_game );
         }
@@ -551,7 +567,6 @@ namespace spitfire_solutions.Views
         }
         private void txtSortList_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //SortList();
         }
 
         // THIS FETCHES THE URL AND DESERIALIZES IT
@@ -579,34 +594,34 @@ namespace spitfire_solutions.Views
         }
 
         //add a new entry / item and it's sub items to serverinfo() class to listitem
-        public void CreateServerList(string host, string mapname, int playersize, int round, string game, string player_names, string gametype, string maxplayers, string playerping )
+        public void CreateServerList(string host, string mapname, int playersize, int round, string game, string player_names, string gametype, string maxplayers, string playerping, string serverip, string serverport, string server_revision )
         {
-            serverinfo.Add(new ServerListInfo() { 
-            Host = host,
-            MapName = mapname,
-            Round = round.ToString(),
-            PlayersPlaying = playersize.ToString(),
-            Game = game,
-            PlayerList = player_names,
-            GameType = gametype,
-            MaxPlayers = maxplayers,
-            PlayerPing = playerping
-            //ServersOnline = servers_o
-            
-
+            serverinfo.Add(new ServerListInfo() 
+            { 
+                Host = host,
+                MapName = mapname,
+                Round = round.ToString(),
+                PlayersPlaying = playersize.ToString(),
+                Game = game,
+                PlayerList = player_names,
+                GameType = gametype,
+                MaxPlayers = maxplayers,
+                PlayerPing = playerping,
+                ServerIp = serverip,
+                ServerPort = serverport,
+                ReVision = server_revision
+                //ServersOnline = servers_o
                 });;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Executer ex = new Executer();
-            //ex.MakeShitHappen();
-            //ProcessChecker();f
-            //TestPtr();
-            Test2();
+            //Test2();
+            //ConnectTo();
+            InsertDvarTo( "cg_fov_default", "90");
         }
 
-        public void ProcessChecker( )
+        public void ProcessChecker()
         {
             //DEFINES
             IntPtr hwnd = FindWindow(null, "Plutonium r3641");
@@ -661,64 +676,7 @@ namespace spitfire_solutions.Views
 
         public void TestPtr()
         {
-            //btnTestBtn.IsEnabled = false;
-            uint processID = 0;
-            //IntPtr xhw = GetForegroundWindow();
-            //uint threadID = GetWindowThreadProcessId(xhw, out processID );
-            //Process fgProc = Process.GetProcessById(Convert.ToInt32(processID));
-
-            //Plutonium
-            //so FindWindow( null, "Plutonium " + {revision} );
-            /*
-            IntPtr hwnd = FindWindow(null, "Plutonium r3641");
-
-            //debug cmd.exe file
-            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe");
-            Process.Start(psi);
-
-
-            //spitfire app
-            IntPtr hwnds = FindWindow(null, "Spitfire_");
-
-            string[] testKeys =
-            {
-                "DemonSlayer",
-                "GamerBoy",
-                "Walkerman",
-                "Ultimateman",
-                "ThenWhen",
-                "DebugTester",
-                "Gullervo",
-                "Messageboy",
-                "Alternet",
-                "Plutonium",
-                "Black Ops Zombies",
-                "Gucciman",
-                "Test Complete! "
-            };
-            string[] pro = { "W", "S", "S", "A", "D", "U", "a", "i", "0", "2", "0", "0", "7" };
-            Console.WriteLine(hwnd.ToString());
-            //imateman is gays gay
-
-            SetForegroundWindow(hwnd);
-
-            //string sexy = "OLENHOMOHOMO";
-
-            DisableButtonTemporarily(4000); // in ms. / s
-
-            //testkeys to see if we can get all the "key pressess" on time...
-            foreach( string key in testKeys )
-            {
-                SendKeys.SendWait(key + "\n");
-                SendKeys.SendWait("{ENTER}");
-            }
-            */
-            //for (int i = 0; i < pro.Length; i++)
-            //{
-            //    SendKeys.SendWait(pro[i]);
-            //}
-            //SendKeys.SendWait("\n");
-            //SendKeys.SendWait("\n")
+            
             //ShowWindowAsync(hwnd, 2);
         }
 
@@ -747,11 +705,54 @@ namespace spitfire_solutions.Views
             btnTestBtn.IsEnabled = false;
             btnTestBtn.Visibility = Visibility.Hidden;
 
-            executer.DemoConsole("cg_thirdpersonangle", 2.ToString());
-            wait.WaitFooSeconds(2);
+            executer.HookToConsole( RevisionOneTimeCheck, "cg_fov", "85");
 
             btnTestBtn.IsEnabled = true;
             btnTestBtn.Visibility = Visibility.Visible;
+        }
+
+        public async void ConnectTo()
+        {
+            /*
+            string ip = serverinfo[lstViewServer.SelectedIndex].ServerIp.ToString();
+            string port = serverinfo[lstViewServer.SelectedIndex].ServerPort.ToString();
+            */
+            Executer ex = new Executer();
+            ex.InitializeWindows(RevisionOneTimeCheck);
+            
+            ex.ConsoleConnect(RevisionOneTimeCheck, txtServerIp.Text.ToString());
+        }
+
+        public async void InsertDvarTo(string dvar, string d_value )
+        {
+            Executer inserter = new Executer();
+
+            inserter.InitializeWindows(RevisionOneTimeCheck);
+            //inserter.ShowPlutonium();
+            //Temp wait
+            //await Task.Delay(700);
+            inserter.ConsoleExecuteDvars(dvar, d_value);
+            await Task.Delay(100);
+
+
+            //inserter.ShowSpitfire();
+            
+        }
+
+
+        public void safeWait(int milliseconds)
+        {
+            long tickStop = Environment.TickCount + milliseconds;
+            while (Environment.TickCount < tickStop)
+            {
+                //Application.DoEvents();
+            }
+        }
+
+        public void StartPlutoniumLauncher()
+        {
+            //plutonium-launcher-win32.exe
+            //Process.Start("plutonium-launcher-win32.exe");
         }
     }
 }

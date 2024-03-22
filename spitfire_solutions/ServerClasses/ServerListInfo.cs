@@ -32,5 +32,8 @@ namespace spitfire_solutions.ServerClasses
 
         public string GameTypeNormalText { get; set; }
         public int ServersOnline { get; set; }
+        public string ServerIp { get; set; }
+        public string ServerPort { get; set; }
+        public string ReVision { get; set; }
     }
 }
