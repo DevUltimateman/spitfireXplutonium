@@ -19,54 +19,122 @@
         </Border.Background>
 
         <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-            
-            <!--IMAGE FOR SPIT FIRE-->
-            <Image Source="/images/logos/fireLogo2k.png"
-                   Width="200"
-                   Height="200"
+                    HorizontalAlignment="Center" Height="450" Width="800">
+            <StackPanel Orientation="Horizontal" Width="400"
+                        Height="450"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <!--IMAGE FOR SPIT FIRE-->
+                <Image Source="/images/logos/fireLogo2k.png"
+                   Width="119"
+                   Height="119"
                    Opacity="0.95"/>
 
-            <Rectangle
-                    Width="20"
-                    Height="225"
-                    Fill="{StaticResource color3}">
+                <Rectangle
+                    Width="10"
+                    Height="112"
+                    Fill="{StaticResource color3}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
 
-            </Rectangle>
+                </Rectangle>
 
-            <StackPanel Orientation="Vertical"
+                <StackPanel Orientation="Vertical"
                         Margin="25,100,0,100"
                         VerticalAlignment="Center">
-                <TextBlock x:Name="txtSpitFireLogo"
-                       FontSize="100"
+
+                    <TextBlock x:Name="txtSpitFireLogo"
+                           VerticalAlignment="Center"
+                       FontSize="50"
                        FontWeight="Bold"
                        
                            FontFamily="Berlin Sans FB Demi"
                        Foreground="{StaticResource color10}"
                        HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Margin="0,0,0,0"
+                       Margin="0,0,0,0" Height="66" Width="206"
                        >
                 spitfire
-                </TextBlock>
-                <TextBlock
+                    </TextBlock>
+                    <TextBlock
                 Foreground="{StaticResource plainTextColor2}"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
-                FontSize="18"
+                FontSize="10"
                 Opacity="0.8" FontFamily="Cascadia Mono SemiBold"
                 >
                 Spitfire made for Plutonium community, <LineBreak/> Software by Ultimateman.
 
 
-                </TextBlock>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical"
+                        Width="400"
+                        >
+                <Label x:Name="lblQuickStart"
+                       FontSize="25"
+                       Margin="0,180,0,0"
+                       Foreground="AntiqueWhite"
+                       Content="Quick Start" FontFamily="Bahnschrift"
+                       Height="Auto"
+                       VerticalContentAlignment="Center"
+                       HorizontalContentAlignment="Center"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock x:Name="txtQuickStartInfo"
+                           Margin="0,0,0,10"
+                           Text="Launch Plutonium quickly by clicking the button below."
+                           Foreground="AntiqueWhite"
+                           FontFamily="Bahnschrift"
+                           TextWrapping="WrapWithOverflow"
+                           FontSize="8"
+                           FontWeight="light"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <Border Height="35"
+                        Width="150"
+                        BorderThickness="2.5"
+                        x:Name="bdQuickLaunch"
+                        >
+                    
+                    <Border.BorderBrush >
+                        
+                        <SolidColorBrush Color="MintCream">
+                            
+                        </SolidColorBrush>
+                    </Border.BorderBrush>
+
+                    <Label x:Name="lblQbtn"
+                           Content="Plutonium"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="15"
+                           Foreground="Orange" FontFamily="Sitka Subheading"
+                           MouseDown="lblQbtn_MouseDown" 
+                           HorizontalAlignment="Left"
+                           Width="146" 
+                           MouseEnter="lblQbtn_MouseEnter" 
+                           MouseLeave="lblQbtn_MouseLeave"/>
+                </Border>
+
+
             </StackPanel>
             
+
         </StackPanel>
 
-        
 
-        
+
+
 
     </Border>
 </UserControl>

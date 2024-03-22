@@ -91,7 +91,7 @@ namespace spitfire_solutions.ProcessHandlers
         }
 
         //Console connect to server
-        public async void ConsoleConnect( string rev, string ip )
+        public async void ConsoleConnect(  string ip )
         {
             if( Plutonium_app != null )
             {
@@ -100,7 +100,22 @@ namespace spitfire_solutions.ProcessHandlers
                 //paste ip and port into Plutonium console
                 ProcessConnect("connect " + ip);
             }
+            else { MessageBox.Show("FUCKED UP, RETRY!"); }
         }
+        //parse dvar and value to characters, then send characters to console and insert a new line
+        public async void ProcessConnect(string con_string)
+        {
+            if (Plutonium_app != null )
+            {
+                char[] chars = con_string.ToCharArray();
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    SendKeys.SendWait(chars[i].ToString());
+                }
+                SendKeys.SendWait("{ENTER}");
+            }
+        }
+
 
 
         // START OF PLUTO CONSOLE SECTION //
@@ -126,6 +141,10 @@ namespace spitfire_solutions.ProcessHandlers
             }
             SendKeys.SendWait("\n" + "{ENTER}");
         }
+
+
+
+
 
         public void ShowPlutonium()
         {
@@ -165,23 +184,12 @@ namespace spitfire_solutions.ProcessHandlers
         }
 
 
-        //parse dvar and value to characters, then send characters to console and insert a new line
-        public async void ProcessConnect( string con_string  )
-        {
-            char[] chars = con_string.ToCharArray();
-            for( int i = 0; i < chars.Length; i++ )
-            {
-                SendKeys.SendWait(chars[i].ToString());
-            }
-            SendKeys.SendWait("\n " + "{ ENTER} ");
-        }
-
         
-
         public void ShowSpitfire()
         {
             SetForegroundWindow(Spitfire_app);
         }
+
         public void MakeShitHappen()
         {
             IntPtr handle = FindWindow("ConsoleWindowClass", "plutonium-bootstrapper-win32");

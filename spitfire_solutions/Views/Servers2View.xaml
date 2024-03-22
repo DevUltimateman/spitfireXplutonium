@@ -494,7 +494,7 @@
 
                 <Button Content="Button2" 
                         x:Name="btnTestBtn2" HorizontalAlignment="Left" Margin="240,492,0,0"
-                        VerticalAlignment="Top" />
+                        VerticalAlignment="Top" Click="btnTestBtn2_Click" />
 
 
                 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using spitfire_solutions.Starters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,30 @@ namespace spitfire_solutions.Views
         public Home2View()
         {
             InitializeComponent();
+        }
+
+        //Mouse hits QuickLaunch Border Button, launch Plutonium Launcher
+        private void lblQbtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            StartLauncher sL = new StartLauncher();
+            sL.StartPlutoniumLauncher();
+        }
+        //Mouse enters QuickLaunch Border Button
+        private void lblQbtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            bdQuickLaunch.BorderBrush = Brushes.Aqua;
+            bdQuickLaunch.Background = Brushes.Transparent;
+        }
+        //Mouse leaves QuickLaunch Border Button
+        private void lblQbtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            bdQuickLaunch.Background = Brushes.Transparent;
+            bdQuickLaunch.BorderBrush = Brushes.MintCream;
+        }
+
+        private void bdQuickLaunch_DragEnter(object sender, DragEventArgs e)
+        {
+
         }
     }
 }

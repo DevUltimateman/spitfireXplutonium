@@ -614,12 +614,6 @@ namespace spitfire_solutions.Views
                 });;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //Test2();
-            //ConnectTo();
-            InsertDvarTo( "cg_fov_default", "90");
-        }
 
         public void ProcessChecker()
         {
@@ -711,6 +705,7 @@ namespace spitfire_solutions.Views
             btnTestBtn.Visibility = Visibility.Visible;
         }
 
+        //DOESNT CONNECT OR OPEN THE WINDOW ATM, CONSOLE DVARS WORK THO AND WINDOW OPENS
         public async void ConnectTo()
         {
             /*
@@ -719,23 +714,26 @@ namespace spitfire_solutions.Views
             */
             Executer ex = new Executer();
             ex.InitializeWindows(RevisionOneTimeCheck);
-            
-            ex.ConsoleConnect(RevisionOneTimeCheck, txtServerIp.Text.ToString());
+            await Task.Delay(100);
+            string ga = "r3963";
+            ex.ConsoleConnect( txtServerIp.Text);
+            await Task.Delay(200);
         }
 
-        public async void InsertDvarTo(string dvar, string d_value )
+        public async void DvarTo(string dvar, string d_value )
         {
             Executer inserter = new Executer();
 
-            inserter.InitializeWindows(RevisionOneTimeCheck);
+            inserter.InitializeWindows("r3963");
             //inserter.ShowPlutonium();
             //Temp wait
-            //await Task.Delay(700);
+            await Task.Delay(200);
             inserter.ConsoleExecuteDvars(dvar, d_value);
-            await Task.Delay(100);
+            await Task.Delay(200);
 
-
-            //inserter.ShowSpitfire();
+            //debug to see that we are receiving the correct version
+            //Console.WriteLine(serverinfo[lstViewServer.SelectedIndex].ReVision.ToString());
+            inserter.ShowSpitfire();
             
         }
 
@@ -749,10 +747,17 @@ namespace spitfire_solutions.Views
             }
         }
 
-        public void StartPlutoniumLauncher()
+
+        //Test applying dvars
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //plutonium-launcher-win32.exe
-            //Process.Start("plutonium-launcher-win32.exe");
+            DvarTo("cg_fov_default", "90");
+        }
+
+        //Test applying connect to
+        private void btnTestBtn2_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectTo();
         }
     }
 }
