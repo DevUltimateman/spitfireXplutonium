@@ -10,46 +10,61 @@
         CornerRadius="20"
         
         >
+
+
         <Border.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05  ">
                 <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
                 <GradientStop Color="{StaticResource primaryBackColor2}"  Offset="0.6"/>
             </LinearGradientBrush>
 
+
         </Border.Background>
 
         <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center" Height="450" Width="800">
-            <StackPanel Orientation="Horizontal" Width="400"
-                        Height="450"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                <!--IMAGE FOR SPIT FIRE-->
-                <Image Source="/images/logos/fireLogo2k.png"
-                   Width="119"
-                   Height="119"
-                   Opacity="0.95"/>
+                    HorizontalAlignment="Center" Height="450" Width="800"
+                    >
 
-                <Rectangle
+            <StackPanel Orientation="Vertical">
+
+
+
+
+                <StackPanel Orientation="Horizontal" Width="400"
+                            Margin="0,60,0,0"
+                        Height="180"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                            >
+                    <!--IMAGE FOR SPIT FIRE-->
+
+                    <!--IMAGE FOR SPIT FIRE-->
+                    <Image Source="/images/logos/fireLogo2k.png"
+                   Width="119"
+                   Height="118"
+                   Opacity="0.95" 
+                           Margin="15,0,0,0"/>
+
+                    <Rectangle
                     Width="10"
                     Height="112"
                     Fill="{StaticResource color3}" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
 
-                </Rectangle>
+                    </Rectangle>
 
-                <StackPanel Orientation="Vertical"
-                        Margin="25,100,0,100"
-                        VerticalAlignment="Center">
 
-                    <TextBlock x:Name="txtSpitFireLogo"
+                    <StackPanel Orientation="Vertical" Height="100"
+                                Margin="10,0,0,0">
+                    
+                        <TextBlock x:Name="txtSpitFireLogo"
                            VerticalAlignment="Center"
                        FontSize="50"
                        FontWeight="Bold"
@@ -58,63 +73,62 @@
                        Foreground="{StaticResource color10}"
                        HorizontalAlignment="Left"
                        Margin="0,0,0,0" Height="66" Width="206"
-                       >
-                spitfire
-                    </TextBlock>
-                    <TextBlock
+                       ><Run Text="spitfire"/></TextBlock>
+                        <TextBlock
                 Foreground="{StaticResource plainTextColor2}"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
                 FontSize="10"
                 Opacity="0.8" FontFamily="Cascadia Mono SemiBold"
-                >
-                Spitfire made for Plutonium community, <LineBreak/> Software by Ultimateman.
+                ><Run Text="Spitfire made for Plutonium community,"/><LineBreak/><Run Text="Software by Ultimateman."/></TextBlock>
+
+                    </StackPanel>
 
 
-                    </TextBlock>
+
+                    
                 </StackPanel>
-            </StackPanel>
 
-            <StackPanel Orientation="Vertical"
+                
+                
+
+                <StackPanel Orientation="Vertical"
                         Width="400"
                         >
-                <Label x:Name="lblQuickStart"
+                    <Label x:Name="lblQuickStart"
                        FontSize="25"
-                       Margin="0,180,0,0"
+                       Margin="0,10,0,0"
                        Foreground="AntiqueWhite"
                        Content="Quick Start" FontFamily="Bahnschrift"
                        Height="Auto"
                        VerticalContentAlignment="Center"
                        HorizontalContentAlignment="Center"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Left"/>
 
-                <TextBlock x:Name="txtQuickStartInfo"
-                           Margin="0,0,0,10"
+                    <TextBlock x:Name="txtQuickStartInfo"
+                           Margin="10,0,0,5"
                            Text="Launch Plutonium quickly by clicking the button below."
                            Foreground="AntiqueWhite"
                            FontFamily="Bahnschrift"
                            TextWrapping="WrapWithOverflow"
-                           FontSize="8"
+                           FontSize="12"
                            FontWeight="light"
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Center"/>
+                           HorizontalAlignment="Left"/>
 
-                <Border Height="35"
+                    <Border Height="35"
                         Width="150"
                         BorderThickness="2.5"
+                            HorizontalAlignment="Left"
+                            Margin="12,0,0,0"
                         x:Name="bdQuickLaunch"
+                        BorderBrush="MintCream"
                         >
-                    
-                    <Border.BorderBrush >
-                        
-                        <SolidColorBrush Color="MintCream">
-                            
-                        </SolidColorBrush>
-                    </Border.BorderBrush>
 
-                    <Label x:Name="lblQbtn"
+                        <Label x:Name="lblQbtn"
                            Content="Plutonium"
+                               
                            VerticalContentAlignment="Center"
                            HorizontalContentAlignment="Center"
                            FontSize="15"
@@ -123,8 +137,146 @@
                            HorizontalAlignment="Left"
                            Width="146" 
                            MouseEnter="lblQbtn_MouseEnter" 
-                           MouseLeave="lblQbtn_MouseLeave"/>
-                </Border>
+                           MouseLeave="lblQbtn_MouseLeave" IsMouseDirectlyOverChanged="lblQbtn_IsMouseDirectlyOverChanged"/>
+
+
+                    </Border>
+
+
+                </StackPanel>
+
+
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+
+            </StackPanel>
+            
+            
+            
+            <!--RIGHT SIDE STACK PANEL TOP TO BOTTOM AND EACH STAKC INSIDE IS FROM LEFT TO RIGHT ROW-->
+            <StackPanel Orientation="Vertical" Width="400">
+
+                <StackPanel Orientation="Horizontal" Width="400"
+                            Margin="5,100,0,0">
+
+                    <Border Width="100"
+                            x:Name="bdShrtMods"
+                            Height="100"
+                            Background="MintCream"
+                            BorderBrush="Orange"
+                            BorderThickness="5"
+                            CornerRadius="10"
+                            Margin="5,0,20,0" MouseEnter="bdShrtMods_MouseEnter"
+                            >
+
+                        <TextBlock x:Name="txtShrtMods"
+                                   Text="Mods"
+                                   FontSize="25"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                FontWeight="DemiBold"
+                                   FontFamily="Gill Sans Nova Cond"
+                                   Foreground="Black"/>
+
+                    </Border>
+                    <Border Width="100"
+                            Height="100"
+                            Background="MintCream"
+                            BorderBrush="Turquoise"
+                            BorderThickness="5"
+                            CornerRadius="10"
+                            Margin="5,0,20,0" MouseEnter="Border_MouseEnter"
+                            >
+                        <TextBlock x:Name="txtShrtServers"
+                                   Text="Servers"
+                                   FontSize="25"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="DemiBold"
+                                   FontFamily="Gill Sans Nova Cond"
+                                   Foreground="Black"/>
+                    </Border>
+                    <Border Width="100"
+                            Height="100"
+                            Background="MintCream"
+                            BorderBrush="Orange"
+                            BorderThickness="5"
+                            CornerRadius="10"
+                            Margin="5,0,0,0"
+                            >
+                        <TextBlock x:Name="txtShrtEditor"
+                                   Text="Editor"
+                                   FontSize="25"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="DemiBold"
+                                   FontFamily="Gill Sans Nova Cond"
+                                   Foreground="Black"/>
+                    </Border>
+                    
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Width="400"
+                            Margin="5,50,0,0">
+
+                    <Border Width="100"
+                            Height="100"
+                            Background="MintCream"
+                            BorderBrush="Turquoise"
+                            BorderThickness="5"
+                            CornerRadius="10"
+                            Margin="5,0,20,0"
+                            >
+
+                        <TextBlock x:Name="txtShrtDiscord"
+                                   Text="Discord"
+                                   FontSize="25"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="DemiBold"
+                                   FontFamily="Gill Sans Nova Cond"
+                                   Foreground="Black"/>
+
+                    </Border>
+                    <Border Width="100"
+                            Height="100"
+                            Background="MintCream"
+                            BorderBrush="Orange"
+                            BorderThickness="5"
+                            CornerRadius="10"
+                            Margin="5,0,20,0"
+                            >
+                        <TextBlock x:Name="txtShrtS"
+                                   Text="Github"
+                                   FontSize="25"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="DemiBold"
+                                   FontFamily="Gill Sans Nova Cond"
+                                   Foreground="Black"/>
+                    </Border>
+                    <Border Width="100"
+                            Height="100"
+                            Background="MintCream"
+                            BorderBrush="Turquoise"
+                            BorderThickness="5"
+                            CornerRadius="10"
+                            Margin="5,0,0,0"
+                            >
+                        <TextBlock x:Name="txtShrtPlutonium"
+                                   Text="Plutonium"
+                                   FontSize="25"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="DemiBold"
+                                   FontFamily="Gill Sans Nova Cond"
+                                   Foreground="Black"/>
+                    </Border>
+
+                </StackPanel>
 
 
             </StackPanel>
@@ -137,4 +289,40 @@
 
 
     </Border>
+    <UserControl.Resources>
+        <Style x:Key="stories" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="120" Height="120"></Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="120" Duration="0:0:0.4"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Height" To="120" Duration="0:0:0.4"/>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+
+
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="100" Duration="0:0:0.4"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Height" To="100" Duration="0:0:0.4"/>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
 </UserControl>

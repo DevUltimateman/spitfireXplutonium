@@ -37,6 +37,8 @@ namespace spitfire_solutions.Views
         {
             bdQuickLaunch.BorderBrush = Brushes.Aqua;
             bdQuickLaunch.Background = Brushes.Transparent;
+
+           
         }
         //Mouse leaves QuickLaunch Border Button
         private void lblQbtn_MouseLeave(object sender, MouseEventArgs e)
@@ -46,6 +48,16 @@ namespace spitfire_solutions.Views
         }
 
         private void bdQuickLaunch_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void lblQbtn_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            
+        }
+
+        private void bdShrtMods_MouseEnter(object sender, MouseEventArgs e)
         {
 
         }
