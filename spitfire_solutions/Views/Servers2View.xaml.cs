@@ -193,7 +193,7 @@ namespace spitfire_solutions.Views
                     slst_Players.Clear();
                     slst_Game.Clear();
                     serverinfo.Clear();
-
+                    
                     //if we have any objects in the list, remove them
                     for (int s = 0; s < lstViewServer.Items.Count; s++)
                     {

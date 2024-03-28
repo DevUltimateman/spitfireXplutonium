@@ -10,6 +10,7 @@ namespace spitfire_solutions.Starters
 {
     internal class StartLauncher
     {
+        //thid method handles booting the launcher from the spitfire app
         public void StartPlutoniumLauncher()
         {
             //plutonium-launcher-win32.exe
@@ -23,7 +24,7 @@ namespace spitfire_solutions.Starters
                 "Plutonium",
                 "bin"
             };
-            string folderPath = System.IO.Path.Combine(appData, System.IO.Path.Combine(subDirs));
+            string folderPath = Path.Combine(appData, Path.Combine(subDirs));
             string executableToStart;
             DirectoryInfo dir = new DirectoryInfo(folderPath);
             FileInfo[] files = dir.GetFiles();

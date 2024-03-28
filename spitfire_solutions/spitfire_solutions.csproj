@@ -115,6 +115,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters.cs" />
+    <Compile Include="Dvars\ClientGameDvars.cs" />
+    <Compile Include="Dvars\GameDvars.cs" />
+    <Compile Include="Dvars\RenderDvars.cs" />
+    <Compile Include="Dvars\ServerDvars.cs" />
     <Compile Include="GamesStruct.cs" />
     <Compile Include="JsonServers.cs" />
     <Compile Include="JsonTest.cs" />
