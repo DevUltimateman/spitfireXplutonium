@@ -1,4 +1,6 @@
-﻿using System;
+﻿using spitfire_solutions.Dvars;
+using spitfire_solutions.ServerClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,119 +22,45 @@ namespace spitfire_solutions.Views
     /// </summary>
     public partial class Mods2View : UserControl
     {
-        ListBox games = new ListBox();
-        GameFolderList GamesList = new GameFolderList();
-
-
-        //lets declare a list
-        //private List<PlutoGames> _plutogames = new List<PlutoGames>();
-
-
         public Mods2View()
         {
             InitializeComponent();
-            TestFillList();
-
-            //ListViewGameInfo();
-
-
-            DoSomething();
-
-
+            CreateDvarList();
         }
 
-        public void TestersLife()
+        //gets the real dvar list length
+        public int ReturnDvarSize()
         {
-
+            int divider = 2;
+            int DvarSize = new ClientGameDvars().cDvars.Length;
+            return DvarSize / divider;
         }
-        public void DoSomething()
-        {
-            //Games g_ames = new Games();
-            //lstBox1.Items.Add( new Games() { GameName = "BLACK", GameNameExe = "t5sssssss", GameNameIsZombies=true});
 
-            ListView Lister = new ListView();
-            Lister.HorizontalAlignment = HorizontalAlignment.Center;
-            Lister.VerticalAlignment = VerticalAlignment.Center;
-            //Lister.Items.Add("LOL", "LOLS", "LOLLIT");
-            //Lister.Items.Add("GUCCI MANE");
-            //
-            /*
-            for( int s = 0; s < Lister.Items.Count; s++ )
+
+        //to fill the visible dvar list with proper info
+        public void CreateDvarList()
+        {
+            ClientGameDvars cNew = new ClientGameDvars();
+            int MaxLoop = ReturnDvarSize() / 2;
+            for( int i = 0; i < MaxLoop; i++)
             {
-                Console.WriteLine(Lister.Items[ s ] );
+                lstViewSe.Items.Add(cNew.cDvars[i, 0]);
             }
-            */
-        }
-        public void ListViewGameInfo()
-        {
-
-            /*
-            //return Gamenames
-            string temps = GamesList.returnGames();
-            //return Executables
-            string exes = GamesList.returnGamesExe();
-            */
-
-
-
-
-        }
+            Console.WriteLine("DONE FILLING VISIBLE DVAR LIST");
+            
         
-        public void PopulateListView()
-        {
-            ListViewItem listItem = new ListViewItem();
-            
         }
 
-        //CREATE A DICTIONARY STYLE LISTING!!!
-        private readonly Dictionary<string, string> _dictionary = new Dictionary<string, string>();
-
-        public void PopulateDic()
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _dictionary.Add("TITLE", "EXECUTABLE");
-            
-
-            foreach( var item in _dictionary )
-            {
-                //listViewX.Items.Add( new ListViewItem(new[] { item.Key, item.Value })
-               // {
-               //     Tag = item.Key
-               // });
-            }
-        }
-        public void TestFillList()
-        {
-            //lstBox1.Items.Add(new Games() { GameName = "TESTGAME", GameNameExe = "TESTIX", GameNameIsZombies = false });
-            //lstBox1.Items.Add(new Games() { GameName = "TESTGAME2", GameNameExe = "TESTIX2", GameNameIsZombies = false });
-            BasicConstructor();
-
-
-        }
-
-        public void BasicConstructor()
-        {
-            // object temporary = new GamesStruct() { GameName = gamename, GameExecutable = gameexe };
-
-            MyListItems lists = new MyListItems( "Black Opsie", "GivenMy" );
-            
-            
-            
-
-        }
-
-
-    }
-
-
-    public class MyListItems
-    {
-        public string MyGameName { get; set; }
-        public string MyGameExecutable { get; set; }
-
-        public MyListItems( string nameGame, string executableName )
-        {
-            MyGameName = nameGame;
-            MyGameExecutable = executableName;
+            //last one -1
+            Console.WriteLine(new ClientGameDvars().cDvars[17, 1]);
+            Console.WriteLine(ReturnDvarSize());
+            CreateDvarList();
         }
     }
+
+
+
+    
 }

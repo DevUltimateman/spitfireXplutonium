@@ -61,5 +61,10 @@ namespace spitfire_solutions.Views
         {
 
         }
+
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

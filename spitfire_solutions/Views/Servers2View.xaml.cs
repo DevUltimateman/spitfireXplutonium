@@ -654,26 +654,6 @@ namespace spitfire_solutions.Views
             SetForegroundWindow(handleR);            
         }
 
-
-
-        // public static extern bool ShowWindowASync(IntPtr hWnd, int nCmdShow);
-        //public const int SW_SHOWNORMAL = 1;
-        //public const int SW_SHOWMINIMIZED = 2;
-        //public const int SW_SHOWMAXIMIZED = 3;
-
-        //[DllImport("user32.dll")]
-        //private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
-
-
-
-
-
-        public void TestPtr()
-        {
-            
-            //ShowWindowAsync(hwnd, 2);
-        }
-
         //so that we dont fuck up the console string due to spam
         public async void DisableButtonTemporarily( int time )
         {
@@ -708,10 +688,6 @@ namespace spitfire_solutions.Views
         //DOESNT CONNECT OR OPEN THE WINDOW ATM, CONSOLE DVARS WORK THO AND WINDOW OPENS
         public async void ConnectTo()
         {
-            /*
-            string ip = serverinfo[lstViewServer.SelectedIndex].ServerIp.ToString();
-            string port = serverinfo[lstViewServer.SelectedIndex].ServerPort.ToString();
-            */
             Executer ex = new Executer();
             ex.InitializeWindows(RevisionOneTimeCheck);
             await Task.Delay(100);
@@ -725,14 +701,9 @@ namespace spitfire_solutions.Views
             Executer inserter = new Executer();
 
             inserter.InitializeWindows("r3963");
-            //inserter.ShowPlutonium();
-            //Temp wait
             await Task.Delay(200);
             inserter.ConsoleExecuteDvars(dvar, d_value);
             await Task.Delay(200);
-
-            //debug to see that we are receiving the correct version
-            //Console.WriteLine(serverinfo[lstViewServer.SelectedIndex].ReVision.ToString());
             inserter.ShowSpitfire();
             
         }
@@ -741,10 +712,6 @@ namespace spitfire_solutions.Views
         public void safeWait(int milliseconds)
         {
             long tickStop = Environment.TickCount + milliseconds;
-            while (Environment.TickCount < tickStop)
-            {
-                //Application.DoEvents();
-            }
         }
 
 

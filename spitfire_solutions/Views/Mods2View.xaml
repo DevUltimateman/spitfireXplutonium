@@ -15,12 +15,16 @@
 
         <StackPanel Orientation="Horizontal">
 
-            <ListView Margin="10" Name="listViewX"></ListView>
+            <ListView x:Name="lstViewSe" Margin="10"
+                      Width="200"
+                      
+                      ></ListView>
             
              
             <TextBlock>
                 
             </TextBlock>
+            <Button Content="Button" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>
