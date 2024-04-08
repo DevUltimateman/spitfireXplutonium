@@ -52,7 +52,7 @@ namespace spitfire_solutions.Dvars
             //sunlight tweaks
             { "r_lighttweakSunLight", "Sunlight strenght. Value: 0 - 30." },
             { "r_lighttweakSunColor", "Sun color. Value: 0-1, 0-1, 0-1. Ex. 0.3 0.9 1" },
-            { "r_lighttweakSunDirection", "Sun direction in degrees. Value: -360 - 360, -360-360, 0. Ex. -90 120 0." }
+            { "r_lighttweakSunDirection", "Sun direction in degrees. Value: -360 - 360, -360-360, 0. Ex. -90 120 0." },
 
 
             //level of detail "LODS"

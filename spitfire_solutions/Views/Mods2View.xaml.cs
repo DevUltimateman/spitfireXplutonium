@@ -22,18 +22,38 @@ namespace spitfire_solutions.Views
     /// </summary>
     public partial class Mods2View : UserControl
     {
+        //we need this to divide the arrays that hold the dvars due to the arrays
+        //being two dimensional.
+        //must divide the total value by two.
+        public const int divider = 2;
+
         public Mods2View()
         {
             InitializeComponent();
+            //fill the temporary list view with dvars
             CreateDvarList();
         }
 
-        //gets the real dvar list length
-        public int ReturnDvarSize()
+        //gets the real ClientGameDvars.cs dvars size
+        public int ReturnClientDvarsSize()
         {
-            int divider = 2;
             int DvarSize = new ClientGameDvars().cDvars.Length;
             return DvarSize / divider;
+        }
+
+
+        //gets the real RenderDvars.cs dvars size
+        public int ReturnRenderDvarsSize()
+        {
+            int RenderSize = new RenderDvars().rVars.Length;
+            return RenderSize / divider;
+        }
+
+        //gets the real ServerDvars.cs dvars size
+        public int ReturnServerDvarsSize()
+        {
+            int ServerSize = new ServerDvars().sVars.Length;
+            return ServerSize / divider;
         }
 
 
@@ -41,7 +61,7 @@ namespace spitfire_solutions.Views
         public void CreateDvarList()
         {
             ClientGameDvars cNew = new ClientGameDvars();
-            int MaxLoop = ReturnDvarSize() / 2;
+            int MaxLoop = ReturnClientDvarsSize() / 2;
             for( int i = 0; i < MaxLoop; i++)
             {
                 lstViewSe.Items.Add(cNew.cDvars[i, 0]);
@@ -55,7 +75,7 @@ namespace spitfire_solutions.Views
         {
             //last one -1
             Console.WriteLine(new ClientGameDvars().cDvars[17, 1]);
-            Console.WriteLine(ReturnDvarSize());
+            Console.WriteLine(ReturnClientDvarsSize());
             CreateDvarList();
         }
     }

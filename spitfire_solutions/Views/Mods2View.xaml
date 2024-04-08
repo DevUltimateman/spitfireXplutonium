@@ -6,24 +6,125 @@
              xmlns:local="clr-namespace:spitfire_solutions.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="YOU THOUGHT YOU WAS A MOD"
-                   Foreground="WHITE"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="50"></Label>
+    <Grid Background="DarkBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="400"
+                ></ColumnDefinition>
 
-        <StackPanel Orientation="Horizontal">
+            <ColumnDefinition
+                ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="0"
+                    Width="400"
+                    Height="450">
+
+            <StackPanel Orientation="Vertical"
+                        Width="400">
+                
+                <!--TOP LEFT TO RIGHT-->
+                <StackPanel Orientation="Vertical"
+                            Margin="0,0,0,0"
+                            Height="450"
+                            Width="400"
+                            >
+
+                    
+                    <Border Background="DarkMagenta"
+                            CornerRadius="15"
+                            Width="280"
+                            Height="200"
+                            Margin="10,10,0,0"
+                            HorizontalAlignment="Left">
+
+                        <StackPanel Orientation="Vertical"
+                                Width="280"
+                                Height="380">
+                            <Label x:Name="lblExecutor"
+                               Margin="5,0,0,0"
+                               Content="About Executor"
+                               Foreground="AntiqueWhite"
+                               FontSize="25"
+                               FontWeight="DemiBold"
+                               FontStyle="Italic"
+                               />
+
+                            <TextBlock
+                                x:Name="txtAboutExecutor"
+                                Margin="10,5,0,0"
+                                FontSize="15"
+                                Foreground="AntiqueWhite"
+                                FontStyle="Italic"
+                                
+                                >You can use executor <LineBreak></LineBreak>
+                                to tweak game specific variables.<LineBreak></LineBreak>
+                                Executor allows you to alter<LineBreak/>
+                                the behavior of the game,<LineBreak/>
+                                by altering predefined variables<LineBreak/>
+                                to user's liking.
+
+                            </TextBlock>
+
+                            
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border Background="DarkSalmon"
+                            HorizontalAlignment="Left"
+                            
+                            Margin="10,8,0,0"
+                            CornerRadius="15"
+                            Width="280"
+                            Height="200">
+
+                        <StackPanel Orientation="Vertical"
+                                Width="280"
+                                Height="380">
+                           
+
+                            <TextBlock
+                                x:Name="txtAboutExecutor3"
+                                Margin="10,20,0,0"
+                                FontSize="14"
+                                Foreground="AntiqueWhite"
+                                FontStyle="Italic"
+                                
+                                >To get started...<LineBreak></LineBreak>
+                                Select game.<LineBreak></LineBreak>
+                                Choose which style of variables<LineBreak></LineBreak>
+                                you want to modify from<LineBreak></LineBreak>
+                                "Dvars Collection".<LineBreak></LineBreak>
+                                Select the variable that you want to modify<LineBreak/>
+                                from the list.<LineBreak></LineBreak>
+                                Type in the value from given range.<LineBreak></LineBreak>
+                                Hit "Spitfire Executor".<LineBreak></LineBreak>
+
+                            </TextBlock>
+                        </StackPanel>
+
+                    </Border>
+
+                </StackPanel>
+
+               
+            </StackPanel>
+
+           
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Width="400"
+                    Grid.Column="1">
             <ListView x:Name="lstViewSe" Margin="10"
                       Width="200"
                       
                       ></ListView>
-            
-             
-            <TextBlock>
-                
-            </TextBlock>
+
+
+
             <Button Content="Button" Click="Button_Click"/>
         </StackPanel>
     </Grid>
