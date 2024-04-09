@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:spitfire_solutions.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="DarkBlue">
+    <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition
                 Width="400"
@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal"
-                    Grid.Column="0"
+                    
                     Width="400"
                     Height="450">
 
@@ -26,86 +26,153 @@
                 
                 <!--TOP LEFT TO RIGHT-->
                 <StackPanel Orientation="Vertical"
-                            Margin="0,0,0,0"
+                            
                             Height="450"
                             Width="400"
                             >
 
+                    <TextBlock
+                        x:Name="txtWhichGame"
+                        Foreground="{StaticResource color10}"
+                        FontSize="15"
+                        Text="1. Which game do you want to modify?"/>
                     
-                    <Border Background="DarkMagenta"
+                    <Border Background="Transparent"
+                            Width="385"
+                            Height="68"
+                            HorizontalAlignment="Left"
+                            BorderBrush="AntiqueWhite"
                             CornerRadius="15"
-                            Width="280"
-                            Height="200"
-                            Margin="10,10,0,0"
-                            HorizontalAlignment="Left">
-
-                        <StackPanel Orientation="Vertical"
-                                Width="280"
-                                Height="380">
-                            <Label x:Name="lblExecutor"
-                               Margin="5,0,0,0"
-                               Content="About Executor"
-                               Foreground="AntiqueWhite"
-                               FontSize="25"
-                               FontWeight="DemiBold"
-                               FontStyle="Italic"
+                            BorderThickness="1">
+                        
+                        
+                        <StackPanel
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                
+                                <Image Source="/images/logos/t4mplogo.png"
+                               Height="40"
+                                       Margin="5"
+                               Width="40"
                                />
 
-                            <TextBlock
-                                x:Name="txtAboutExecutor"
-                                Margin="10,5,0,0"
-                                FontSize="15"
-                                Foreground="AntiqueWhite"
-                                FontStyle="Italic"
-                                
-                                >You can use executor <LineBreak></LineBreak>
-                                to tweak game specific variables.<LineBreak></LineBreak>
-                                Executor allows you to alter<LineBreak/>
-                                the behavior of the game,<LineBreak/>
-                                by altering predefined variables<LineBreak/>
-                                to user's liking.
+                                <Image Source="/images/logos/t4splogo.png"
+                               Height="40"
+                                       Margin="5"
+                               Width="40"
+                               />
 
-                            </TextBlock>
+                                <Image Source="/images/logos/bo1mplogo.png"
+                               Height="40"
+                                       Margin="5"
+                               Width="40"
+                               />
 
-                            
+                                <Image Source="/images/logos/bo1zmlogo.png"
+                               Height="40"
+                                       Margin="5"
+                               Width="40"
+                               />
+
+                                <Image Source="/images/logos/bo2mplogo.png"
+                               Height="40"
+                                       Margin="5"
+                               Width="40"
+                               />
+
+                                <Image Source="/images/logos/bo2zmlogo.png"
+                               Height="40"
+                                       Margin="5"
+                               Width="40"
+                               />
+
+                                <Image Source="/images/logos/iw5mplogo.png"
+                               Height="40"
+                                       Margin="5"
+                               Width="40"
+                               />
+
+                            </StackPanel>
                         </StackPanel>
+                        
 
                     </Border>
 
-                    <Border Background="DarkSalmon"
+
+                    <TextBlock
+                        x:Name="txtWhichVariables"
+                        Foreground="{StaticResource color10}"
+                        FontSize="15"
+                        Margin="0,8,0,0"
+                        Text="2. Select variable category"/>
+
+                    <Border Background="Transparent"
+                            Width="385"
+                            Height="68"
                             HorizontalAlignment="Left"
-                            
-                            Margin="10,8,0,0"
+                            BorderBrush="AntiqueWhite"
                             CornerRadius="15"
-                            Width="280"
-                            Height="200">
+                            BorderThickness="1">
 
-                        <StackPanel Orientation="Vertical"
-                                Width="280"
-                                Height="380">
-                           
 
-                            <TextBlock
-                                x:Name="txtAboutExecutor3"
-                                Margin="10,20,0,0"
-                                FontSize="14"
-                                Foreground="AntiqueWhite"
-                                FontStyle="Italic"
-                                
-                                >To get started...<LineBreak></LineBreak>
-                                Select game.<LineBreak></LineBreak>
-                                Choose which style of variables<LineBreak></LineBreak>
-                                you want to modify from<LineBreak></LineBreak>
-                                "Dvars Collection".<LineBreak></LineBreak>
-                                Select the variable that you want to modify<LineBreak/>
-                                from the list.<LineBreak></LineBreak>
-                                Type in the value from given range.<LineBreak></LineBreak>
-                                Hit "Spitfire Executor".<LineBreak></LineBreak>
+                        <StackPanel
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
 
-                            </TextBlock>
+                                <Border x:Name="btnClientside" Width="100"
+                                       Height="40"
+                                        Margin="5"
+                                       Background="Black"
+                                       CornerRadius="5" MouseDown="btnClientside_MouseDown" MouseEnter="btnClientside_MouseEnter" MouseLeave="btnClientside_MouseLeave"
+                                       >
+                                    <TextBlock
+                                        Text="Clientside"
+                                        Foreground="AntiqueWhite"
+                                        FontSize="12"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                                </Border>
+
+                                <Border x:Name="btnServerside" Width="100"
+                                       Height="40"
+                                        Margin="5"
+                                       Background="Black"
+                                       CornerRadius="5" MouseDown="btnServerside_MouseDown" MouseEnter="btnServerside_MouseEnter" MouseLeave="btnServerside_MouseLeave"
+                                       >
+                                    <TextBlock
+                                        Text="Serverside"
+                                        Foreground="AntiqueWhite"
+                                        FontSize="12"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                                </Border>
+
+                                <Border x:Name="btnRenderside" Width="100"
+                                       Height="40"
+                                        Margin="5"
+                                       Background="Black"
+                                       CornerRadius="5" MouseDown="btnRenderside_MouseDown" MouseEnter="btnRenderside_MouseEnter" MouseLeave="btnRenderside_MouseLeave"
+                                       >
+
+                                    <TextBlock
+                                        Text="Renderside"
+                                        Foreground="AntiqueWhite"
+                                        FontSize="12"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                                </Border>
+
+                            </StackPanel>
                         </StackPanel>
 
+
                     </Border>
+
+                   
 
                 </StackPanel>
 
@@ -118,14 +185,48 @@
         <StackPanel Orientation="Vertical"
                     Width="400"
                     Grid.Column="1">
+
+            <Border Background="{StaticResource panelOverColor}"
+                            CornerRadius="15"
+                            Width="249"
+                            Height="180"
+                            Margin="10,5,0,0"
+                            HorizontalAlignment="Left">
+
+                <StackPanel Orientation="Vertical"
+                                Width="280"
+                                >
+
+                    <TextBlock
+                                x:Name="txtAboutExecutor"
+                                Margin="10,5,0,0"
+                                FontSize="15"
+                                HorizontalAlignment="Left"
+                                Foreground="{StaticResource color10}"
+                                FontStyle="Italic" Width="221"
+                                
+                                >You can use executor <LineBreak></LineBreak>
+                                to tweak game specific variables.<LineBreak></LineBreak>
+                                <LineBreak/>
+                                Executor allows you to alter<LineBreak/>
+                                the behavior of the game,<LineBreak/>
+                                by altering predefined variables<LineBreak/>
+                                to user's liking.<LineBreak/>
+
+                    </TextBlock>
+
+
+                </StackPanel>
+
+            </Border>
+            
+            
+            <Button Content="Clear lists" Click="Button_Click"
+                    Margin="0,10,0,0"/>
             <ListView x:Name="lstViewSe" Margin="10"
-                      Width="200"
+                      Width="200" Height="255"
                       
-                      ></ListView>
-
-
-
-            <Button Content="Button" Click="Button_Click"/>
+                      />
         </StackPanel>
     </Grid>
 </UserControl>

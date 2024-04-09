@@ -54,7 +54,7 @@ namespace spitfire_solutions.Dvars
         {
             int passby = 0;
             
-            while( passby < cDvars.Length  )
+            while( passby < cDvars.Length / 2  )
             {
                 list.Add(cDvars[passby, 0]);
                 list.Add(cDvars[passby, 1]);
