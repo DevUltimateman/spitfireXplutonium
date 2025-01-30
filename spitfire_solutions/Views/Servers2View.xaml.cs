@@ -128,15 +128,17 @@ namespace spitfire_solutions.Views
         //game thats chosen from list
         public string ChosenGame;
 
-        public string zombie_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5sp";
-        public string zombie_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6zm";
-        public string zombie_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/t4sp";
 
-        
-        public string multi_bo1_servers = "https://api.plutools.pw/v1/servers/plutonium/t5mp";
-        public string multi_bo2_servers = "https://api.plutools.pw/v1/servers/plutonium/t6mp";
-        public string multi_waw_servers = "https://api.plutools.pw/v1/servers/plutonium/t4mp";
-        public string multi_mw3_servers = "https://api.plutools.pw/v1/servers/plutonium/iw5mp";
+
+
+        //PLUTONIUM COD GAMES & THEIR SERVER APIS
+        public string zombie_bo1_servers = "https://api.getserve.rs/v1/servers/plutonium/t5sp";
+        public string zombie_bo2_servers = "https://api.getserve.rs/v1/servers/plutonium/t6zm";
+        public string zombie_waw_servers = "https://api.getserve.rs/v1/servers/plutonium/t4sp";
+        public string multi_bo1_servers = "https://api.getserve.rs/v1/servers/plutonium/t5mp";
+        public string multi_bo2_servers = "https://api.getserve.rs/v1/servers/plutonium/t6mp";
+        public string multi_waw_servers = "https://api.getserve.rs/v1/servers/plutonium/t4mp";
+        public string multi_mw3_servers = "https://api.getserve.rs/v1/servers/plutonium/iw5mp";
 
 
         //Creates server list file
@@ -310,7 +312,7 @@ namespace spitfire_solutions.Views
                     KeepTrack++;
                     
                     Console.
-                        WriteLine("Progma has tried " + KeepTrack.ToString() + " to process the ´try loop() ");
+                        WriteLine("Progma has tried " + KeepTrack.ToString() + " to process the ´try loop() " + e.ToString() );
                     //System.Windows.Forms.MessageBox.Show("Couldn't retrieve server data, please try again later. \n\nPlease check your connection to ensure that you're connected online.\n\n" + e.Message);
 
                 }
@@ -375,7 +377,7 @@ namespace spitfire_solutions.Views
                 Console.WriteLine("WE SHOULD PARSE CONSOLE NAMES FOR " + s_game.ToString());
             }
             //SelectedGameToParseMapName invokes 2 methods and returns the converted name
-            txtMapName.Text = s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
+            txtMapName.Text = SelectGameToParseMapName(s_game, s_mapname);// s_mapname;//SelectGameToParseMapName(s_game, s_mapname);
 
             txtPlayerNames.Text = serverinfo[lstViewServer.SelectedIndex].PlayerList.ToString();
             

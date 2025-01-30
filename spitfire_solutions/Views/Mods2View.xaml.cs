@@ -33,7 +33,7 @@ namespace spitfire_solutions.Views
             InitializeComponent();
             //fill the temporary list view with dvars
             //CreateClientGameDvarList();
-        }
+        } 
 
         //gets the real ClientGameDvars.cs dvars size
         public int ReturnClientDvarsSize()
