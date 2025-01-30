@@ -692,8 +692,8 @@ namespace spitfire_solutions.Views
         {
             Executer ex = new Executer();
             ex.InitializeWindows(RevisionOneTimeCheck);
-            await Task.Delay(100);
-            string ga = "r3963";
+            ex.ShowPlutonium();
+            //await Task.Delay(500);
             ex.ConsoleConnect( txtServerIp.Text);
             await Task.Delay(200);
         }

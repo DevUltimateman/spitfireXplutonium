@@ -100,7 +100,7 @@ namespace spitfire_solutions.ProcessHandlers
                 //paste ip and port into Plutonium console
                 ProcessConnect("connect " + ip);
             }
-            else { MessageBox.Show("FUCKED UP, RETRY!"); }
+            else { MessageBox.Show("SPITFIRE FUCKED UP, RETRY!"); }
         }
         //parse dvar and value to characters, then send characters to console and insert a new line
         public async void ProcessConnect(string con_string)
@@ -165,7 +165,7 @@ namespace spitfire_solutions.ProcessHandlers
         }
         
         //set all window variables
-        public void InitializeWindows( string revision = "r3963" )
+        public void InitializeWindows( string revision = "r4542" )
         {
             try
             {

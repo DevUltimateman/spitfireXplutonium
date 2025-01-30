@@ -107,6 +107,7 @@
                 Width="375"
                       Background="Transparent"
                       Opacity="0.85"
+                      
                       FontWeight="DemiBold"
                       Foreground="White"
                 Height="540" SelectionChanged="lstViewServer_SelectionChanged_1"
@@ -308,7 +309,7 @@
                             Width="Auto"
                                 VerticalContentAlignment="Center"
                                 HorizontalContentAlignment="Left"
-                            Margin="0,53,10,-33"
+                            Margin="0,113,119,18"
                                 
                             Content="Round"
                             Foreground="{StaticResource titleColor3}"
@@ -490,14 +491,14 @@
 
 
                 </Border>
-                <Button Content="Button1" x:Name="btnTestBtn" HorizontalAlignment="Left" Margin="179,492,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+                <Button Content="send dvartest" x:Name="btnTestBtn" HorizontalAlignment="Left" Margin="179,492,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
-                <Button Content="Button2" 
-                        x:Name="btnTestBtn2" HorizontalAlignment="Left" Margin="240,492,0,0"
+                <Button Content="send connect test" 
+                        x:Name="btnTestBtn2" HorizontalAlignment="Left" Margin="275,492,0,0"
                         VerticalAlignment="Top" Click="btnTestBtn2_Click" />
 
 
-                
+
             </Grid>
 
         </StackPanel>
