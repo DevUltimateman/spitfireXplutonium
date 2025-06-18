@@ -27,6 +27,9 @@ namespace spitfire_solutions
         //zombie scripts folder
         private string scriptsFolderPath_zombie = "\\scripts\\zm";
 
+        //mods
+        private string modsFolderPath = "\\mods";
+
         //textures folder
         private string textureFolderPath = "\\images";
 

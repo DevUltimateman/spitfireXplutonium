@@ -27,7 +27,9 @@ namespace spitfire_solutions.Views
         //being two dimensional.
         //must divide the total value by two.
         public const int divider = 2;
-
+        private bool RenderActive = false;
+        private bool ClientActive = false;
+        private bool ServerActive = false;
         public Mods2View()
         {
             InitializeComponent();
@@ -62,6 +64,9 @@ namespace spitfire_solutions.Views
         public void CreateClientGameDvarList()
         {
             ClearDvarList();
+            RenderActive = false;
+            ClientActive = true;
+            ServerActive = false;
             ClientGameDvars cNew = new ClientGameDvars();
             int MaxLoop = ReturnClientDvarsSize() / 2;
             for( int i = 0; i < MaxLoop; i++)
@@ -75,6 +80,9 @@ namespace spitfire_solutions.Views
         public void CreateServerSideDvarList()
         { 
             ClearDvarList();
+            RenderActive = false;
+            ClientActive = false;
+            ServerActive = true;
             ServerDvars sNew = new ServerDvars();
             int MaxLoop = ReturnServerDvarsSize() / 2;
             for (int i = 0; i < MaxLoop; i++)
@@ -89,6 +97,9 @@ namespace spitfire_solutions.Views
         public void CreateRenderSideDvarList()
         {
             ClearDvarList();
+            RenderActive = true;
+            ClientActive = false;
+            ServerActive = false;
             RenderDvars rNew = new RenderDvars();
             int MaxLoop = ReturnRenderDvarsSize() / 2;
             for (int i = 0; i < MaxLoop; i++)
@@ -131,6 +142,7 @@ namespace spitfire_solutions.Views
         private void btnRenderside_MouseDown(object sender, MouseButtonEventArgs e)
         {
             CreateRenderSideDvarList();
+
         }
 
         private void btnClientside_MouseEnter(object sender, MouseEventArgs e)
@@ -163,7 +175,71 @@ namespace spitfire_solutions.Views
             btnRenderside.Width = 100;
         }
 
-        
+        private void lstViewSe_Selected(object sender, RoutedEventArgs e)
+        {
+            txtDvarInfo.Text = lstViewSe.SelectedItem.ToString();
+        }
+
+        private void lstViewSe_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //fail safe to check if the list is null / empty
+            if( lstViewSe.SelectedIndex < 0 )
+            {
+                txtDvarInfo.Text = null;
+                txtDvarInfoSize.Text = null;
+            }
+            else if ( lstViewSe.SelectedIndex >= 0 )
+            {
+                txtDvarInfo.Text = lstViewSe.SelectedItem.ToString();
+                txtDvarInfo.Text = lstViewSe.SelectedIndex.ToString();
+                txtDvarInfoSize.Text = lstViewSe.Items.Count.ToString();
+            }
+
+
+            RenderDvars renderer = new RenderDvars();
+            ClientGameDvars cenderer = new ClientGameDvars();
+            ServerDvars serverer = new ServerDvars();
+            switch ( RenderActive )
+            {
+
+                case true:
+                    if (lstViewSe.SelectedIndex >= 0)
+                        txtDvarInfo.Text = renderer.rVars[lstViewSe.SelectedIndex, 1];
+                    return;
+            }
+
+            switch (ServerActive)
+            {
+
+                case true:
+                    if (lstViewSe.SelectedIndex >= 0)
+                        txtDvarInfo.Text = serverer.sVars[lstViewSe.SelectedIndex, 1];
+                    return;
+            }
+
+            switch (ClientActive)
+            {
+
+                case true:
+                    if( lstViewSe.SelectedIndex >= 0 )
+                    {
+                        txtDvarInfo.Text = cenderer.cDvars[lstViewSe.SelectedIndex, 1];
+                    }
+                    
+                    return;
+            }
+
+
+            //ClientGameDvars;
+            //ServerDvars;
+
+
+
+            //&& renderer is two dimensional array.
+            //renderer.rVars[ xxxx, 1 = max ]
+            //txtDvarInfo.Text = renderer.rVars[ lstViewSe.SelectedIndex, 1];
+
+        }
     }
 
 
